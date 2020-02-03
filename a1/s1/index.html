@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Program Author:  
+        Course:  CS 351
+	 Professor:  Cary Jardin
+        		
+Note: this is my first time programming using javascript and html!!
+
+Program Description: 
+Upon loading, the program displays a title, instructions, a text box with a notes in the text box, 
+sends sounds associated with the notes inside the text box to the user audio, and a text box containing html code that
+can be copied and pasted to a separate html file in the same folder and play whatever sounds that were requested in the 
+text box with the notes.  The user has the ability to change and play different notes to suit their desired ordering of 
+the notes.  The user can include a digit 0-9 in front of each note to increase the number of times the particular note 
+plays.  The user can also include multiple notes on  the same line. Additionally, some aesthetic elements were added to 
+increase the visual appeal of the program.
+
+Program limitations:  
+The input in the text box containing the notes must either be a space or be within the range of the digits 0-9 or the 
+letters A-D or a-d.  Two additional limitations are that each letter can only have one digit in front of the letter 
+and that the letters or digit and letter must be inside the text box in descending order in order to be played-this 
+"descending order limitation" is part of the professor's introduction for this assignment and is also consistent with 
+how music is displayed on a page of musical notes.  Unlike a musical note page, however, the input inside the text box 
+is not designed to see different notes going from left to right on the same level as occuring after notes below that 
+level, rather the next note is read on each level from left to right and then read on the next level left to right, 
+continuing on until the bottom of the text box is reached.  If input inside the note text box is out of range of these 
+restrictions, the user will receive an OutOfRange error letting the user know that they have incorrect input in the text 
+box.  Also, the user must wait until the notes on the screen have played completely through before pressing the play button
+or they will hear notes being played at the same time.
+-->
+
+<title>CS 351 Project: Player Piano</title>
+<head>	
+</head>
+
+<!-- sets background color to light blue"-->
+<body bgcolor="lightblue"> 
+
+<!-- sets title and title color to dark blue in italics -->
+<center><h1><font size="+8" color="darkblue"><em>Player Piano</em></font></h1>
+<!-- sets an image of a keyboard on the page -->
+<p1><img src="keyboard.jpg" height="129" width="700"></p1> <br>
+<!-- places the text box with musical notes on the page and sets the color of the text box as beige, sets the
+     first musical notes as A, B, C, D in descending order                                                    -->
+<textarea id="textBox" rows="4" cols="10" style="background-color:beige">
+A
+ B
+  C
+   D
+</textarea>
+
+<br>
+<!-- sets an input/play button on the page, the button has a silver color with text color of navy-->
+<button onclick="playPianoPlayer()" style="background-color:silver; color:navy; height:50px; width:100px;">Press to play sounds</button>
+<br>
+<!-- This is a note to the user giving the user instructions; the div portion allows the text to be displayed in the center
+     and left justified                                                                                              -->
+<div style="text-aligh: center;">
+	<div style="display:  inline-block; text-align: left;">
+		<p2>Instructions: You can change the text in the input box above--as long as the text is in descending order as<br> 
+		    originally presented. You can include a digit (0-9) in front of the note you wish to play to play the note<br>
+			a specified number of times. You can also include multiple notes on the same line back to back. Press the<br>
+			play button above to play your choice of sounds A-D.<br><br>
+			The html code in the text box below can be copied and pasted into an empty html document within the same<br>
+            folder and run to play the same notes that the user requested on this page.	</p1>		
+	</div>
+</div>
+<!-- places a text area on the web page which will contain, after the javascript code below runs, the html code
+     that can be copied and placed inside a blank html file and ran to play whatever notes were last ran inside
+     the note text box	                                                                                       -->
+<textarea id="compiled_code" name="cc" rows="10" cols="85"></textarea>
+
+<!-- javascript code -->
+<script type="text/javascript">
+    // the main function that plays the notes last submited inside the note text box
+	function playPianoPlayer(){
+		// retrieves and tokenizes user input according to each line in the string
+		function getUserInput(){
+			lines = document.getElementById("textBox").value.split(/\r?\n/);
+			//lines array now contains the raw notes
+		}
+		getUserInput();	  // need to call each function after the function definition
+		
+		var notes = [];                    // will contain the parsed notes
+		var numTimes = 1;                  // number of times the user is requesting to play a note, set to 1 initially
+
+		// parsing the string from the text box into lines of text this code will read more than one note(letter) 
+		// per line instead could have collapsed the note text box string by using 
+		// lines = document.getElementById("textBox").value.replace(/[^a-dA-D0-9]/g,'').toUpper();
+		// for the getUserInput() function above and then iterate through each character.
+		function parseUserInput() {
+			try { 
+			    // sets out of range error message
+				var errMsg = "OutOfRange error:  Please enter into the textbox either a letter between A-D or a number between 0-9 and then a letter.";
+				for (row = 0; row < lines.length; row++) {
+					var ch = '';
+					// loop through each character on the specified line (by row), but begins in descending order (space over)
+                    // on subsequent lines 					
+					for (col = 0; col < lines[row].length; col++) {
+						ch = lines[row][col];                // set ch to the character in the current string row
+						if (ch.charCodeAt() == 32) {continue;}  // if ch is a space, skip to next char
+						
+						// if ch is lowercase a-z, then make it uppercase
+						if (ch >= 'a' && ch <= 'z'){ ch = ch.toUpperCase(); }
+						
+					    // use this to debug: document.write(lines[row][col].charCodeAt() + " ")
+						// if the char is not between A-D or 0-9, then throw error 
+						if (!((ch >= 'A' && ch <= 'D') || (ch >= '0' && ch <= '9'))) {
+							throw errMsg;
+						}
+                        
+						// if ch is a number between 0 and 9, set variable numTimes to the integer equivalent
+						// update ch to next char in string row.  if ch is a number and the next letter is lowercase, uppercase ch
+						if (ch > '0' && ch < '9') {
+							numTimes = parseInt(ch, 10);  // store the number into numTimes array, increase to next position.
+							ch = lines[row][++col];
+							// if next char is a character between a-z, make it uppercase
+							if (lines[row][col] >= 'a' && lines[row][col] <= 'd') {
+								ch = ch.toUpperCase();
+							} // else if next char is another number or a space char, throw out of range error 
+							else if (!isNaN(parseInt(lines[row][col]), 10) || ch.charCodeAt() == 32) {  // checks to see if the next digit is a number
+								throw errMsg;
+							}
+						// else if ch is not a number, then set numTimes to 1
+						}else { numTimes = 1; }		// sets the number of times to play the note to once
+						
+						// add parsed notes to notes array according to the number of times found in the text box
+						for (a = 1; a <= numTimes; ++a) {
+							switch(ch) {
+								case 'A': notes.push('A'); break;
+								case 'B': notes.push('B'); break;
+								case 'C': notes.push('C'); break;
+								case 'D': notes.push('D'); break;
+							}
+						}
+				    }
+				}
+			}   // catch error and alert user
+				catch(err) { alert(err); }
+				// notes array now contains the parsed notes
+		}
+		parseUserInput();  // parse the notes
+
+		var sounds = new Array()  // array that will contain the actual .mp3 files of the notes
+		
+		// loads the music into sequential order as the user is requesting
+		function loadMusic(){	
+			index = 0;
+			// this loop places the audio files in the proper order 
+			// into the sounds array according to the original raw notes order
+			while (index < notes.length){
+				switch(notes[index]) {
+					case 'A': sounds.push(new Audio('game_soundA.mp3')); break;
+					case 'B': sounds.push(new Audio('game_soundB.mp3')); break;
+					case 'C': sounds.push(new Audio('game_soundC.mp3')); break;
+					case 'D': sounds.push(new Audio('game_soundD.mp3')); break;
+				}
+				index++;
+			}
+		}
+
+		loadMusic();    // load up the music!!!
+		index = 0
+		
+		// recursive function that, when called, plays the next song in the array
+		// only after the previous song has ended
+		function playSounds() {
+			if (index == sounds.length) return;		
+			sounds[index].addEventListener('ended', playSounds);
+			sounds[index].play();
+			index++;
+		}
+		playSounds();  // play the music sequentially without any simultaneous play
+		
+		
+		// part II of the course assignment.  This javascript code places the html and 
+		// javascript code necessary to play whatever notes the user requests, into the 
+		// second, much larger, text box output on the screen.  This text/code can be
+        // copied and placed into an empty html file within the same folder and ran to play
+        // the same notes that the user played.		
+		
+		// creates string var named htmlTEMPLATE with html header portion 
+		var htmlTEMPLATE = "<!doctype html><html><head><\/head><body><script>"
+        // adds text including array that will contain musical notes to play 
+		htmlTEMPLATE += "var sounds = new Array();"
+        // javascript text to place the specified musical notes into the array
+		for (i = 0; i < notes.length; i++) {
+			if (notes[i] == 'A'){
+				htmlTEMPLATE += "sounds.push(new Audio('game_soundA.mp3'));"
+			}else if (notes[i] == 'B'){
+				htmlTEMPLATE += "sounds.push(new Audio('game_soundB.mp3'));"
+			}else if (notes[i] == 'C') {
+				htmlTEMPLATE += "sounds.push(new Audio('game_soundC.mp3'));"
+			}else if (notes[i] == 'D') {
+				htmlTEMPLATE += "sounds.push(new Audio('game_soundD.mp3'));"
+			}    
+		}
+		// html text that defines the recursive function used above to play the notes stored in the array
+		// one after the other until the notes are done
+		htmlTEMPLATE += "index = 0; function playSounds() { if (index ==" + notes.length + "){return;}"
+		htmlTEMPLATE += "sounds[index].addEventListener('ended', playSounds);sounds[index].play();index++;}"
+		// html text to play the notes and the footer part of the html text
+		htmlTEMPLATE += "playSounds();<\/script><\/body ><\/html>"
+		// places the htmlTEMPLATE string into the second text box document on the screen
+		document.getElementById("compiled_code").innerText = htmlTEMPLATE;
+    }
+	playPianoPlayer(); // calls the entire set of above code into action when screen loads or the play 
+	                   // button is pushed
+</script>
+</body>
+</html>

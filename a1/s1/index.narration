@@ -1,0 +1,218 @@
+1 : html doctype heading
+2 : html opening tag
+3 : html opening comment bracket
+4 : program author name
+5 : course description
+6 : professor name
+7 : comment
+8 : 
+9 : program description paragraph opening
+10 : program description
+11 : program description
+12 : program description
+13 : program description
+14 : program description
+15 : program description
+16 : program description
+17 : program description
+18 : 
+19 : program limitations paragraph opening 
+20 : program limitations
+21 : program limitations
+22 : program limitations
+23 : program limitations
+24 : program limitations
+25 : program limitations
+26 : program limitations
+27 : program limitations
+28 : program limitations
+29 : program limitations
+30 : program limitations
+31 : html closing comment bracket
+32 : 
+33 : web page title
+34 : opening head tag
+35 : closing head tag
+36 : 
+37 : html comment
+38 : opening body tag
+39 : 
+40 : html comment
+41 : html header included
+42 : html comment
+43 : html image included
+44 : html comment
+45 : html comment
+46 : html text area
+47 : note A included in html text area
+48 : note B included in html text area
+49 : note C included in html text area
+50 : note D included in html text area
+51 : html text area closing tag
+52 : 
+53 : line break tag
+54 : html comment
+55 : html play button included 
+56 : line break tag
+57 : html comment
+58 : html comment
+59 : div tag to align text to center
+60 : inner div tag to create inlign block with text aligned left
+61 : user instructions to display to web page
+62 : user instructions to display to web page
+63 : user instructions to display to web page
+64 : user instructions to display to web page
+65 : user instructions to display to web page
+66 : user instructions to display to web page
+67 : closing div tag
+68 : closing div tag
+69 : html comment
+70 : html comment
+71 : html comment
+72 : text area text box for html code output
+73 : 
+74 : html comment
+75 : script tag
+76 : javascript comment
+77 : primary function definition line "playPianoPlayer()" contains all other helper functions
+78 : javascript comment
+79 : getUserInput() function definition line for retrieval of user input as an array of strings
+80 : tokenizes-by line, user input in text box into lines array
+81 : javascript comment
+82 : call to getUserInput()
+83 : 
+84 : notes array declaration for parsed notes
+85 : numTimes integer declaration for number of times user wants notes played
+86 : 
+87 : javascript comment
+88 : javascript comment
+89 : javascript comment
+90 : javascript comment
+91 : javascript comment
+92 : parseUserInput() function declaration to parse user notes into the notes array
+basically only stores each note into notes array according to the number of times 
+specified in the text box
+93 : try block opening 
+94 : javascript comment
+95 : error message variable declared and defined
+96 : outer for loop opening to iterate through each character in each line of the lines array
+97 : ch variable declaration and definition as an empty character
+98 : javascript comment
+99 : javascript comment
+100 : inner for loop opening to iterate through each character in each line of the lines array
+101 : set ch to the current character in the line
+102 : if block--if ch is space character, go to next character in lines array
+103 : 
+104 : javascript comment
+105 : if block--if ch is a lowercase letter between a-z, make it uppercase
+106 : 
+107 : javascript comment
+108 : javascript comment
+109 : if block--if ch is not an uppercase character between A-D or if ch is not a digit
+between 0-9, then throw error message
+110 : throw statement
+111 : closing if bracket
+112 : 
+113 : javascript comment
+114 : javascript comment
+115 : if block opening--if ch is a digit between 0-9
+116 : set numTimes variable to the integer equivalent of that digit
+117 : update ch to next character in the line in lines
+118 : javascript comment
+119 : if block opening--if this character is a letter
+120 : make ch uppercase
+121 : if block closing bracket with javascript comment
+122 : else if block--if ch is another digit or a space
+123 : throw error message statment
+124 : else if block bracket
+125 : javascript comment
+126 : else block--meaning if ch was not a number set numTimes variable to 1
+127 : 
+128 : javascript comment
+129 : most inner for loop opening to add proper note/letter to notes array
+130 : opening switch block--to append proper letter to notes array depending on value of ch 
+131 : append 'A' into notes array if ch is 'A'
+132 : append 'B' into notes array if ch is 'B'
+133 : append 'C' into notes array if ch is 'C'
+134 : append 'D' into notes array if ch is 'D'
+135 : closing switch block bracket
+136 : closing most inner for loop block bracket
+137 : closing inner for loop block bracket
+138 : closing outer for loop block bracket
+139 : closing try block bracket and javascript comment
+140 : catch block--alerts user to out of range error message
+141 : javascript comment
+142 : parseUserInput() end bracket
+143 : call to parseUserInput()
+144 : 
+145 : create new array to reference .mp3 files according to the parsed notes--this was the
+only way I could get the addEventListener() to work
+146 :  
+147 : javascript comment
+148 : function loadMusic() definition to place .mp3's into sounds array
+149 : initialize index variable to 0
+150 : javascript comment
+151 : javascript comment
+152 : while loop--to iterate through parsed notes in notes array
+153 : switch block--to place respective .mp3 into sounds array
+154 : if 'A' push game_soundA.mp3 into sounds array
+155 : if 'B' push game_soundB.mp3 into sounds array
+156 : if 'C' push game_soundC.mp3 into sounds array
+157 : if 'D' push game_soundD.mp3 into sounds array
+158 : closing switch block bracket
+159 : increment index variable
+160 : closing while loop bracket
+161 : closing loadMusic() function bracket 
+162 : 
+163 : call to loadMusic() function
+164 : set index variable back to 0
+165 : 
+166 : javascript comment
+167 : javascript comment
+168 : recursive function playSounds() declaration to play each sound consecutively after the previouseach
+sound ends until all the sounds in the sounds array have been played 
+169 : if block--to stop recursive function call once index gets to equivalent number as number of .mp3's in sounds array
+170 : adds event listener to the current mp3
+171 : plays the current mp3
+172 : increment index
+173 : playSounds() closing bracket
+174 : call to playSounds() function
+175 : 
+176 : 
+177 : javascript comment
+178 : javascript comment
+179 : javascript comment
+180 : javascript comment
+181 : javascript comment
+182 : 
+183 : javascript comment
+184 : declares and initializes string variable htmlTEMPLATE to the header string for html file
+185 : javascript comment
+186 : appends sounds array declaration as a string to htmlTEMPLATE
+187 : javascript comment
+188 : for loop opening that iterates through each parsed note in notes array 
+189 : if block--if current parsed note is 'A' then
+190 : add string to htmlTEMPLATE that pushes game_soundA.mp3 onto sounds array
+191 : else if block opening--if current parsed note is 'B' then
+192 : add string to htmlTEMPLATE that pushes game_soundB.mp3 onto sounds array
+193 : else if block opening--if current parsed note is 'C' then
+194 : add string to htmlTEMPLATE that pushes game_soundC.mp3 onto sounds array
+195 : else if block opening--if current parsed note is 'D' then
+196 : add string to htmlTEMPLATE that pushes game_soundD.mp3 onto sounds array
+197 : else if block closing bracket
+198 : for loop closing bracket
+199 : javascript comment
+200 : javascript comment
+201 : adds string to htmlTEMPLATE that initializes index to 0, and defines playSounds() function
+and string that defines initial if-block of that function
+202 : adds string to htmlTEMPLATE that
+203 : javascript comment
+204 : adds string to htmlTEMPLATE that calls playSounds() function and html footer
+205 : javascript comment 
+206 : puts text of the string htmlTEMPLATE into the second text box on the web page
+207 : closing bracket for playPianoPlayer() function that acts as the main function
+208 : call to playPianoPlayer() function so that it starts on html page startup
+209 : javascript comment
+210 : script end tag
+211 : body end tag
+212 : html end tag
