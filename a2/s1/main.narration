@@ -1,0 +1,22 @@
+1 : comment author description
+2 : comment course description
+3 : comment assignment description
+4 : 
+5 : comment
+6 : import run(), var(), membero() from kanren package
+7 : import random to use shuffle() method
+8 : 
+9 : let x be a list of numbers from 1 to 69
+10 : let y be a list of numbers from 1 to 26
+11 : randomly shuffle list x
+12 : randomly shuffle list y
+13 : 
+14 : let z be a logic variable 
+15 : comment
+16 : diplay to user that here are first 5 power ball numbers
+17 : comment
+18 : display a tuple containing the first 5 numbers on the randomly shuffled list x
+19 : comment
+20 : display to user that here is the last powerball number
+21 : comment
+22 : display a tuple containing the last powerball number from the randomly shuffled list y
