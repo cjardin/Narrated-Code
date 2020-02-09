@@ -1,0 +1,47 @@
+import var from unification
+import run from kanren
+import everyg from kanren
+import permuteq from kanren
+import array from numpy
+blank line
+set constant DIGITS to tuple of integers 1 through 10
+blank line
+declare function get_rows with parameter sb
+set variable rows to tuple of tuples from sb rows
+return variable rows
+blank line
+declare function get_rows with parameter sb
+set variable cols to tuple of tuples from sb columns
+return variable cols
+blank line
+declare function get_cols with parameter sb
+set variable squares to tuple of tuples from sb 3 by 3 squares
+return variable cols
+blank line
+declare function test with parameter set
+return goals making sure tuples in set are equal to const DIGITS under permutation
+blank line
+declare function validate with parameter sb
+set variable rows to function call get_rows with parameter sb
+set variable cols to function call get_cols with parameter sb
+set variable squares to function call get_squares with parameter sb
+set variable x to kanren var x
+return run function call with all goals
+blank line
+set variable board to numpy array of 2D matrix
+
+
+
+
+
+
+
+
+blank line
+set variable result to function call validate with variable board
+set variable valid to string Board is correct
+set variable invalid to string Board is not correct
+if variable result has length of zero
+print variable valid
+else
+print variable invalid

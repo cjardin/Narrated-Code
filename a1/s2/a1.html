@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+    <audio id="myAudio">
+        <source src="notes/A.mp3" type="audio/mp3">
+        <source src="notes/B.mp3" type="audio/mp3">
+        <source src="notes/C.mp3" type="audio/mp3">
+        <source src="notes/D.mp3" type="audio/mp3">
+        <source src="notes/E.mp3" type="audio/mp3">
+        <source src="notes/G.mp3" type="audio/mp3">
+        <source src="notes/F.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container-fluid">
+    <h2 style="text-align: center;margin-bottom: 20px;margin-top: 30px;">Assignment 1</h2>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+            <label for="notes" class="control-label font-weight-bold">
+                Music Notes
+                <small class="form-text text-muted">Enter notes line-by-line. Available notes: A, B, C, D, E, F, G<br>Number can be added in front of note to play multiple times (ex: 4A)</small>
+            </label>
+            <textarea id="notes"  class="form-control" rows="5"  placeholder="Music Notes" autocomplete="off"></textarea>
+            <button id="submit" class="btn btn-primary" onclick="playNotes()" style="width:100%">Play</button>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+            <label for="html_template" class="control-label font-weight-bold">HTML Generator</label>
+            <textarea id="html_template"  class="form-control" rows="15"  placeholder="" autocomplete="off"></textarea>
+            <button id="template" class="btn btn-primary" onclick="createTemplate()">Generate</button>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+// get array of notes entered by user (ex: ["4A", "C", "7F"])
+function getNotes() {
+    var lines = document.getElementById("notes").value.split('\n');
+    var notes = [];
+    lines.forEach(function(line, idx) {
+        notes.push(line.trim());
+    });
+    return notes;
+}
+
+// play notes entered by user
+function playNotes() {
+    var notes = getNotes();
+    var count;
+    var idx = 0;
+    notes.forEach(function(note) {
+        count = 1;
+        match = note.match(/^(\d+)([A-G])$/);
+        if (match !== null) {
+            count = match[1];
+            note = match[2];
+        }
+        for (var i = 0; i < count; i++) {
+            setTimeout(function() {
+                (new Audio("notes/" + note + ".mp3")).play();
+            }, idx*500);
+            idx++;
+        }
+    });
+}
+
+// generate javascript code to play notes
+function generateNotesScript(notes) {
+    var script = "";
+    var count;
+    var idx = 0;
+    notes.forEach(function(note) {
+        count = 1;
+        match = note.match(/^(\d+)([A-G])$/);
+        if (match !== null) {
+            count = match[1];
+            note = match[2];
+        }
+        for (var i = 0; i < count; i++) {
+            script += "setTimeout(function() {(new Audio('notes/" + note + ".mp3')).play();},"+idx+"*500);\n";
+            idx++;
+        }
+    });
+    return script;
+}
+
+// create html/javascript template to play notes
+function createTemplate() {
+    var html = "";
+    html += "<!DOCTYPE html>";
+    html += '<html lang="en">';
+    html += '<body>';
+    html += '<audio id="myAudio">';
+    html += '<source src="notes/A.mp3" type="audio/mp3">';
+    html += '<source src="notes/B.mp3" type="audio/mp3">';
+    html += '<source src="notes/C.mp3" type="audio/mp3">';
+    html += '<source src="notes/D.mp3" type="audio/mp3">';
+    html += '<source src="notes/E.mp3" type="audio/mp3">';
+    html += '<source src="notes/F.mp3" type="audio/mp3">';
+    html += '<source src="notes/G.mp3" type="audio/mp3">';
+    html += 'Your browser does not support the audio element.';
+    html += '</audio>';
+    html += '</body>';
+    html += '<script>';
+    html += '@@@PLAY_CODE';
+    html += '<\/script>';
+    html += '</body>';
+    html += '</html>';
+
+    var notes = getNotes();
+    var generated_play_list = generateNotesScript(notes);
+    var res = html.replace('@@@PLAY_CODE', generated_play_list);
+    var temp = document.getElementById("html_template");
+    temp.value = res;
+}
+
+</script>
+<html>

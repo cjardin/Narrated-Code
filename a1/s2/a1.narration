@@ -1,0 +1,122 @@
+1: blank line
+2: open DOCTYPE tag
+3: open html tag
+4: open head tag
+5: add link to bootstrap css file
+6: close head tag
+7: open body tag
+8: open audio tag
+9: add A.mp3 audio
+10: add B.mp3 audio
+11: add C.mp3 audio
+12: add D.mp3 audio
+13: add E.mp3 audio
+14: add F.mp3 audio
+15: add G.mp3 audio
+16: add text to display if audio not supported
+17: close audio tag
+18: open bootstrap container
+19: add page header
+20: open bootstrap row
+21: open bootstrap column
+22: open label tag for Music Notes textarea
+23: set label value
+24: add help text for Music Notes textarea
+25: close label tag for Music Notes textarea
+26: add Music Notes textarea
+27: add button to play music notes from Music Notes textarea
+28: close bootstrap column
+29: close bootstrap row
+30: open bootstrap row
+31: open bootstrap column
+32: add label for HTML Template textarea
+33: add HTML Template textarea
+34: add button to generate html to play music and place into HTML Template textarea
+35: close bootstrap column
+36: close bootstrap row
+37: close bootstrap container
+38: close body tag
+39: open script tag
+40: comment
+41: declare function getNotes to get notes entered into Music Notes textarea
+42: get Music Notes textarea value and split by newline character
+43: declare empty notes array
+44: call foreach loop to loop through lines in the Music Notes textarea value
+45: trim whitespace and add to notes array
+46: end foreach loop
+47: return notes array
+48: end function
+49: blank line
+50: comment
+51: declare function to play notes entered by user
+52: declare notes variable and set to array returned from getNotes function
+53: declare count variable
+54: declare idx variable and set to 0
+55: call foreach loop to loop through values in notes variable
+56: set count to 1
+57: set match to value returned from regex to get note and how many times to play it
+58: declare if statement to test if match is not null
+59: set count to first match in regex
+60: set note to second match in regex
+61: end if statement
+62: call for loop to loop through notes
+63: call timeout function
+64: create audio object to play note and play
+65: set delay time to 500 ms times idx
+66: increment idx value
+67: end for loop
+68: end foreach loop
+69: end playNotes function
+70: blank line
+71: comment
+72: declare function generateNotesScript to generate string of javascript to play notes
+73: declare variable script and set to empty string
+74: declare count variable
+75: declare idx variable and set to 0
+76: call foreach loop to loop through values in notes variable
+77: set count to 1
+78: set match to value returned from regex to get note and how many times to play it
+79: declare if statement to test if match is not null
+80: set count to first match in regex
+81: set note to second match in regex
+82: end if statement
+83: call for loop to loop through notes
+84: add setTimeout function with call to play note and delay time of 500 ms times idx
+85: increment idx value
+86: end for loop
+87: end foreach loop
+88: return script variable
+89: end generateNotesScript function
+90: blank line
+91: comment
+92: declare function createTemplate
+93: declare variable html and set to empty string
+94: add DOCTYPE tag to html variable
+95: add open html tag to html variable
+96: add open body tag to html variable
+97: add open audio tag to html variable
+98: add A.mp3 audio tag to html variable
+99: add B.mp3 audio tag to html variable
+100: add C.mp3 audio tag to html variable
+101: add D.mp3 audio tag to html variable
+102: add E.mp3 audio tag to html variable
+103: add F.mp3 audio tag to html variable
+104: add G.mp3 audio tag to html variable
+105: add text to display if audio not supported to html variable
+106: close audio tag to html variable
+107: close body tag to html variable
+108: add open script tag to html variable
+109: add PLAY_CODE placeholder to html variable
+110: close script tag to html variable
+111: close body tag to html variable
+112: close html tag to html variable
+113: blank line
+114: declare notes variable and set to getNotes()
+115: declare generated_play_list variable and set to generateNotesScript(notes)
+116: declare res variable and set to html variable with PLAY_CODE replaced with generated_play_list value
+117: declare temp variable and set to html_template textarea
+118: set temp value to res variable
+119: end function createTemplate
+120: blank line
+121: close script tag
+122: close html tag
