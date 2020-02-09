@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 solca001/MusicBox/.idea/
+
+solca001/compiler-app/.idea/
