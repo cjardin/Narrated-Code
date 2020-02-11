@@ -128,6 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-solca001/MusicBox/.idea/
+# Intellij
+.idea/
 
-solca001/compiler-app/.idea/
+# Node
+node_modules/
