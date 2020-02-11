@@ -1,0 +1,155 @@
+<html>
+	<head>
+		<style>
+			#left { float: left; }
+			#input {  overflow: hidden; }
+		</style>
+	</head>
+	<body>
+		<div id='left'>
+			<div style="margin: 0px 20px 20px 20px;">
+				<div>Tempo</div>
+				<input type="number" id="tempo" min="20" max="200" value="85"></input>
+				<button id="play" onclick="playSong()">Play</button>
+			</div>
+			<div style="margin: 0px 20px 20px 20px;">
+				<div>Input</div>
+				<textarea id="input" rows="75" cols="25"></textarea>
+			</div>
+		</div>
+		<div>
+			<textarea id='output' style="width: 60%; height: 90%;"></textarea>
+			<div id = "musicBoxDiv"></div>
+		</div>
+		<script>
+			function Frame( line ) {
+				this.voices = [];
+				for (let i = 0; i < Frame.notes.length; i++) {
+					if (line.charCodeAt(i) == i+Frame.tokenOffset)
+						this.voices.push( Frame.notes[i] );
+				}
+			}
+			
+			Frame.tokenOffset = 65;
+			Frame.notes = ['2D', '2E', '2F', '2G', '2A', '2Bb', '3C',
+						   '3D', '3E', '3F', '3G', '3A', '4C', '4D',
+						   '4E', '4F', '4Gb', '4G', '4A', '5C', '5D',
+						   '5E', '5F'];
+						   
+			function playSong() {
+				let tempo = document.getElementById( 'tempo' ).value;
+				let htmlString = `\
+<html>
+	<head>
+	<\/head>
+	<body>
+		<script>
+			let TEMPO = ${tempo};
+			let DELAY = 60 / TEMPO * 500;
+			@@PLAY_CODE@@
+		<\/script>
+		<div id='output'></div>
+	<\/body>
+<\/html>`;
+
+				let frames = [];
+				let lines = document.getElementById( 'input' ).value.split( "\n" );
+				lines.forEach( function( line ) {
+					frames.push( new Frame( line ) );
+				});
+				
+				let playFramesText = '';
+				for (let i = 0; i < frames.length; i++) {
+					playFramesText += 'setTimeout( function(){';
+					for (let j = 0; j < frames[i].voices.length; j++) {
+						playFramesText += `new Audio("${frames[i].voices[j]}.mp3").play();`;
+					}
+					playFramesText += `return;}, DELAY*${i} );`; // Use a delay instead of an eventListener in order to better support polyphonic sound
+				}
+				
+				htmlString = htmlString.replace( '@@PLAY_CODE@@', playFramesText );
+				document.getElementById( 'output' ).innerHTML = htmlString;
+				
+				let musicBox = document.getElementById( 'musicBox' );
+				if (musicBox)
+					musicBox.remove();
+					
+				document.getElementById( 'musicBoxDiv' ).innerHTML += '<iframe id="musicBox" style="width:0;height:0;border:none"></iframe>';
+				let musicBoxDoc = document.getElementById( 'musicBox' ).contentWindow.document;
+				musicBoxDoc.open();
+				setTimeout( function(){musicBoxDoc.write( htmlString );}, 100 );
+				setTimeout( function(){musicBoxDoc.close();}, 200 );	
+			}
+// DEFAULT SONG, NO NARRATION
+			// Wind Scene, from ChronoTrigger OST (Copyright SquareSoft, 1995)
+			let windScene = `\
+                    U
+
+                     V
+					 
+       H              W
+           L         V
+              O    T
+                  S
+     F              U
+         J
+            M
+                    U
+    E              T
+         J        S
+      G        P
+            M    R
+  C               S
+         J
+ B           N   R
+        I
+A             O
+    E          P
+        I         S
+                   T
+   D                 V
+       H
+                      W
+          K
+      G            T
+          K
+             N
+               P
+            M O
+
+                     V
+					 
+       H              W
+           L         V
+              O    T
+                  S
+     F              U
+         J
+            M
+                    U
+    E              T
+         J        S
+      G        P
+            M    R
+  C               S
+         J
+ B           N   R
+        I
+A             O
+    E          P
+        I         S
+                   T
+   D             R   V
+          K         U
+    E             ST
+           L        U
+       H         R  U
+           L
+              O
+                 R
+             N  Q S U`;
+			document.getElementById( "input" ).innerHTML = windScene;
+// END OF DEFAULT SONG
+		</script>
+	</body>
+<html>

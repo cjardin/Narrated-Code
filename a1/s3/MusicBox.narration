@@ -1,0 +1,67 @@
+Using HTML:
+1: Open 'html' tag
+2: Open 'head' tag
+3: Open 'style' tag
+4: Style element with id 'left' to float left
+5: Style element with id 'input' to hide horizontal scrollbar
+6: Close 'style' tag
+7: Close 'head' tag
+8: Open 'body' tag
+9: Open 'div' tag with id 'left
+10: Open 'div' tag with 20px margin on right, bottom and left
+11: Open 'div' tag containing text 'Tempo', the close 'div' tag
+12: Open 'input' tag of type 'number', id 'tempo', min value '20', max value '200 and value '80', then close 'input' tag
+13: Open 'button' tag with id 'play', onclick 'playSong()', containing 'Play', then close 'button' tag
+14: Close 'div' tag
+15: Open 'div' tag with 20px margin on right, bottom and left
+16: Open 'div' tag containing text 'Input', then close 'div' tag
+17: Open 'textarea' tag with id 'input', rows '75' and cols '25', then close 'textarea' tag
+18: Close 'div' tag
+19: Close 'div' tag
+20: Open 'div' tag
+21: Open 'textarea' tag with id 'output', width '60%' and height '70%', then close 'textarea' tag
+22: Open 'div' tag with id 'musicBoxDiv', then close 'div' tag
+23: Close 'div' tag
+24: Open 'script' tag
+Using JavaScript:
+25: Define class 'Frame' with class constructor that takes parameter 'line'
+26: Define member variable 'voices' assigned to an empty array
+27: Loop through all elements in static array 'Frame.notes'.
+28: If ascii code of 'i'th character in 'line' is equal to 'Frame.tokenOffset' + 'i', push the 'i'th Frame.notes element into 'voicess'
+30: End loop
+31: End class definition for 'Frame'
+33: Define static member variable 'tokenOffset' within 'Frame' class, assigned to '65'
+34: Define static member variable 'notes' within the 'Frame' class, assigned to array ['2D','2E','2F','2G','2A','2Bb','3C','3D','3E','3F','3G','3A','4C','4D','4E','4F','4Gb','4G','4A','5C','5D','5E','5F']
+39: Define function 'playSong' with no parameters
+40: Define local variable 'tempo' and assign it to the value found within the HTML element with id 'tempo'
+41: Define local variable 'htmlString' and assign it the value `\
+<html>
+	<head>
+	<\/head>
+	<body>
+		<script>
+			let TEMPO = ${tempo};
+			let DELAY = 60 / TEMPO * 500;
+			@@PLAY_CODE@@
+		<\/script>
+		<div id='output'></div>
+	<\/body>
+<\/html>`
+55: Define local variable 'frames' assigned to an empty array
+56: Get the value of the HTML element with id 'input', split it into an array delimited by the newline character and assign it to a new local variable 'lines'
+57: For every element in the 'lines' array, create a new 'Frame' object with construction parameter equal to the element, then push that 'Frame' object into the frames array
+61: Define local variable 'playFramesTex' assigned to an empty string
+62: Begin looping through every element in 'frames' array
+63: Append string 'setTimeout( function(){' to 'playFramesText
+64: For every sub-element in 'voices' array of current 'frames' element, append string 'new Audio("@PLAYCODE@.mp3").play();', where @PLAYCODE is the current sub-element of 'voices'
+67: Append string 'return;}, DELAY*@INDEX );' where @INDEX is the index of the current 'frames' element
+68: End loop through 'frames' array
+70: Replace '@@PLAY_CODE@@' substring in 'htmlString' variable with context of 'playFramesText' variable
+71: Display contents of 'htmlString' variable in HTML element with id 'output'
+73: If HTML element with id 'musicBox' exists, remove it from HTML document
+77: Append an invisible HTML 'iframe' element with id 'musicBox' to HTML element with id 'musicBoxDiv'
+76: Write contents of 'htmlString' variable into 'iframe' element with id 'musicBox'
+Using HTML:
+151: Close 'script' tag
+152: Close 'body' tag
+153: Close 'html' tag

@@ -1,0 +1,315 @@
+1 : html doctype heading
+2 : html opening tag
+3 : html opening comment bracket
+4 : program author name
+5 : course description
+6 : professor name
+7 : 
+8 : comment
+9 : 
+10 : comment program description paragraph opening
+11 : comment program description
+12 : comment program description
+13 : comment program description
+14 : comment program description
+15 : comment program description
+16 : comment program description
+17 : comment program description
+18 : 
+19 : comment program parameters paragraph opening 
+20 : comment program limitations
+21 : comment program limitations
+22 : comment program limitations
+23 : comment program limitations
+24 : comment program limitations
+25 : comment program limitations
+26 : comment program limitations
+27 : comment program limitations
+28 : comment program limitations
+29 : 
+30 : comment other notes
+31 : comment other notes
+32 : comment other notes
+33 : closing html comment tag
+34 : 
+35 : web page title
+36 : opening and closing head tag
+37 : 
+38 : html comment
+39 : opening body tag
+40 : 
+41 : html comment
+42 : centered html header
+43 : html comment
+44 : html image included
+45 : html comment
+46 : html comment
+47 : html comment
+48 : html text area opening bracket
+49 : variable assignment to .mp3 file in html text area
+50 : variable assignment to .mp3 file in html text area
+51 : play variable
+52 : play variable
+53 : variable assignment to .mp3 file in html text area
+54 : play variable
+55 : play variable 
+56 : variable assignment to .mp3 file in html text area
+57 : play variable
+58 : html text area closing bracket
+59 : html comment
+60 : html web page instruction button
+61 : html comment
+62 : html web page play music button
+63 : break line
+64 : html comment
+65 : html comment
+66 : html comment
+67 : second text area opening and closing tags
+68 : 
+69 : html comment
+70 : opening script tag
+71 : javascript comment
+72 : javascript comment
+73 : displayInstructions() function declaration to display instructions on instruction button press
+74 : create a temporary string to store string instructions
+75 : add string to temporary string
+76 : add string to temporary stringt
+77 : add string to temporary string
+78 : add string to temporary string
+79 : add string to temporary string
+80 : add string to temporary string
+81 : add string to temporary string
+82 : add string to temporary string
+83 : add string to temporary string
+84 : add string to temporary string
+85 : add string to temporary string
+86 : alert method call with temporary string parameter
+87 : closing function bracket
+88 : 
+89 : javascript comment
+90 : playPianoPlayer() function declaration
+91 : javascript comment
+92 : getUserInput() function declaration
+93 : set lines array to each tokenized line in text box
+94 : javascript comment
+95 : closing function bracket
+96 : call to getUserInput()
+97 : create playlist() array
+98 : create fileNames array containing list of .mp3 file names
+99 : create progVarsAssign array to contain list of variables and variable assignments
+100 :
+101 : javascript comment
+102 : javascript comment
+103 : javascript comment
+104 : javascript comment
+105 :
+106 : parseUserInput() function declaration opening
+107 : create a notes array to contain note references to .mp3 files
+108 : create a numProgVars variable to count the number of variables stored, initialize to 0
+109 : create numTimes variable to store number of times user wants to play music, set to 1
+110 : create line variable to store current line, set to 0
+111 : 
+112 : while loop while line is less than lines.length
+113 : create empty string to contain the user variable
+114 : create empty string to contain the user .mp3 file assignment
+115 : create loop index, set to 0
+116 : opening of try block
+117 : javascript comment
+118 : create and set error message
+119 : 
+120 : remove spaces from current string line being examined in the lines array 
+121 : javascript comment
+122 : 
+123 : if statement if string length is 0, break from while loop
+124 : 
+125 : javascript comment
+126 : javascript comment
+127 : javascript comment
+128 : javascript comment
+129 : javascript comment
+130 : 
+131 : if statement that tests for proper formatting in user input
+133 : closing if statement bracket
+134 : javascript comment
+135 : if statement that tests for variable assignment and opening bracket 
+136 : set equalSign variable to object containing equal sign letter and position reference
+137 : get position of equal sign 
+138 : 
+139 : javascript comment
+140 : if statement to test if first character in variable assignment is a digit
+141 : throw error statement
+142 : if statement closing bracket
+143 : else statement opening
+144 : javascript comment
+145 : get variable name from the current string line and store in varStr variable
+146 :  
+147 : javascript comment
+148 : get .mp3 file name from current string line and store in aFileName variable 
+149 : 
+150 : javascript comment
+151 : create and set fileInDir flag to false
+152 : for loop to iterate through available file names in directory
+153 : if statement if user requested .mp3 file exists
+154 : set fileInDir flag to false
+155 : break statement
+156 : closing bracket of if statement
+157 : closing bracket of for loop
+158 : if statement if file not in directory, throw error
+159 : 
+160 : javascript comment
+161 : 
+162 : create and set found flag to false
+163 : while loop that iterates through the progVarsAssign array to check if variable has already been assigned 
+and to get a position of the variable or an opened spot
+164 : if statement if the variable already exists
+165 : set found to true
+166 : break statement
+167 : closing if statement bracket
+168 : increase index by 2 to check 2n positions
+169 : closing while loop bracket, javascript comment
+170 : javascript comment
+171 :
+172 : javascript comment
+173 : if statement if variable found set 2n + 1 position in progVarsAssign array to the .mp3 file
+174 : else statement opening
+175 : javascript comment
+176 : set first available opening in progVarsAssign array to the user variable
+177 : set 2n + 1 position to the .mp3 file name
+178 : increment numProgVars variable
+179 : closing else statement bracket
+180 : closing else statement bracket
+181 : closing if statement bracket
+182 : 
+183 : javascript comment
+184 : javascript comment
+185 : else if statment else if assignment isn't happening, then its a play request
+186 : javascript comment
+187 : if statement if the end of the statement doesn't include the characters '.mp3'
+188 : throw statement to throw error message 
+189 : closing if statement bracket
+190 : 
+191 : javascript comment
+192 : javascript comment
+193 : if statement to test if first char in user variable is a digit
+194 : if yes then set numTimes variable to digit
+195 : 
+196 : javascript comment
+197 : if statement to test if 2nd char in user variable is a digit
+198 : throw statement to throw error message
+199 : closing if statement bracket
+200 : javascript comment
+201 : else statement opening
+202 : set varStr to the variable in input text box
+203 : closing else statement bracket
+204 : closing if statement bracket
+205 : 
+206 : javascript comment
+207 : else statement opening
+208 : set varStr to the variable in input text box
+209 : closing else statement bracket
+210 : 
+211 : javascript comment
+212 : javascript comment
+213 : set found variable flag to false
+214 : set index variable to 0
+215 : javascript comment
+216 : if statement opening if number of program variables is not 0
+217 : while loop to iterate through progVarsAssign array to check to see if user 
+variable is in array and to get position if it is or first available position
+218 : if statement to check if the variable is in progVarsAssign array
+219 : set found flag to true
+220 : break statement
+221 : closing bracket to if statement
+222 : increment index variable by 2
+223 : closing while loop bracket
+224 : closing if statement bracket
+225 :
+226 : javascript comment
+227 : if statement if there are no variables stored or the variable wasn't found
+228 : throw statement throw error message
+229 : closing if statement bracket
+230 : javascript comment
+231 : javascript comment
+232 : if statement if the variable was found
+233 : javascript comment
+234 : increment index to 2n + 1 position
+235 : 
+236 : create a variable that contains an empty character
+237 : javascript comment
+238 : javascript comment
+239 : if statement if gameSoundA.mp3 file is referenced, set 'A' char in notes array
+240 : else if statement if gameSoundB.mp3 file is referenced, set 'B' char in notes array
+241 : else if statement if gameSoundC.mp3 file is referenced, set 'C' char in notes array
+242 : else if statement if gameSoundD.mp3 file is referenced, set 'D' char in notes array
+243 :
+244 : javascript comment
+245 : javascript comment
+246 : javascript comment
+247 : for loop to iterate according to the number of times specified by numTimes variable
+248 : add tempCh to notes array 
+249 : add audio files referenced by current 2n + 1 location in progVarsAssign location to playlist array
+250 : closing for block bracket
+251 : closing if block bracket
+252 : reset numTimes to 1
+253 : reset found to false
+254 : reset index to 0
+255 : closing else if bracket
+256 : closing try block bracket
+257 : catch block to alert user to error message
+258 : javascript comment
+259 : increment line variable
+260 : closing while loop block bracket
+261 : return statement to return notes
+262 : closing function bracket
+263 : call parseUserInput() function
+264 :
+265 : reset index variable to 0
+266 :
+267 : javascript comment
+268 : javascript comment
+269 : recursive function playSounds() declaration
+270 : if statement if index becomes the same length as the playlist, return from function
+271 : add event listener to current sound in playlist playlist
+272 : play song
+273 : increment index variable
+274 : closing playSounds() function bracket
+275 : call to playSounds()
+276 :
+277 :
+278 : javascript comment
+279 : javascript comment
+280 : javascript comment
+281 : javascript comment
+282 : javascript comment
+283 :
+284 : javascript comment
+285 : declares and initializes string variable htmlTEMPLATE to the header string for html file
+286 : javascript comment
+287 : appends sounds array declaration as a string to htmlTEMPLATE
+288 : javascript comment
+289 : for loop opening that iterates through each parsed note in notes array 
+290 : if block--if current parsed note is 'A' then
+291 : add string to htmlTEMPLATE that pushes game_soundA.mp3 onto sounds array
+292 : else if block opening--if current parsed note is 'B' then
+293 : add string to htmlTEMPLATE that pushes game_soundB.mp3 onto sounds array
+294 : else if block opening--if current parsed note is 'C' then
+295 : add string to htmlTEMPLATE that pushes game_soundC.mp3 onto sounds array
+296 : else if block opening--if current parsed note is 'D' then
+297 : add string to htmlTEMPLATE that pushes game_soundD.mp3 onto sounds array
+298 : else if block closing bracket
+299 : for loop closing bracket
+300 : javascript comment
+301 : javascript comment
+302 : adds string to htmlTEMPLATE that initializes index to 0, and defines playSounds() function
+and string that defines initial if-block of that function
+303 : adds string to htmlTEMPLATE that
+304 : javascript comment
+305 : adds string to htmlTEMPLATE that calls playSounds() function and html footer
+306 : javascript comment 
+307 : puts text of the string htmlTEMPLATE into the second text box on the web page
+308 : closing bracket for playPianoPlayer() function that acts as the main function
+309 : call to playPianoPlayer() function so that it starts on html page startup
+310 : javascript comment
+311 : script end tag
+312 : body end tag
+313 : html end tag

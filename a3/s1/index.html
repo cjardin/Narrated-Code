@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+Program Author:  Kaleb Newsom
+        Course:  CS 351
+	 Professor:  Cary Jardin
+        		
+Note: this is my second time (version 2 of Player Piano) programming a program using javascript and html!!
+
+Program Description: 
+Upon loading, the program displays a title, an instruction button to display instructions, a text box with variables assigned
+to .mp3 files and those variables on separate line which instructs Player Piano to play the sound files associated with those
+variables. The second text box contains html code that can be copied and pasted to a separate html file in the same folder and 
+ran to play whatever sounds that were requested in the first text box.  The user has the ability to change and play a different 
+ordering of the sound files according to how they program inside the text box.  The user can include a digit 0-9 in front of 
+each note to increase the number of times the particular sound plays.  The user cannot include multiple variables on the same line
+as of this iteration of Player Piano. Additionally, some aesthetic elements were added to increase the visual appeal of the program.
+
+Program Parameters:  
+The input in the text box for the assignment lines must contain a '.mp3' and a '='.  The first character of the variable cannot be
+a digit.  Other than the '.' and the '=', no other non-alphanumeric characters can exist in this line.  Every character after the
+first variable name can be a digit or a letter. Variable names are case sensitive.  
+For lines that contain just variable names, a single digit 0-9 can be placed in front of the varible name to instruct Player Piano
+to play the .mp3 file multiple times. Unlike a musical note page, the input inside the text box is designed to have only one assignment 
+per line or one sound play request per line. If input inside the note text box is out of range of these restrictions, the user will 
+receive an OutOfRange error letting the user know that they have incorrect input in the text box.  Also, the user must wait until 
+the notes on the screen have played completely through before pressing the play button or they will hear notes being played at the same time.
+When an error is thrown, the program tells the user what kind of error was made and which line the error was made on.
+
+Other Notes:
+The code below uses quite a bit of Regular Expressions--which were suggested as a challenge to get an A on the assignment.  This is my 
+first foray into the use of Regular Expressions.
+-->
+
+<title>CS 351 Project: Player Piano</title>
+<head></head>
+
+<!-- sets background color to light blue"-->
+<body bgcolor="lightblue"> 
+
+<!-- sets title and title color to dark blue in italics -->
+<center><h1><font size="+8" color="darkblue"><em>Player Piano</em></font></h1>
+<!-- sets an image of a keyboard on the page -->
+<p1><img src="keyboard.jpg" height="129" width="700"></p1> <br>
+<!-- places the text box with musical notes on the page and sets the color of the text box as beige, assigns
+     musical sounds according to .mp3 files in directory and on separate lines has them play the sounds
+	 according to the number of times specified in front of the variable on those lines (1 time is implicit)-->
+<textarea id="textBox" rows="10" cols="30" style="background-color:beige">
+aVar = gameSoundA.mp3
+ B = gameSoundB.mp3
+  aVar
+  3B
+    C = gameSoundC.mp3
+     C
+      2aVar
+       D = gameSoundD.mp3
+        D
+</textarea>
+<!-- sets an instruction button on the page, the button has a silver color with text color of navy-->
+<br><button onclick="displayInstructions()" style="background-color:silver; color:navy; height:25px; width:100px;">Instructions</button><br>
+<!-- sets an input/play button on the page, the button has a silver color with text color of navy-->
+<br><button onclick="playPianoPlayer()" style="background-color:silver; color:navy; height:50px; width:100px;">Press to play sounds</button>
+<br>
+<!-- places a text area on the web page which will contain, after the javascript code below runs, the html code
+     that can be copied and placed inside a blank html file and ran to play whatever notes were last ran inside
+     the note text box	                                                                                       -->
+<textarea id="compiled_code" name="cc" rows="10" cols="85"></textarea>
+
+<!-- javascript code -->
+<script type="text/javascript">
+	// This is a note to the user giving the user instructions; the div portion allows the text to be displayed in the center
+    // and left justified
+	function displayInstructions() {
+		var tempStr =  "Instructions: You can change the text in the input box above.  You can create your own variables and assign\n" 
+		tempStr += "them to one of the available .mp3 files listed below and then on a separate line enter the variable\n"
+		tempStr += "(without assignment) as a play command. Variable names cannot have a number as the first character.\n"
+		tempStr += " However, you can include a digit (0-9) in front of the variable you wish to play on the lines containing only the\n"
+		tempStr += "variable name.  This will instruct the Player Piano to play the note as many times according to the  digit\n"
+		tempStr += "in front of the note. In this iteration of Player Piano, for lines containing the play command and not\n"
+		tempStr += "assignment, you cannot include multiple notes on the same line back to back. Also, you must assign your\n"
+		tempStr += "variable to one of the files before listing it on a separate line as a play request.\n\n"
+		tempStr += "NOTE: the files that you can assign to a variable are: gameSoundA.mp3, gameSoundB.mp3,gameSoundC.mp3, or\n"
+		tempStr += "gameSoundD.mp3.\n\nPress the play button above to play your choice of sounds A-D.\n\n"
+		tempStr += "The html code in the text box below can be copied and pasted into an empty html document within the same\n"
+		tempStr += "folder and run to play the same notes that the user requested on this page."
+		alert(tempStr)
+	}
+
+    // the main function that plays the notes last submited inside the note text box
+	function playPianoPlayer(){
+		// retrieves and tokenizes user input according to each line in the string
+		function getUserInput(){
+			lines = document.getElementById("textBox").value.split(/\r?\n/);
+			//lines array now contains the raw notes
+		}
+		getUserInput();	  // need to call each function after the function definition
+		var playlist = new Array()
+		var fileNames = ['gameSoundA.mp3', 'gameSoundB.mp3', 'gameSoundC.mp3', 'gameSoundD.mp3']  // imitates a file directory
+	    var progVarsAssign = [] // contains the program variables the user is using @ positions 2n and assignments at positions 2n + 1 (like parent/child relationship)
+		
+		// parsing the string from the text box into lines of text this code will read more than one note(letter) 
+		// per line instead could have collapsed the note text box string by using 
+		// lines = document.getElementById("textBox").value.replace(/[^a-dA-D0-9]/g,'').toUpper();
+		// for the getUserInput() function above and then iterate through each character.
+
+		function parseUserInput() {
+			var notes = []       // will contain the parsed notes
+			var numProgVars = 0  // contains a counter determining the number of program variables the user is using
+			var numTimes = 1;    // number of times the user is requesting to play a note, set to 1 initially
+			var line = 0         // used as index for lines
+			
+			while (line < lines.length) {
+				var varStr = ''         // string used for the variable the user is using
+				var aFileName = ''      // string used for the mp3 file name the user is assigning to the variable
+				index = 0
+				try { 
+					// sets out of range error message
+					var errMsg = "Error on Line " + (line + 1) + ": Character use is OutOfRange";
+					
+					lines[line] = lines[line].replace(/[\s]/g, '')  // remove spaces from string in array
+					// note:  lines[line] will translate into the entire string on the line
+					
+					if (lines[line].length == 0) { break }          // if the line is empty, then break out of loop
+					
+					// check string for non-alphanumeric characters other than = .
+					// check for .mp3 as the end of the string
+					// and = sign not at beginning of string, white space removed so this will determine if there is a user var
+					// note, second test in the conditional statement will assume that there are = or . chars, so it also checks to see if .mp3 is at the end
+					//document.write(/^=.*\.mp3$/.test(lines[line]))
+
+					if((/[\W]/.test(lines[line]) && !(/[=.]/.test(lines[line]))) || (/[\W]/.test(lines[line]) && !(/^.*(.mp3)$/.test(lines[line]))) || /^=.*$/.test(lines[line])) {
+						throw errMsg
+					}
+					// first checks for assignment with variable declaration           //  !!!!CODE TO ASSIGN TO VAR SECTION !!!!
+					if (/[=]/.test(lines[line]) && /^.*(.mp3)$/.test(lines[line])) {
+						equalSign = (/=/.exec(lines[line]))  // exec() returns pointer to the equal sign if it is in the string
+						position = equalSign.index           // gives the index location of the equal sign
+										
+						// need to double check that the first character is not a number
+						if (/\b\d/.test(lines[line])) { 
+							throw "Error on Line " + (line + 1) + ": Variable name cannot include a digit as the first character!!"
+						} 
+						else {
+							// assignment happening so get varStr
+							varStr += lines[line].substring(0, position)  // varStr contains the new variable in program
+							
+							// get .mp3 string
+							aFileName += lines[line].substring(position + 1, lines[line].length)  // varStr contains the new variable in program
+
+							// check to see if .mp3 file specified is in fileNames array, if not, throw an error message
+							fileInDir = false
+							for (fileIndex = 0; fileIndex < fileNames.length; ++fileIndex){
+								if (((new RegExp(aFileName)).test(fileNames[fileIndex]))) {
+									fileInDir = true
+									break;
+								}
+							}
+							if (fileInDir == false) { throw "Error on Line " + (line + 1) +  ": File \"" + aFileName + "\" not found" }
+
+							// check to see if varStr is already in progVarsAssign array
+							
+							found = false
+							while (index < numProgVars * 2 && found == false) {
+								if ((new RegExp(varStr)).test(progVarsAssign[index])) {
+									found = true  // set found to true if variable was assigned
+									break                                                            
+								}
+								index += 2
+							} // at this stage, index either represents the next available array position or it represents the 
+							  // current position for the variable to be reassigned
+							
+							// if it is already in the array, change .mp3 assignment in the 2n + 1 position which equates to index + 1
+							if (found) { progVarsAssign[index + 1] = aFileName }
+							else {// else if it is not already in the array, go to 2n position which equates to index to store var and go to
+								// index + 1 to store .mp3 portion
+								progVarsAssign[index] = varStr
+								progVarsAssign[index + 1] = aFileName
+								++numProgVars
+							}
+						}
+					}
+
+					// !!!!CODE TO ADD TO playlist SECTION!!!
+					// need to check to see if var is in prog vars, then add note to sounds    !
+					else if (!(/=/.test(lines[line]))) { 
+						// check to see if = sign was intended, will know if there is a "." in the string
+						if (/^.*(.mp3)$/.test(lines[line])) {
+							throw "Error on Line " + (line + 1) + ": Missing assignment character"
+						}
+
+						// !!!! GET varStr !!!!
+						// if there is a digit, for first char, then that is the number of times user wants to add the note to playlist
+						if (/^\d.*$/.test(lines[line])) {
+							numTimes = parseInt(lines[line])       // set number of times to play note
+
+							// if next character is also digit, then throw error message 
+							if (/\d/.test(lines[line][1])) {
+								throw errMsg
+							}
+							// next char is beginning of program variable, so get program variable as a string
+							else {
+								varStr += lines[line].substring(1, lines[line].length)  // varStr contains the new variable in program
+							}
+						}
+						
+						// first char is beginning of program variable, so get program variable as a string
+						else {
+							varStr += lines[line].substring(0, lines[line].length)  // varStr contains the new variable in program
+						}
+
+						// !!!! CHECK TO SEE IF VARIABLE ALREADY ASSIGNED, IF YES, ADD ASSIGNED NOTE TO PLAYLIST !!!!
+						// check to see if varStr is in the progVarsAssign array at 2n locations, if not throw errMsg
+						found = false
+						index = 0
+						// search through progVarsAssign to check to see if a variable was assigned, if no variables stored then throw error message
+						if (numProgVars != 0) {
+							while (index < ((numProgVars * 2) + 1) && found == false) {
+								if ((new RegExp(varStr)).test(progVarsAssign[index])) {
+									found = true  // set found to true if variable was assigned
+									break
+								}
+								index += 2
+							}
+						}
+						
+						// there are no variables stored in the progVarsAssign array because numProgVars is 0 and variable not found
+						if (numProgVars == 0 || found == false){  
+							throw "Error on Line " + (line + 1) + ": variable " + varStr + " not assigned!"
+						}
+						// assumed that found is true at this point, but just in case...
+						// add .mp3 file located at (2*index + 1) location to playlist array
+						if (found == true) {
+							// index will be at 2n position
+							++index          // increment index to 2n + 1 location
+							
+							tempCh = ''
+							// set tempCh to note that represents the .mp3 sound, this is used so that I don't have to rewrite the code for the input
+							// to the 2nd html text box
+							if (/gameSoundA.mp3/.test(progVarsAssign[index])){tempCh = 'A'}
+							else if (/gameSoundB.mp3/.test(progVarsAssign[index])){tempCh = 'B'}
+							else if (/gameSoundC.mp3/.test(progVarsAssign[index])){tempCh = 'C'}
+							else if (/gameSoundD.mp3/.test(progVarsAssign[index])){tempCh = 'D'}
+							
+							// add the song to the array the same number of times as requested
+							// add associated note to notes array, this is done to keep the javascript output code for the second text area
+							// located in a separate area of the program
+							for (i = 0; i < numTimes; ++i) {
+								notes.push(tempCh)
+								playlist.push(new Audio(progVarsAssign[index]))                      
+							}
+						}
+						numTimes = 1     // reset numTimes to 1
+						found = false    // reset found to false
+						index = 0        // reset index to 0
+					}
+				}   // catch error and alert user
+				catch(err) { alert(err); }
+				// notes array now contains the parsed notes
+				++line            // go to next line in text box
+			}
+			return notes
+		}
+		var notes = parseUserInput(notes);  // the notes are parsed
+
+		index = 0                           // reset index to 0
+		
+		// recursive function that, when called, plays the next song in the array
+		// only after the previous song has ended
+		function playSounds() {
+			if (index == playlist.length) return;		
+			playlist[index].addEventListener('ended', playSounds);
+			playlist[index].play();
+			index++;
+		}
+		playSounds();  // play the music sequentially without any simultaneous play
+		
+		
+		// part II of the course assignment.  This javascript code places the html and 
+		// javascript code necessary to play whatever notes the user requests, into the 
+		// second, much larger, text box output on the screen.  This text/code can be
+        // copied and placed into an empty html file within the same folder and ran to play
+        // the same notes that the user played.		
+		
+		// creates string var named htmlTEMPLATE with html header portion 
+		var htmlTEMPLATE = "<!doctype html><html><head><\/head><body><script>"
+        // adds text including array that will contain musical notes to play 
+		htmlTEMPLATE += "var sounds = new Array();"
+        // javascript text to place the specified musical notes into the array
+		for (i = 0; i < notes.length; i++) {
+			if (notes[i] == 'A'){
+				htmlTEMPLATE += "sounds.push(new Audio('gameSoundA.mp3'));"
+			}else if (notes[i] == 'B'){
+				htmlTEMPLATE += "sounds.push(new Audio('gameSoundB.mp3'));"
+			}else if (notes[i] == 'C') {
+				htmlTEMPLATE += "sounds.push(new Audio('gameSoundC.mp3'));"
+			}else if (notes[i] == 'D') {
+				htmlTEMPLATE += "sounds.push(new Audio('gameSoundD.mp3'));"
+			}    
+		}
+		// html text that defines the recursive function used above to play the notes stored in the array
+		// one after the other until the notes are done
+		htmlTEMPLATE += "index = 0; function playSounds() { if (index ==" + notes.length + "){return;}"
+		htmlTEMPLATE += "sounds[index].addEventListener('ended', playSounds);sounds[index].play();index++;}"
+		// html text to play the notes and the footer part of the html text
+		htmlTEMPLATE += "playSounds();<\/script><\/body ><\/html>"
+		// places the htmlTEMPLATE string into the second text box document on the screen
+		document.getElementById("compiled_code").innerText = htmlTEMPLATE;
+    }
+	playPianoPlayer(); // calls the entire set of above code into action when screen loads or the play 
+	                   // button is pushed				   
+</script>
+</body>
+</html>
