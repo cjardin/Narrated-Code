@@ -19,9 +19,11 @@
     <div class="alert alert-secondary" role="alert">
         Choose A, B, C or D for each unlimited lines and click "Play All". (Optional) Define a tempo.
     </div>
-    <label for="tempo">
-        <input type="number" class="form-control" id="tempo" aria-describedby="Tempo" placeholder="Default Tempo: 600">
-    </label><br>
+    <form className={classes.root} noValidate autoComplete="off">
+        <TextField id="standard-basic" label="Standard" />
+        <TextField id="filled-basic" label="Filled" variant="filled" />
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+    </form>
     <button type="button" class="btn btn-danger" onclick="playP(String('A'))">A = Play P</button>
     <button type="button" class="btn btn-success" onclick="playP(String('B'))">B = Play TSS</button>
     <button type="button" class="btn btn-info" onclick="playP(String('C'))">C = Play ECH</button>
