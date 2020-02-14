@@ -1,6 +1,5 @@
-import React from 'react';
 import { ISound, ISoundSetter } from "../App";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction} from "react";
 
 type Props = {
   beatText: string,
@@ -14,19 +13,25 @@ function BeatParserC({ beatText, compilerArr, setCompilerArr }: Props) {
       const char = str.match(/[A-Z]$/g);
       if (char) {
         const find = compilerArr.find(e => {
-
           if (e && e.kind === "ISoundSetter" && e.varName === char[0]) {
             return e;
           }
+          return null;
         });
         if (find && find.kind === "ISoundSetter") {
-          console.log("Last " + char[0] + " is " + find.fileName);
-          const sound = require("../assets/" + find.fileName);
-          const beat = new Audio(sound);
-          compilerArr.unshift({ kind: "ISound", name: char[0], soundFileName: find.fileName, sound: beat });
+          let sound;
+          let beat: HTMLAudioElement;
+          try {
+            sound = require("../assets/" + find.fileName);
+            beat = new Audio(sound);
+            compilerArr.unshift({ kind: "ISound", name: char[0], soundFileName: find.fileName, sound: beat });
+          } catch (e) {
+            alert(e);
+          }
           setCompilerArr(compilerArr);
         } else {
           // TODO Handle error
+          alert(`Declare ${char[0]} first.`);
         }
       }
     }
@@ -36,7 +41,6 @@ function BeatParserC({ beatText, compilerArr, setCompilerArr }: Props) {
     if (/^[A-Z]=[A-Za-z]+.mp3$/g.test(str)) {
       const char = str.match(/^[A-Z]|[A-Za-z]+.mp3$/g);
       if (char && char.length <= 2) {
-        console.log("We declare: " + char[0] + " set to " + char[1]);
         compilerArr.unshift({ kind: "ISoundSetter", varName: char[0], fileName: char[1] });
         setCompilerArr(compilerArr);
       }
