@@ -1,0 +1,160 @@
+  1: open DOCTYPE tag
+  2: open html tag
+  3: open head tag
+  4: add link to bootstrap css file
+  5: close head tag
+  6: open body tag
+  7: open audio tag
+  8: add A.mp3 audio
+  9: add B.mp3 audio
+ 10: add C.mp3 audio
+ 11: add D.mp3 audio
+ 12: add E.mp3 audio
+ 13: add F.mp3 audio
+ 14: add G.mp3 audio
+ 15: add text to display if audio not supported
+ 16: close audio tag
+ 17: open bootstrap container
+ 18: add page header
+ 19: add error message div
+ 20: open bootstrap row
+ 21: open bootstrap column
+ 22: open label tag for Music Notes textarea
+ 23: set label value
+ 24: add help text for Music Notes textarea
+ 25: close label tag for Music Notes textarea
+ 26: add Music Notes textarea
+ 27: add button to play music notes from Music Notes textarea
+ 28: close bootstrap column
+ 29: close bootstrap row
+ 30: open bootstrap row
+ 31: open bootstrap column
+ 32: add label for HTML Template textarea
+ 33: add HTML Template textarea
+ 34: add button to generate html to play music and place into HTML Template textarea
+ 35: close bootstrap column
+ 36: close bootstrap row
+ 37: close bootstrap container
+ 38: close body tag
+ 39: open script tag
+ 40: blank line
+ 41: comment
+ 42: declare function process
+ 43: declare variable count
+ 44: declare variable vars and set to empty dictionary
+ 45: declare variable note_var and set to null
+ 46: declare variable note_file and set to null
+ 47: declare variable play and set to empty array
+ 48: declare variable return_val and set to dictionary of values to return from function
+ 49: blank line
+ 50: declare variable lines and set to notes textarea value split on newline
+ 51: declare variable n and set to length of variable lines
+ 52: declare for loop to loop through variable lines up to variable n
+ 53: declare variable note and set to empty string
+ 54: set count to int one
+ 55: if line matches declaration of a variable
+ 56: set note_var to variable name in match
+ 57: set note_file to matched file name
+ 58: add key, value note_var, note_file to variable vars\
+ 59: else if line matches call to play note
+ 60: set count to value specified, else set to one
+ 61: set note to variable with audio file to play
+ 62: if note has note been declared previously
+ 63: set variable return_val key success to false
+ 64: set variable return_val key result to error message
+ 65: break
+ 66: else
+ 67: push to set variable return_val key result, audio file and number of times to play it\
+ 68: endif
+ 69: endif
+ 70: end for loop
+ 71: blank
+ 72: return variable return_val
+ 73: end function
+ 74: blank line
+ 75: comment
+ 76: declare function playNotes
+ 77: blank
+ 78: declare variable commands and set to call function process
+ 79: blank
+ 80: declare variable error and set to html element id error
+ 81: set error style display to none
+ 82: if variable commands key success is not true
+ 83: set error innerHTML to variable commands key result
+ 84: set error style display to block
+ 85: return false
+ 86: endif
+ 87: blank
+ 88: declare variable idx and set to 0
+ 89: call forEach with parameter cmd to loop through variable commands key result
+ 90: declare variable n and set to audio file name
+ 91: declare variable f and set to number of times to play audio file
+ 92: call for loop to loop through notes
+ 93: comment
+ 94: call timeout function
+ 95: create audio object to play note and play
+ 96: set delay time to 500 ms times idx
+ 97: increment idx value
+ 98: end for loop
+ 99: end foreach loop
+100: end function
+101: blank line
+102: comment
+103: declare function generateNotesScript
+104: blank
+105: declare variable commands and set to call function process
+106: blank
+107: declare variable error and set to html element id error
+108: set error style display to none
+109: if variable commands key success is not true
+110: set error innerHTML to variable commands key result
+111: set error style display to block
+112: return false
+113: endif
+114: blank
+115: declare variable script and set to string with declaration of function playNotes
+116: declare variable idx and set to 0
+117: call forEach with parameter cmd to loop through variable  variable commands key result
+118: declare variable n and set to audio file name
+119: declare variable f and set to number of times to play audio file
+120: call for loop to loop through notes
+121: add to variable script a string with setTimeout function to play next note
+122: increment idx value
+123: end for loop
+124: end foreach loop
+125: add to variable script a string with closing brace
+126: return variable script
+127: end function
+128: blank line
+129: comment
+130: declare function createTemplate
+131: declare variable html and set to empty string
+132: add to variable script string DOCTYPE tag
+133: add to variable script string open html tag
+134: add to variable script string open body tag
+135: add to variable script string open audio tag
+136: add to variable script string A.mp3 audio tag
+137: add to variable script string B.mp3 audio tag
+138: add to variable script string C.mp3 audio tag
+139: add to variable script string D.mp3 audio tag
+140: add to variable script string E.mp3 audio tag
+141: add to variable script string F.mp3 audio tag
+142: add to variable script string G.mp3 audio tag
+143: add to variable script string audio not supported
+144: add to variable script string close audio tag
+145: add to variable script string button to play notes
+146: add to variable script string close body tag
+147: add to variable script string open script tag
+148: add to variable script string PLAY_CODE placeholder
+149: add to variable script string close script tag
+150: add to variable script string close body tag
+151: add to variable script string close html tag
+152: blank line
+153: declare variable generated_play_list and set to call to function generateNotesScript
+154: res variable and set to html variable with PLAY_CODE replaced with generated_play_list value
+155: declare variable temp and set to html_template textarea
+156: set temp value to variable res
+157: end function
+158: blank line
+159: close script tag
+160: close html tag

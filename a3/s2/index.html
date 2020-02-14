@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+    <audio id="myAudio">
+        <source src="notes/A.mp3" type="audio/mp3">
+        <source src="notes/B.mp3" type="audio/mp3">
+        <source src="notes/C.mp3" type="audio/mp3">
+        <source src="notes/D.mp3" type="audio/mp3">
+        <source src="notes/E.mp3" type="audio/mp3">
+        <source src="notes/F.mp3" type="audio/mp3">
+        <source src="notes/G.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container-fluid">
+    <h2 id="heading" style="text-align: center;margin-bottom: 20px;margin-top: 30px;">Assignment 3</h2>
+    <div id="error" class="alert alert-danger" style="display:none;"></div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+            <label for="notes" class="control-label font-weight-bold">
+                Music Notes
+                <small class="form-text text-muted">Line-by-line, declare variables with audio file name (ex: A = A.mp3) and enter notes. Available notes: A, B, C, D, E, F, G<br>Number can be added in front of note to play multiple times (ex: 4A)</small>
+            </label>
+            <textarea id="notes"  class="form-control" rows="8"  placeholder="Music Notes" autocomplete="off"></textarea>
+            <button id="submit" class="btn btn-primary" onclick="playNotes()" style="width:100%">Play</button>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+            <label for="html_template" class="control-label font-weight-bold">HTML Generator</label>
+            <textarea id="html_template"  class="form-control" rows="15"  placeholder="" autocomplete="off"></textarea>
+            <button id="template" class="btn btn-primary" onclick="createTemplate()">Generate</button>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+
+// process code from user
+function process() {
+    var count;
+    var vars = {};
+    var note_var = null;
+    var note_file = null;
+    var play = [];
+    var return_val = {"success": true, "result": []};
+
+    var lines = document.getElementById("notes").value.split('\n');
+    var n = lines.length;
+    for (var i = 0; i < n; i++) {
+        var note = "";
+        count = 1;
+        if ((match = lines[i].match(/\s?(\w+)\s?=\s?(\w+.mp3)\s?/)) !== null) {
+            note_var = match[1];
+            note_file = match[2];
+            vars[note_var] = note_file;
+        } else if ((match = lines[i].match(/\s?(\d+)?([A-G])\s?/)) !== null) {
+            count = (match[1] !== undefined) ? match[1] : 1;
+            note = match[2];
+            if (!(note in vars)) {
+                return_val["success"] = false;
+                return_val["result"] = "Line "+(i+1)+": var "+note+" has not be created!";
+                break;
+            } else {
+                return_val["result"].push([vars[note],count]);
+            }
+        }
+    }
+
+    return return_val;
+}
+
+// play notes entered by user
+function playNotes() {
+
+    var commands = process();
+
+    var error = document.getElementById("error");
+    error.style.display = 'none';
+    if (!commands["success"]) {
+        error.innerHTML = commands["result"];
+        error.style.display = 'block';
+        return false;
+    }
+
+    var idx = 0;
+    commands["result"].forEach(function(cmd) {
+        var n = cmd[1];
+        var f = cmd[0];
+        for (var i = 0; i < n; i++) {
+            console.log("Play: notes/" + f);
+            setTimeout(function() {
+                (new Audio("notes/" + f)).play();
+            }, idx*500);
+            idx++;
+        }
+    });
+}
+
+// generate javascript code to play notes
+function generateNotesScript() {
+
+    var commands = process();
+
+    var error = document.getElementById("error");
+    error.style.display = 'none';
+    if (!commands["success"]) {
+        error.innerHTML = commands["result"];
+        error.style.display = 'block';
+        return false;
+    }
+
+    var script = "function playNotes() {";
+    var idx = 0;
+    commands["result"].forEach(function(cmd) {
+        var n = cmd[1];
+        var f = cmd[0];
+        for (var i = 0; i < n; i++) {
+            script += "setTimeout(function() {(new Audio('notes/" + f + "')).play();},"+idx+"*500);\n";
+            idx++;
+        }
+    });
+    script += "}";
+    return script;
+}
+
+// create html/javascript template to play notes
+function createTemplate() {
+    var html = "";
+    html += "<!DOCTYPE html>";
+    html += '<html lang="en">';
+    html += '<body>';
+    html += '<audio id="myAudio">';
+    html += '<source src="notes/A.mp3" type="audio/mp3">';
+    html += '<source src="notes/B.mp3" type="audio/mp3">';
+    html += '<source src="notes/C.mp3" type="audio/mp3">';
+    html += '<source src="notes/D.mp3" type="audio/mp3">';
+    html += '<source src="notes/E.mp3" type="audio/mp3">';
+    html += '<source src="notes/F.mp3" type="audio/mp3">';
+    html += '<source src="notes/G.mp3" type="audio/mp3">';
+    html += 'Your browser does not support the audio element.';
+    html += '</audio>';
+    html += '<button onclick="playNotes()">Play</button>';
+    html += '</body>';
+    html += '<script>';
+    html += '@@@PLAY_CODE';
+    html += '<\/script>';
+    html += '</body>';
+    html += '</html>';
+
+    var generated_play_list = generateNotesScript();
+    var res = html.replace('@@@PLAY_CODE', generated_play_list);
+    var temp = document.getElementById("html_template");
+    temp.value = res;
+}
+
+</script>
+<html>
