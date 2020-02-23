@@ -1,0 +1,66 @@
+1: Python3 shebang
+2: Import 'time' library
+3: Import 'curses' library
+4: Import 'math' library
+5: Import 'run', 'isvar' and 'membero' from 'kanren' library
+6: Import 'success', 'fail', 'condeseq', 'eq' and 'var' from 'kanren.core' library
+7: Import 'prime' and 'isprime' from 'sympy.ntheory.generate' library
+8: Import 'it' from 'itertools' library
+10: Begin 'main' method definition that takes param 'stdscr'
+11: Disable blinking cursor
+12: Set 'FPS' variable equal to 60
+14: Set 'minFrameTime' variable equal to '1/FPS'
+15: Initialize 'frameDelta' variable to '0'
+17: Get screen 'height' and 'width' from 'stdscr' object
+18: Reduce 'height' variable by 1
+20: Define width of graph1 from 0 to mid-screen - 1
+21: Define width of graph2 from mid-screen + 1 to screen width - 1
+22: Define start location of middle partition to mid-screen
+23: Define width of middle partition to 2 columns
+24: Store width of a single graph in 'graphWidth' variable
+25: Define graph 1 title string to 'y=sin(x), where x is prime and 0 < x < 100,000'
+26: Define graph 2 title string to 'y=sin(sqrt(x)), where x is prime and 0 < x < 100,000'
+27: Calculate location for graph 1 title to be centered above graph 1
+28: Calculate location for graph 2 title to be centered above graph 2
+29: Initialize empty buffer for graph 1 representing left half of screen
+30: Initialize empty buffer for middle partition
+31: Initialize empty buffer for graph 2 representing right half of screen
+33: Define first line of loading message to 'Calculating prime numbers between 0 and 100,000'
+34: Define second line of loading message to 'Please wait...'
+35: Display first line of loading message centered on the screen
+36: Display second line of loading message centered on screen, below first line
+37: Refresh screen display
+39: Fill graph 1 screen buffer with '1' characters
+44: Fill middle partition screen buffer with ' ' characters
+49: Fill graph 2 screen buffer with '1' characters
+54: Calculate sorted set of prime numbers between 0 and 100,000
+57: Begin loop through every number in sorted set of prime numbers
+58: Get timestamp for beginning of loop iteration
+60: Initialize 'g1Col' and 'g2Col' empty arrays
+62: Fill 'g1Col' and 'g2Col' arrays with '1' equal to the height of the screen
+66: Calculate sine of current prime number and map it to a value within the vertical bounds of the screen, stored in 'g1Index'
+67: Calculate the sine of the square root of the current prime number and map it to a value within the vertical bounds of the screen, stored in 'g2Index'
+69: Replace element in 'g1Col' array at index 'g1Index' with a space character ' '
+70: Replace element in 'g2Col' array at index 'g2Index' with a space character ' '
+72: Delete first element of the left screen buffer
+73: Delete first element of the right screen buffer
+74: Append 'g1Col' array to the end of the left screen buffer
+75: Append 'g2Col' array to the end of the right screen buffer
+77: Draw graph1 title string to the screen, centered above the left screen buffer location
+78: Draw graph2 title string to the screen, centered above the right screen buffer location
+80: Loop through left screen buffer
+82: If current element is space character ' ', draw it to the screen using curses' A_STANDOUT attribute
+84: Otherwise, just draw the character to the screen
+87: Loop through middle screen buffer
+89: Draw every element to the screen using curses' A_STANDOUT attribute
+91: Loop through right screen buffer
+93: If current element is space character ' ', draw it to the screen using curses' A_STANDOUT attribute
+95: Otherwise, just draw the character to the screen
+98: If this isn't the first iteration through the loop, print current 'frames-per-second' to the screen
+103: Calculate new 'frames-per-second' to be displayed in the next iteration of the loop
+107: Refresh the screen to display changes
+109: Once the rendering loop ends, call for input from the user to prevent the application from closing immediately on end.
+111: Define 'prime_test' function with attribute 'n'
+112: If 'n' is a kanren variable, use kanren function 'condeseq' to determine if 'n' is a number in sympy's prime number library, then return return success or fail
+114: If 'n' is not a kanren variable, use sympy's 'isprime' function to determine if 'n' is a prime number, then return success or fail
+117: Call main function by passing it to curses.wrapper function
