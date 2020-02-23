@@ -1,0 +1,218 @@
+1: Name Comment - Matthew Flavin
+2: Date Comment
+3: Class Comment
+4: Assignment Comment - Assignment 1
+5: Preface
+6: 
+7:
+8: getNotes() descriptor comment
+9: function declaration for getNotes()
+10: 
+11: declaring notes_raw, array to hold each line of text area
+12: declaring parsedNotes, array to hold the parsed notes
+13: declaring tmp, a temporary variable to hold the current token
+14: 
+15: beginning of for loop parsing the row of the text area
+16: 
+17: beginning of for loop parsing the columns of the text area
+18:
+19: assign current token/note to tmp
+20:
+21: check if tmp contains any of the desired notes
+22:
+23: if yes, push the note into parsedNotes
+24:
+25:
+26:
+27:
+28: return the array of parsed notes, exit function
+29:
+30:
+31: playMusic() description comment
+32: function declaration for playMusic()
+33:
+34: 
+35: declare variable noteArray, set it equal to the returned array of parsed notes from getNotes() 
+36: declare variables note and first. first is not used and should be removed.
+37: 
+38: begin for loop to iterate through noteArray[]
+39:
+40: 
+41: set note equal to the iterated index of noteArray[]
+42: declare variable ended, it is not used and should be removed
+43:
+44: declare beat_interval, a variable holding 1500, which represents the microseconds between beats in a 4/4 80 BPM song.
+45:
+46: begin switch statement to determine which note to play, based on "note"
+47:
+48: if note matches "A", do this case
+49: call setTimeout to simulate the beats of the song
+50: create a new audio object that plays "E_hi.mp3"
+51: set the time to pause, which is equal to the index of the note times the constant beat interval
+52: break switch statement
+53:
+54: if note matches "B", do this case
+55: call setTimeout to simulate the beats of the song
+56: create a new audio object that plays "E_lo.mp3"
+57: set the time to pause, which is equal to the index of the note times the constant beat interval
+58: break switch statement
+59:
+60: if note matches "C", do this case
+61: call setTimeout to simulate the beats of the song
+62: create a new audio object that plays "D_sharp_hi.mp3"
+63: set the time to pause, which is equal to the index of the note times the constant beat interval
+64: break switch statement
+65:
+66: if note matches "D", do this case
+67: call setTimeout to simulate the beats of the song
+68: create a new audio object that plays "D_sharp_lo.mp3"
+69: set the time to pause, which is equal to the index of the note times the constant beat interval
+70: break switch statement
+71:
+72: if note matches "E", do this case
+73: call setTimeout to simulate the beats of the song
+74: create a new audio object that plays "C_sharp_hi.mp3"
+75: set the time to pause, which is equal to the index of the note times the constant beat interval
+76: break switch statement
+77:
+78: if note matches "F", do this case
+79: call setTimeout to simulate the beats of the song
+80: create a new audio object that plays "C_sharp_lo.mp3"
+81: set the time to pause, which is equal to the index of the note times the constant beat interval
+82: break switch statement
+83:
+84: if note matches "G", do this case
+85: call setTimeout to simulate the beats of the song
+86: create a new audio object that plays "G.mp3"
+87: set the time to pause, which is equal to the index of the note times the constant beat interval
+88: break switch statement
+89:
+90: if note matches "H", do this case
+91: call setTimeout to simulate the beats of the song
+92: create a new audio object that plays "F_sharp.mp3"
+93: set the time to pause, which is equal to the index of the note times the constant beat interval
+94: break switch statement
+95: if note matches "Z", do this case
+96: call setTimeout to simulate the beats of the song
+97: create a new audio object that plays "Z.mp3"
+98: set the time to pause, which is equal to the index of the note times the constant beat interval
+99: break switch statement
+100:
+101:
+102:
+103:
+104: function description printHTML()
+105: function declaration for printHTML()
+106:
+107: create an array to hold the parsed notes
+108: create the multiline variable output, which will contain the HTML code for running the script
+109: DOCTYPE HTML header
+110: HTML root element 
+111: beginning of body tag
+112: script to include jQuery library
+113: begin script for playing music
+114: function declaration for playMusic() in script
+115:
+116:
+117:
+118: begin for loop which will iterate through noteArray and add the appropiate code for each note to output
+119:
+120: set note equal to noteArray[i]
+121: begin switch statement to identify each note and add the appropiate string
+122: 
+123: if note == "A"
+124: append setTimeout to output
+125: append audio object containing "E_hi.mp3" and play() to output
+126: append tab characters and necessary syntax
+127: append the current index to output
+128: append the multiplication to get the desired pause timing
+129: break switch statement
+130:
+131: if note == "B"
+132: append setTimeout to output
+133: append audio object containing "E_lo.mp3" and play() to output
+134: append tab characters and necessary syntax
+135: append the current index to output
+136: append the multiplication to get the desired pause timing
+137: break switch statement
+138:
+139: if note == "C"
+140: append setTimeout to output
+141: append audio object containing "D_sharp_hi.mp3" and play() to output
+142: append tab characters and necessary syntax
+143: append the current index to output
+144: append the multiplication to get the desired pause timing
+145: break switch statement
+146:
+147: if note == "D"
+148: append setTimeout to output
+149: append audio object containing "D_sharp_lo.mp3" and play() to output
+150: append tab characters and necessary syntax
+151: append the current index to output
+152: append the multiplication to get the desired pause timing
+153: break switch statement
+154:
+155: if note == "E"
+156: append setTimeout to output
+157: append audio object containing "C_sharp_hi.mp3" and play() to output
+158: append tab characters and necessary syntax
+159: append the current index to output
+160: append the multiplication to get the desired pause timing
+161: break switch statement
+162:
+163: if note == "F"
+164: append setTimeout to output
+165: append audio object containing "C_sharp_lo.mp3" and play() to output
+166: append tab characters and necessary syntax
+167: append the current index to output
+168: append the multiplication to get the desired pause timing
+169: break switch statement
+170:
+171: if note == "G"
+172: append setTimeout to output
+173: append audio object containing "G.mp3" and play() to output
+174: append tab characters and necessary syntax
+175: append the current index to output
+176: append the multiplication to get the desired pause timing
+177: break switch statement
+178:
+179: if note == "H"
+180: append setTimeout to output
+181: append audio object containing "F_sharp.mp3" and play() to output
+182: append tab characters and necessary syntax
+183: append the current index to output
+184: append the multiplication to get the desired pause timing
+185: break switch statement
+186:
+187: if note == "Z"
+188: append setTimeout to output
+189: append audio object containing "Z.mp3" and play() to output
+190: append tab characters and necessary syntax
+191: append the current index to output
+192: append the multiplication to get the desired pause timing
+193: break switch statement
+194:
+195:
+196:
+197: begin to append the final strings to output
+198: closing curly brace
+199: end of script tag for playMusic()
+200:
+201: creation of a button tied to playMusic()
+202: button text set to "Play!"
+203: close button tag
+204: close body tag
+205: close HTML tag
+206: end multiline string output
+207:
+208: comment detailing the textarea
+209: place "output" in textarea HTMLoutput
+210:
+211:
+212:
+213: comment describing buttonClick() function
+214: declaration of buttonClick() function
+215:
+216: call playMusic()
+217: call printHTML()
+218:
