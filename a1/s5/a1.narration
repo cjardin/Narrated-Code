@@ -1,0 +1,92 @@
+//Narrating JS functions
+
+48: Opening script tag
+49: Comment describing variables
+50: const x is assigned and holds the audio file for A
+51: const y is assigned and holds the audio file for B
+52: const z is assigned and holds the audio file for C
+53: const a is assigned and holds the audio file for D
+54: Comment describing notes_raw
+55: notes_raw variable is assigned values from text box
+56: notes_parsed array is declared
+57:
+58-62: Comment block describes the functionality of three for loops
+63: Declaring parser functionality
+64: Opening brace
+65: For statement will increment until i reaches lengh of notes_raw
+66: if statement checks if the value of i in notes_raw is = to A
+67: if condtion tests true, A is pushed to notes_parsed array
+68: Closing brace for if statement
+69: 
+70: else if statement checks if notes_raw at i is equal to B
+71: if condition is true, B is pushed to notes_parsed
+72: closing brace for else if
+73: 
+74: else if tests if notes_raw at i is equal to Closing
+75: if condition is true, C is pushed to notes_parsed
+76: closing brace for else if
+77: 
+78: else if statement checks if notes_raw at i is equal to D
+79: if condition is true, D is pushed to notes_parsed
+80: closing brace for else if
+81: closing brace for the for loops
+82:
+83: alert function will display to user the contents of notes_parsed
+84: 
+85: index_ms_offset variable is defined
+86: for loop will run we iterate through each index of notes_parsed
+87: if statement checks if notes_parsed at i is equal to A
+88: setTimeout function is called
+89: setTimeout will execute x.play which plays audio file A
+90: index_ms_offset*i is used to set a delay aftet the audio file is played
+91: closing brace for if statement
+92: 
+93: else if checks if notes_parsed at i is equal to B
+94: setTimeout function is called
+95: setTimeout function will call y.play() which plays audio file for B
+96: index_ms_offset*i is used to create a delay after audio file plays
+97: closing else if brace
+98: 
+99: else if statement checks if notes_parsedat i is equal to C
+100: setTimeout function is called
+101: z.play() function is called and plays audio file for Declaring
+102: index_ms_offset*i is used to create delay after audio file C plays
+103: closing brace for else if
+104: 
+105: else if statement checks if notes_parsed at i is equal to Declaring
+106: setTimeout function is called
+107: a.play() is called and plays audio file D
+108: index_ms_offset*i is used to create delay after audio file D plays
+109: closing brace for else if statement
+110: closing brace for second for loop
+111: 
+112: code_output string is defined
+113: for loop will iterate through each index of notes_parsed
+114: if statement checks if notes_parsed at index is equal to A
+115: code_output string is appended with string setTimeout( function(){"
+116: code_output string is appended with "x.play()"
+117: code_output string is appended with closing brace, index_ms_offset value and index value
+118: closing if brace
+119: else if statement checks if notes_parsed is equal to B at index
+120: code_output string is appended with string setTimeout( function(){"
+121: code_output string is appended with "y.play()"
+122: code_output string is appended with closing brace, index_ms_offset value and index value
+123: closing else if brace
+124: else if statement checks if notes_parsed at index is equal to Closing
+125: code_output string is appended with string setTimeout( function(){"
+126: code_output string is appended with "z.play()"
+127: code_output string is appended with closing brace, index_ms_offset value and index value
+128: closing brace for else if statement
+129: else if statement checks if notes_parsed at index is equal to Declaring
+130: code_output string is appended with string setTimeout( function(){"
+131: code_output string is appended with "a.play()"
+132: code_output string is appended with closing brace, index_ms_offset value and index value
+133: closing brace for else if statement
+134: closing brace for third for loop
+135: 
+136: variable htmlTemplate is defined
+137: htmlTemplate is appended with "<html><head><\/head><body>"
+138: htmlTemplate is appended with "<script>@@@PLAY_CODE <\/script>"
+139: htmlTemplate is appended with "<\/body><\/html>"
+140: outputting compiled_code string within our new html template, string with display in second text box of our html page
+141: closing script tag

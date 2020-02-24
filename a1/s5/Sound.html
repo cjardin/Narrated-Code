@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Making Sound </title>
+</head>
+<body>
+    <audio id = "one">
+        <source src = "One.mp3" />
+    </audio>
+    <audio id = "two">
+        <source src ="Two.mp3" />
+    </audio>
+    <audio id = "three">
+        <source src ="Three.mp3" />
+    </audio>
+    <audio id = "four">
+        <source src ="Four.mp3" />
+    </audio>
+    <div id = 'assessment'>
+        <h1>Who played the character of Harry Potter in the movie series?</h1>
+        <button id = "wrong1">George Clooney</button>
+        <button id = "correct">Daniel Radcliff</button>
+        <button id = "wrong2">George Burns </button>
+        <button id = "wrong3">Bradd Pitt</button>
+    </div>
+</body>
+
+<script>
+    const one = document.getElementById("one");
+    const two = document.getElementById("two");
+    const three = document.getElementById("three");
+    const four = document.getElementById("four");
+    const correctButton = document.getElementById("correct");
+    const wrong1 = document.getElementById("wrong1");
+    const wrong2 = document.getElementById("wrong2");
+    const wrong3 = document.getElementById("wrong3");
+    wrong1.addEventListener("click", function(){
+          one.play();
+    })
+
+    correctButton.addEventListener("click", function(){
+        two.play();
+    })
+
+    wrong2.addEventListener("click", function(){
+        three.play();
+    })
+
+    wrong3.addEventListener("click", function(){
+        four.play();
+    })
+</script>
+</html>

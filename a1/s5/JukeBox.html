@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {background-color: lemonchiffon;
+              background-image: url('https://consequenceofsound.net/wp-content/uploads/2016/04/screen-shot-2016-04-27-at-8-53-47-am.png')
+        }
+        h2 {
+            background-color: lightgray;
+        }
+        textarea {
+            background-color: lightgrey;
+        }
+    </style>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous">
+    </script>
+    <audio id="one">
+        <source src="One.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="two">
+        <source src="Two.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="three">
+        <source src="Three.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="four">
+        <source src="Four.mp3" type="audio/mpeg">
+    </audio>
+    <meta charset="UTF-8">
+    <title> Now That's What I Call Music 1995 </title>
+</head>
+<body>
+<h2 align="center", style="color:darkorange">Welcome to the Juke Box</h2>
+<h2 align="center", style="color:darkorange">Now Playing: 1979 by Smashing Pumpkins</h2>
+<textarea id = "user_notes" rows="10" cols="30">
+A
+ B
+  C
+   D
+    </textarea>
+<br>
+<button onClick="parser()" id="btn1">Submit</button>
+<br>
+<textarea  id="compiled_code" rows="10" cols="30"></textarea>
+<script>
+    // Created four const variables that will be used to play the four audio files
+    const x = document.getElementById("one");
+    const y = document.getElementById("two");
+    const z = document.getElementById("three");
+    const a = document.getElementById("four");
+    //note_raw will contain the text from text box
+    notes_raw = $("#user_notes").val().split(/\r?\n/);
+    notes_parsed = [];
+
+    //The first for loop in the parser function will take the contents of notes_raw and place them inside an array
+    //Then an alert is printed to the user that will display the contents of notes_parsed array
+    //The second for loop is used to play the notes inside notes_parsed, the note is played followed by
+    //a call to the setTimeout function which will allow us to play the audio files separately without overlap
+    //the last for loop is used to create an html output box that can be used to compile and play our program.
+    function parser()
+    {
+        for(i = 0; i<notes_raw.length;i++) {
+            if (notes_raw[i][i] == "A") {
+                notes_parsed.push("A");
+            }
+
+            else if(notes_raw[i][i] == "B") {
+                notes_parsed.push("B");
+            }
+
+            else if(notes_raw[i][i] == "C") {
+                notes_parsed.push("C");
+            }
+
+            else if(notes_raw[i][i] == "D") {
+                notes_parsed.push("D");
+            }
+        }
+
+        alert("Your notes are: " +notes_parsed);
+
+        index_ms_offset = 66550;
+        for(i=0; i<notes_parsed.length;i++) {
+            if(notes_parsed[i] == "A") {
+                setTimeout(function() {
+                    x.play();
+                }, index_ms_offset*i);
+            }
+
+            else if(notes_parsed[i] == "B") {
+                setTimeout(function(){
+                    y.play();
+                }, index_ms_offset*i);
+            }
+
+            else if(notes_parsed[i] == "C") {
+                setTimeout(function(){
+                    z.play();
+                }, index_ms_offset*i);
+            }
+
+            else if(notes_parsed[i] == "D") {
+                setTimeout(function(){
+                    a.play();
+                }, index_ms_offset*i);
+            }
+        }
+
+        code_output="";
+        for (index = 0; index < notes_parsed.length; index++) {
+            if( notes_parsed[index] == 'A'){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "x.play()"
+                code_output = code_output + "}, " + index_ms_offset + " * " + index + "); "
+            }
+            else if (notes_parsed[index] == 'B' ){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "y.play()"
+                code_output = code_output + "}, " + index_ms_offset + " * " + index +");  "
+            }
+            else if (notes_parsed[index] == 'C' ){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "z.play()"
+                code_output = code_output + "}, " + index_ms_offset + " * " + index +");  "
+            }
+            else if (notes_parsed[index] == 'D' ){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "a.play()"
+                code_output = code_output + "}, " + index_ms_offset + " * " + index +");  "
+            }
+        }
+
+        var htmlTEMPLATE = "<!doctype html>";
+        htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head><body>";
+        htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>";
+        htmlTEMPLATE = htmlTEMPLATE + "<\/body><\/html>";
+        $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output));
+
+    }
+</script>
+</body>
+</html>
