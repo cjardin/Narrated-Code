@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<script
+			  src="https://code.jquery.com/jquery-3.4.1.js"
+			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			  crossorigin="anonymous"></script>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <textarea id="test" rows="6" cols="8">
+A
+ B
+  C
+   D
+    </textarea>
+<script type="text/javascript">
+var code_output="";
+var notes = [];
+var junk = $("#test").val().split(/\r?\n/);
+for (i=0; i < junk.length; i++)					//This section parses the textarea, and puts the notes into an array, notes[]
+{
+	for(j=0; j< ($("#test").attr("cols"));j++)
+		{
+
+			if (junk[i][j]=="A"){
+				notes.push("A");
+			};
+			if (junk[i][j]=="B"){
+				notes.push("B");
+			};
+			if(junk[i][j]=="C"){
+				notes.push("C");
+			};
+			if(junk[i][j]=="D"){
+				notes.push("D");
+		}
+		};
+};
+
+
+code_output= code_output+"var playlist=["+notes.length+"];\n"; //This is creating a array that will contain all the notes in the next html doc.
+
+for (i=0;i<notes.length;i++){			//this loop adds the appropriate notes, and EventListeners
+	if (i==1){											//Plays the first note to start the domino effect.
+		code_output= code_output+"playlist[0].play();\n"
+	}
+	code_output= code_output+"playlist["+i+"] =";
+
+switch(notes[i]) {
+  case "A":
+		code_output = code_output+"new Audio('mp3_notes/a3.mp3');\n"
+		if(i==0){break;}	//These check if this is the first note in the series, to prevent an even listener from being added.
+		code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
+    break;
+  case "B":
+		code_output = code_output+"new Audio('mp3_notes/b3.mp3');\n"
+		if(i==0){break;}
+		code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
+    break;
+	case "C":
+		code_output = code_output+"new Audio('mp3_notes/c3.mp3');\n"
+		if(i==0){break;}
+		code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
+
+		break;
+	case "D":
+		code_output = code_output+"new Audio('mp3_notes/d3.mp3');\n"
+		if(i==0){break;}
+		code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
+
+		break;
+  default:
+    alert("Not valid note");
+	}
+
+}
+
+</script>
+<textarea id="compiled_code" rows="20" cols="40">
+
+</textarea>
+<script type="text/javascript">		// This is pretty much your code.
+	var htmlTEMPLATE = "<!doctype html>"
+	htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body><p>The Audio should play now.</p>"
+	htmlTEMPLATE = htmlTEMPLATE + "<script>\n@@@PLAY_CODE <\/script>"
+	htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+$("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+
+</script>
+
+  </body>
+</html>
