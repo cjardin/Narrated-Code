@@ -1,0 +1,467 @@
+1: HTML document type
+2: HTML opening tag
+3: comment
+4: comment
+5: comment
+6: comment
+7: comment
+8: programming Description comment
+9:
+10:
+11:
+12:
+13:
+14:
+15:
+16:
+17:
+18:
+19:
+20:
+21:
+22:
+23:
+24:
+25:
+26: end programming Description comment
+27: HTML head tag
+28: HTML style tag
+29: Call body function
+30: set background color to light grey
+31: closeing bracket
+32: close HTML style tag
+33: comment
+34: open script tag
+35: set src to jquery library
+36: set integrity equal to string
+37: set crossorigin to "string" and close script tag
+38: 
+39: close head tag
+40: open body tag
+41: comment
+42: open h1 tag put Music Box Close h1 tag
+43: comment
+44: open textarea set tyle  to background color reds, border color to yellow, color white and ide to inpput_notes, rows and cols to 10
+45: A=a.mp3
+46: A
+47: B=b.mp3
+48:  B
+49: C=c.mp3
+50:   C
+51: D=d.mp3
+52:    D
+53: close textarea tag
+54: comment
+55: comment
+56: open button tag set style to backroung color red, border color yellow, color white, on click function to myFunction close button tag
+57: comment
+58: comment
+59: open text area tag set style backround color to red border color to yellow color to white and id to comiled_code
+60: 
+61: close textarea tag
+62: script tag
+63: comment
+64: set function myFunction opening bracket
+65: comment
+66: set notes_raw to $("#input_notes").val().split(/\r?\n/)
+67: set amp3 to string a.mp3
+68: set bmp3 to string b.mp3
+69: set cmp3 to string c.mp3
+70: set dmp3 to string d.mp3
+71: set 4 empty string to myArray
+72: set enoughMP3 to zero
+73: set enoughLetters to zero
+74: set indexForArray to zero
+75: comment
+76: for loop index zero, index < notes_raw.length, index++
+77: comment
+78: if notes_raw[index] = A, B,  C,   D then enoughLetters++
+79: comment
+80: comment
+81: comment
+82: else if notes_raw[index ] equals A.mp3
+83: comment
+84: if notes_raw.indexOf('A') is less then index
+85: alert string
+86: closing bracket
+87: set song amp3 and letter A to aSongObject
+88: set aSongObject to myArray[indexForArray]
+89: increment indexForArray
+90: increment enoughMP3
+91: else if notes_raw[index] equals string A=b.mp3
+92: opening brackets
+93: if notes_raw.indexOf('A') is less then index
+94: alert string
+95: closing bracket
+96: set song bmp3 and letter A to aSongObject
+97: set aSongObject to myArray[indexForArray]
+98: increment indexForArray
+99: increment enoughMP3
+100: else if notes_raw[index] equals string A=c.mp3
+101: opening brackets
+102: if notes_raw.indexOf('A') is less then index
+103: alert string
+104: closing bracket
+105: set song cmp3 and letter A to aSongObject
+106: set aSongObject to myArray[indexForArray]
+107: increment indexForArray
+108: increment enoughMP3
+109: else if notes_raw[index] equals string A=d.mp3
+110: opening brackets
+111: if notes_raw.indexOf('A') is less then index
+112: alert string
+113: closing bracket
+114: set song dmp3 and letter A to aSongObject
+115: set aSongObject to myArray[indexForArray]
+116: increment indexForArray
+117: increment enoughMP3
+118: else if notes_raw[index] equals string B=a.mp3
+119: opening brackets
+120: if notes_raw.indexOf(' B') is less then index
+121: alert string
+122: closing bracket
+123: set song amp3 and letter B to aSongObject
+124: set aSongObject to myArray[indexForArray]
+125: increment indexForArray
+126: increment enoughMP3
+127: else if notes_raw[index] equals string B=b.mp3
+128: opening brackets
+129: if notes_raw.indexOf(' B') is less then index
+130: alert string
+131: closing bracket
+132: set song bmp3 and letter B to aSongObject
+133: set aSongObject to myArray[indexForArray]
+134: increment indexForArray
+135: increment enoughMP3
+136: else if notes_raw[index] equals string B=c.mp3
+137: opening brackets
+138: if notes_raw.indexOf(' B') is less then index
+139: alert string
+140: closing bracket
+141: set song cmp3 and letter B to aSongObject
+142: set aSongObject to myArray[indexForArray]
+143: increment indexForArray
+144: increment enoughMP3
+145: else if notes_raw[index] equals string B=d.mp3
+146: opening brackets
+147: if notes_raw.indexOf(' B') is less then index
+148: alert string
+149: closing bracket
+150: set song dmp3 and letter B to aSongObject
+151: set aSongObject to myArray[indexForArray]
+152: increment indexForArray
+153: increment enoughMP3
+154: closing bracket
+155: else if notes_raw[index] equals string C=a.mp3
+156: opening brackets
+157: if notes_raw.indexOf('  C') is less then index
+158: alert string
+159: closing bracket
+160: set song amp3 and letter C to aSongObject
+161: set aSongObject to myArray[indexForArray]
+162: increment indexForArray
+163: increment enoughMP3
+164: else if notes_raw[index] equals string C=b.mp3
+165: opening brackets
+166: if notes_raw.indexOf('  C') is less then index
+167: alert string
+168: closing bracket
+169: set song bmp3 and letter C to aSongObject
+170: set aSongObject to myArray[indexForArray]
+171: increment indexForArray
+172: increment enoughMP3
+173: else if notes_raw[index] equals string C=c.mp3
+174: opening brackets
+175: if notes_raw.indexOf('  C') is less then index
+176: alert string
+177: closing bracket
+178: set song cmp3 and letter C to aSongObject
+179: set aSongObject to myArray[indexForArray]
+180: increment indexForArray
+181: increment enoughMP3
+182: else if notes_raw[index] equals string C=d.mp3
+183: opening brackets
+184: if notes_raw.indexOf('  C') is less then index
+185: alert string
+186: closing bracket
+187: set song dmp3 and letter C to aSongObject
+188: set aSongObject to myArray[indexForArray]
+189: increment indexForArray
+190: increment enoughMP3
+191: closing bracket
+192: else if notes_raw[index] equals string D=a.mp3
+193: opening brackets
+194: if notes_raw.indexOf('   D') is less then index
+195: alert string
+196: closing bracket
+197: set song amp3 and letter D to aSongObject
+198: set aSongObject to myArray[indexForArray]
+199: increment indexForArray
+200: increment enoughMP3
+201: else if notes_raw[index] equals string D=b.mp3
+202: opening brackets
+203: if notes_raw.indexOf('   D') is less then index
+204: alert string
+205: closing bracket
+206: set song bmp3 and letter D to aSongObject
+207: set aSongObject to myArray[indexForArray]
+208: increment indexForArray
+209: increment enoughMP3
+210: else if notes_raw[index] equals string D=c.mp3
+211: opening brackets
+212: if notes_raw.indexOf('   D') is less then index
+213: alert string
+214: closing bracket
+215: set song cmp3 and letter D to aSongObject
+216: set aSongObject to myArray[indexForArray]
+217: increment indexForArray
+218: increment enoughMP3
+219: else if notes_raw[index] equals string D=d.mp3
+220: opening brackets
+221: if notes_raw.indexOf('   D') is less then index
+222: alert string
+223: closing bracket
+224: set song dmp3 and letter D to aSongObject
+225: set aSongObject to myArray[indexForArray]
+226: increment indexForArray
+227: increment enoughMP3
+228: closing bracket
+229: comment
+230: else if notes_raw[index] equals A=,B=,C=,D= alert 
+231: closing bracket
+232: comment
+233: if enoughLetters does not equal enoughMP3 then alert
+234: create array called notes_Parsed
+235: set index2ForArray to zero
+236:
+237: comment
+238: comment
+239: for loop starts at zero and continues as long as index is less then notes_raw.length
+240: if notes_raw[index][0] is equal to A
+241: notes_Parsed push myArray[index2ForArray].letter
+242: notes_Parsed push myArray[index2ForArray].song
+243: increment index2ForArray
+244: else if notes_raw[index][1] is equal to B
+245: notes_Parsed push myArray[index2ForArray].letter
+246: notes_Parsed push myArray[index2ForArray].song
+247: increment index2ForArray
+248: else if notes_raw[index][2] is equal to C
+249: notes_Parsed push myArray[index2ForArray].letter
+250: notes_Parsed push myArray[index2ForArray].song
+251: increment index2ForArray
+252: 
+253: else if notes_raw[index][3] is equal to D
+254: increment index2ForArray
+255: close bracket
+256: close bracket
+257: set timing to 1
+258: set index_ms_offset to 2500
+259: comment
+260: for index is set to zero and itererates untill nidex is not less then notes_Parsed.length index++
+261: comment
+262: comment
+263: if notes_Parsed[index] equals A
+264: comment
+265: increment index
+266: comment
+267: if notes_Parsed[index] equals a.mp3
+268: set A equal to notes_Parsed[index]
+169: setTimeout Function called
+170: play new Audio Audio
+171: index_ms_offset multiply by index
+172: else if notes_Parsed[index] equals b.mp3
+273: set B equal to notes_Parsed[index]
+274: setTimeout Function called
+275: play new Audio Audio
+276: index_ms_offset multiply by index
+277: else if notes_Parsed[index] equals c.mp3
+278: set C equal to notes_Parsed[index]
+279: setTimeout Function called
+280: play new Audio Audio
+281: index_ms_offset multiply by index
+282: else if notes_Parsed[index] equals d.mp3
+283: set D equal to notes_Parsed[index]
+284: setTimeout Function called
+285: play new Audio Audio
+286: index_ms_offset multiply by index
+287: closing bracket 
+288: else if notes_Parsed[index] equals B
+289: increment index
+290: if notes_Parsed[index] equals a.mp3
+291: set A equal to notes_Parsed[index]
+292: setTimeout Function called
+293: play new Audio Audio
+294: index_ms_offset multiply by index
+295: else if notes_Parsed[index] equals b.mp3
+296: set B equal to notes_Parsed[index]
+297: setTimeout Function called
+298: play new Audio Audio
+299: index_ms_offset multiply by index
+300: else if notes_Parsed[index] equals c.mp3
+301: set C equal to notes_Parsed[index]
+302: setTimeout Function called
+303: play new Audio Audio
+304: index_ms_offset multiply by index
+305: else if notes_Parsed[index] equals d.mp3
+306: set D equal to notes_Parsed[index]
+307: setTimeout Function called
+308: play new Audio Audio
+309: index_ms_offset multiply by index
+310: closing bracket 
+311: else if notes_Parsed[index] equals C
+312: increment index
+313: if notes_Parsed[index] equals a.mp3
+314: set A equal to notes_Parsed[index]
+315: setTimeout Function called
+316: play new Audio Audio
+317: index_ms_offset multiply by index
+318: else if notes_Parsed[index] equals b.mp3
+319: set B equal to notes_Parsed[index]
+320: setTimeout Function called
+321: play new Audio Audio
+322: index_ms_offset multiply by index
+323: else if notes_Parsed[index] equals c.mp3
+324: set C equal to notes_Parsed[index]
+325: setTimeout Function called
+326: play new Audio Audio
+327: index_ms_offset multiply by index
+328: else if notes_Parsed[index] equals d.mp3
+329: set D equal to notes_Parsed[index]
+330: setTimeout Function called
+331: play new Audio Audio
+332: index_ms_offset multiply by index
+333: closing bracket 
+334: closing bracket
+335: else if notes_Parsed[index] equals D
+336: increment index
+337: if notes_Parsed[index] equals a.mp3
+338: set A equal to notes_Parsed[index]
+339: setTimeout Function called
+340: play new Audio Audio
+341: index_ms_offset multiply by index
+342: else if notes_Parsed[index] equals b.mp3
+343: set B equal to notes_Parsed[index]
+344: setTimeout Function called
+345: play new Audio Audio
+346: index_ms_offset multiply by index
+347: else if notes_Parsed[index] equals c.mp3
+348: set C equal to notes_Parsed[index]
+349: setTimeout Function called
+350: play new Audio Audio
+351: index_ms_offset multiply by index
+352: else if notes_Parsed[index] equals d.mp3
+353: set D equal to notes_Parsed[index]
+354: setTimeout Function called
+355: play new Audio Audio
+356: index_ms_offset multiply by index
+357: closing bracket
+358: closing bracket
+359: closing bracket
+360: declares a string named htmlTEMPLATE and sets a string to it
+361: adds a string to htmlTEMPLATE
+362: adds a string to htmlTEMPLATE
+363: adds a string to htmlTEMPLATE
+364: 
+365: declare a string variable named code_output and set an empty string to it
+366: sets timing val to zero
+367: sets index_ms_offset to 2500
+368: comment
+369: for loop that starts with index 0 and will iterate untill index is no longer smaller then notes_Parsed.length
+370: comment
+371: if notes_Parsed[index] equal A
+372: increment index
+373: if notes_Parsed[index] equals a.mp3
+374: set code_output to code_output + string
+375: set code_output to code_output plus string
+376: set code_output to code_output plus string plus index_ms_offset plus string plus index
+377: close bracket
+378: else if notes_Parsed[index] equals b.mp3
+379: set code_output to code_output + string
+380: set code_output to code_output plus string
+381: set code_output to code_output plus string plus index_ms_offset plus string plus index
+382: close bracket
+383: else if notes_Parsed[index] equals c.mp3
+384: set code_output to code_output + string
+385: set code_output to code_output plus string
+386: set code_output to code_output plus string plus index_ms_offset plus string plus index
+387: close bracket
+388: else if notes_Parsed[index] equals d.mp3
+389: set code_output to code_output + string
+390: set code_output to code_output plus string
+391: set code_output to code_output plus string plus index_ms_offset plus string plus index
+392: close bracket
+393: 
+394: else if notes_Parsed[index] equal B
+395: increment index
+396: if notes_Parsed[index] equals a.mp3
+397: set code_output to code_output + string
+398: set code_output to code_output plus string
+399: set code_output to code_output plus string plus index_ms_offset plus string plus index
+400: close bracket
+401: else if notes_Parsed[index] equals b.mp3
+402: set code_output to code_output + string
+403: set code_output to code_output plus string
+404: set code_output to code_output plus string plus index_ms_offset plus string plus index
+405: close bracket
+406: else if notes_Parsed[index] equals c.mp3
+407: set code_output to code_output + string
+408: set code_output to code_output plus string
+409: set code_output to code_output plus string plus index_ms_offset plus string plus index
+410: close bracket
+411: else if notes_Parsed[index] equals d.mp3
+412: set code_output to code_output + string
+413: set code_output to code_output plus string
+414: set code_output to code_output plus string plus index_ms_offset plus string plus index
+415: close bracket
+416: else if notes_Parsed[index] equal C
+417: increment index
+418: if notes_Parsed[index] equals a.mp3
+419: set code_output to code_output + string
+420: set code_output to code_output plus string
+421: set code_output to code_output plus string plus index_ms_offset plus string plus index
+422: close bracket
+423: else if notes_Parsed[index] equals b.mp3
+424: set code_output to code_output + string
+425: set code_output to code_output plus string
+426: set code_output to code_output plus string plus index_ms_offset plus string plus index
+427: close bracket
+428: else if notes_Parsed[index] equals c.mp3
+429: set code_output to code_output + string
+430: set code_output to code_output plus string
+431: set code_output to code_output plus string plus index_ms_offset plus string plus index
+432: close bracket
+433: else if notes_Parsed[index] equals d.mp3
+434: set code_output to code_output + string
+435: set code_output to code_output plus string
+436: set code_output to code_output plus string plus index_ms_offset plus string plus index
+437: close bracket
+438: else if notes_Parsed[index] equal D
+439: increment index
+440: if notes_Parsed[index] equals a.mp3
+441: set code_output to code_output + string
+442: set code_output to code_output plus string
+443: set code_output to code_output plus string plus index_ms_offset plus string plus index
+444: close bracket
+445: else if notes_Parsed[index] equals b.mp3
+446: set code_output to code_output + string
+447: set code_output to code_output plus string
+448: set code_output to code_output plus string plus index_ms_offset plus string plus index
+449: close bracket
+450: else if notes_Parsed[index] equals c.mp3
+451: set code_output to code_output + string
+452: set code_output to code_output plus string
+453: set code_output to code_output plus string plus index_ms_offset plus string plus index
+454: close bracket
+455: else if notes_Parsed[index] equals d.mp3
+456: set code_output to code_output + string
+457: set code_output to code_output plus string
+458: set code_output to code_output plus string plus index_ms_offset plus string plus index
+459: close bracket
+460: close bracket
+461: close bracket
+462: comment
+463: set code_output to @@@PLAY_CODE and compile
+464: close bracket
+465: close script tag
+466: close body tag
+467: close html tag

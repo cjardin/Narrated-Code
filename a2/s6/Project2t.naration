@@ -1,0 +1,95 @@
+1: comment
+2: import kanren
+3: import run, eq, membero, var, conde, facts from karen from kanren
+4: import random
+5: create a variable
+6: print eq relationship
+7: comment
+8: creates a var z
+9: print prints a number x such that x is equal to z and z is equal to 3
+10: comment
+11: print the number x such that 1,2 ewuals 1, x
+12: comment
+13: prints membero twice to ask for the 2 values of x such that x is a member of 1,2,3 and that x is a member of 2,3,4
+14: comment
+15: create a logic variable named z and assign 'test'
+16: print z
+17: comment:
+18: cretes multiple logic variables at once
+19: print a
+20: print b
+21: print c
+22: comment
+23: set Relation() to parent
+24: create facts for parent and assiign strings homer to bart, homer to lisa and abe to homer
+25: print find 1 x such that x is the parent of Bart
+26: print find 2 x such that x is the parent of homer
+27: comment
+28: create var y
+29: print 1 x such that the parent of x is y and the parent of y is bart
+30: comment
+31: create a grandparent def x, z
+32: create a var y
+33: return conde parent x, y parent y,z
+34: print find 1 x grandparent x is bart
+35:
+36: comment
+37: comment
+38: comment
+39: comment
+40: comment
+41: comment
+42: 
+43: set dayCal to Relation
+44: comment
+45: create facts dayCal cs 441 to Tuesday, cs 485 to Tuesday, cs 351 to Tuesday and Math 242 to Tuesday
+46: create facts dayCal 9:00-10:15 to cs 441, 1:00-2:15 to ca 485, 2:30-3:45 to cs 351 and 4:00-5:15 to Math 242
+47: create facts dayCal cs 441 to Thursday, cs 485 to Thursday, cs 351 to Thursday and Math 242 to Thursday
+48: create facts dayCal Homework to Monday, Job Work to Monday
+49: create facts dayCal 8:00-12:00 to Homework, 1:00-9:15 to Job Work
+50: create facts dayCal Homework to Wednesday, Job Work to Wednesday
+51: create facts dayCal Homework to Friday, Job Work to Friday
+52: comment
+53: create def grandparent x, z
+54: set var y
+55: return conde of dayCal x,y and dayCal y,z
+56: comment
+57: print strings
+58: print string monday
+59: print run 4 values x of dayCal x to Monday
+60: print string times
+61: print run 4 values grandparent x to Monday
+62: print string Tuesday
+63:	print run 4 values x of dayCal x to Tuesday
+64:	print string times
+65:	print run 4 values grandparent x to Tuesday
+66:	print string Wednesday
+67:	print run 4 values x of dayCal x to Wednesday
+68:	print string times
+69:	print run 4 values grandparent x to Wednesday
+70:	print string Thursday
+71: print run 4 values x of dayCal x to Thursday
+72: print string times
+73:	print run 4 values grandparent x to Thursday
+74:	print string Friday
+75: print run 4 values x of dayCal x to Friday
+76:	print string times
+77:	print run 4 values x of dayCal x to Friday
+78: print new line
+79: 
+80: assign list range 1 to 5 to the object x1
+81: create array musicBox
+82: random.shuffle x1
+83: set zero to i
+84: while i is less then 4
+85: if x1[i] equals 1
+86: musicBox append A
+87: if x1[i] equals 2
+88: musicBox append B
+89: if x1[i] equals 3
+90: musicBox append C
+91: if x1[i] equals 4
+92: musicBox append D
+93: i + 1
+94: print string
+95: print musicBox object with each value as a new line

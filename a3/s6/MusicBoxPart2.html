@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<!----
+Program Author: Luke Landon - Note* Second Time Programming in HTML and JS
+Course: CS 351
+Professor: Cary Jardin
+-->
+<!--Program Discription: 
+	When file is clicked on opens program in HTML page on browser selected.
+	The program dispays the tital Music Box, a text box with notes 
+	preloaded and songs assigned to each note. When the Button is clicked on 
+	will play the songs assigned to each note in the order assigned. The program
+	will then generate a html text file that will hold hold the times and songs 
+	played with each note in the correct order. This can then be copied and put inside
+	its own file to play the exact same format of songs and times that was played in 
+	the first. In this drogram the user must put the note to be assigned in the beggining
+	with a = sign right next to the note and the mp3 right next to the = sign. Each note to
+	be played must be structured with A having no spaces before it, B must have one space before it
+	C must have two spaces before it and D must have 3 spaces before it.
+	
+	The limitations on this program are that the user must have the specific spacing before A, B, C, D 
+	Also the user should not play a note before it has been assigned. in this program that will be fixed
+	internally but will display an alert to the user for future use.If the user does not assign the same 
+	amount of notes as notes played the program will work and only play the ones assigned but display an
+	alert to the user
+-->
+<head>
+<style>
+body{
+background-color: #BDC3C7; <!-- Changes the backgroun color-->
+}
+</style>
+<!-- Adds jquery library to the program -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--Display Music Box as the header-->
+<h1>Music Box</h1>
+<!-- Creates a text area that is red with blue boarders and includes the notes A,B,C,D in decending order-->
+<textarea style="background-color:red; border-color:yellow; color:white"id = "input_notes" rows="10" cols="10">
+A=a.mp3
+A
+B=b.mp3
+ B
+C=c.mp3
+  C
+D=d.mp3
+   D
+</textarea>
+<!-- Creates a button that the background is red and border is yellow that is linked onclick with myFunction
+that will play both the sounds and generate the compiled code in the textbox-->
+<button style="background-color:red; border-color:yellow; color:white" onclick="myFunction()">Play Music</button>
+<!--Creates a button that the background is red and the border is yellow that will contain compiled code to play
+the sounds collected in another html page-->
+<textarea  style="background-color:red; border-color:yellow; color:white" id="compiled_code" rows="20" cols="40">
+     
+</textarea>
+<script>
+<!--Function that plays when button is clicked-->
+function myFunction() {
+	//take input_notes and splits each letter up and puts them in a array
+	notes_raw = $("#input_notes").val().split(/\r?\n/);
+	var amp3 = "a.mp3" //sets the mp3 string to a var
+	var bmp3 = "b.mp3"
+	var cmp3 = "c.mp3"
+	var dmp3 = "d.mp3"
+	var myArray = ["","","",""]; //creates an array with 4 empty strings
+	enoughMP3 = 0 //sets enoughMP3 to zerto to track the about of MP3s assigned
+	enoughLetters = 0 //sets enoughLetters to zero to track the amout of notes played	
+	indexForArray = 0; //keeps track of the index number for the array
+	<!--This for loop will loop through the length of notes_raw and compare each array index to find if it is a note or a string.-->
+	for (index = 0; index < notes_raw.length; index++) {
+	// if notes_raw[index] is equal to a note then it will increment enoughLetters
+		if (notes_raw[index] == 'A' || notes_raw[index] == ' B' || notes_raw[index] == '  C' || notes_raw[index] == '   D') { enoughLetters++}
+		//else if that compares if the notes_raw index is equal to the string A=a.mp3 it it does it will create a song object
+		//and put the song and note inside it. Then it will put the onject into myArray to hold the 4 onjects to be played.
+		//After increments indexForArray and enoughMP3.
+		else if(notes_raw[index] == 'A=a.mp3' )
+		{	//this if statment checks to make sure the index of note A is not placed before the index of A=a.mp3 if it does it will alert the user
+			if(notes_raw.indexOf('A') < index){
+				alert("You have placed the A note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the A note. Thank you!")
+			}
+			var aSongObject = {song:amp3, letter: "A"}; //sets the song and object to aSongObject
+			myArray[indexForArray] = aSongObject; //sets aSongObject inside the myArray[indexForArray]
+			indexForArray++//moves the value of index2ForArray forward one
+			enoughMP3++//adds one to enoughMP3 to be compared at the end of the loop
+		}else if(notes_raw[index] == "A=b.mp3")
+		{
+			if(notes_raw.indexOf('A') < index){
+				alert("You have placed the A note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the A note. Thank you!")
+			}
+			var aSongObject = {song:bmp3, letter: "A"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == "A=c.mp3")
+		{
+			if(notes_raw.indexOf('A') < index){
+				alert("You have placed the A note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the A note. Thank you!")
+			}
+			var aSongObject = {song:cmp3, letter: "A"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if (notes_raw[index] == "A=d.mp3")
+		{
+			if(notes_raw.indexOf('A') < index){
+				alert("You have placed the A note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the A note. Thank you!")
+			}
+			var aSongObject = {song:dmp3, letter: "A"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == 'B=a.mp3' )
+		{
+			if(notes_raw.indexOf(' B') < index){
+				alert("You have placed the B note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the B note. Thank you!")
+			}
+			var aSongObject = {song:amp3, letter: "B"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == "B=b.mp3")
+		{
+			if(notes_raw.indexOf(' B') < index){
+				alert("You have placed the B note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the B note. Thank you!")
+			}
+			var aSongObject = {song:bmp3, letter: "B"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == "B=c.mp3")
+		{
+			if(notes_raw.indexOf(' B') < index){
+				alert("You have placed the B note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the B note. Thank you!")
+			}
+			var aSongObject = {song:cmp3, letter: "B"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+		enoughMP3++
+		}else if (notes_raw[index] == "B=d.mp3")
+		{
+			if(notes_raw.indexOf(' B') < index){
+				alert("You have placed the B note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the B note. Thank you!")
+			}
+			var aSongObject = {song:dmp3, letter: "B"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}
+		else if(notes_raw[index] == 'C=a.mp3' )
+		{
+			if(notes_raw.indexOf('  C') < index){
+				alert("You have placed the C note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the C note. Thank you!")
+			}
+			var aSongObject = {song:amp3, letter: "C"};
+			myArray[index] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == "C=b.mp3")
+		{
+			if(notes_raw.indexOf('  C') < index){
+				alert("You have placed the C note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the C note. Thank you!")
+			}
+			var aSongObject = {song:bmp3, letter: "C"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == "C=c.mp3")
+		{
+			if(notes_raw.indexOf('  C') < index){
+				alert("You have placed the C note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the C note. Thank you!")
+			}
+			var aSongObject = {song:cmp3, letter: "C"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if (notes_raw[index] == "C=d.mp3")
+		{
+			if(notes_raw.indexOf('  C') < index){
+				alert("You have placed the C note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the C note. Thank you!")
+			}
+			var aSongObject = {song:dmp3, letter: "C"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}
+		else if(notes_raw[index] == 'D=a.mp3' )
+		{
+			if(notes_raw.indexOf('   D') < index){
+				alert("You have placed the D note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the D note. Thank you!")
+			}
+			var aSongObject = {song:amp3, letter: "D"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == "D=b.mp3")
+		{
+			if(notes_raw.indexOf('   D') < index){
+				alert("You have placed the D note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the D note. Thank you!")
+			}
+			var aSongObject = {song:bmp3, letter: "D"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if(notes_raw[index] == "D=c.mp3")
+		{
+			if(notes_raw.indexOf('   D') < index){
+				alert("You have placed the D note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the D note. Thank you!")
+			}
+			var aSongObject = {song:cmp3, letter: "D"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}else if (notes_raw[index] == "D=d.mp3")
+		{
+			if(notes_raw.indexOf('   D') < index){
+				alert("You have placed the D note before Assigning it an MP3 track. I have corrected this issue internally please assign an MP3 before playing the D note. Thank you!")
+			}
+			var aSongObject = {song:dmp3, letter: "D"};
+			myArray[indexForArray] = aSongObject;
+			indexForArray++
+			enoughMP3++
+		}
+		//else if statment that will check and see if notes_raw[index] is equal to the incomplete strings and will throw an alert to the user
+		else if(notes_raw[index] == 'A=' ||notes_raw[index] == 'B=' || notes_raw[index] == 'C=' || notes_raw[index] == 'D='){alert("You are trying to play a note that does not have a MP3 Assigned ")}
+	}
+	//if statment that checks to make sure enoughLetters and enoughMP3 are not equal. if so will throw an alert to the user
+	if (enoughMP3 != enoughLetters){alert("You are missing an mp3 or missing a note!")}
+	var notes_Parsed = [] //array used to hold each token
+	index2ForArray = 0//keeps track of index2forArray
+	
+<!--for loop to check each letter passed in through notes_raw and pushes them into notes_Parsed. this will happen by pushing the letter of the object from myArray first-->
+<!--then it will push the song from the object stored in myArray.-->
+	for (index = 0; index < notes_raw.length; index++) { 
+		if (notes_raw[index][0] == 'A'){
+				notes_Parsed.push(myArray[index2ForArray].letter)
+				notes_Parsed.push(myArray[index2ForArray].song)
+				index2ForArray++
+			}else if(notes_raw[index][1] == 'B'){
+				notes_Parsed.push(myArray[index2ForArray].letter)
+				notes_Parsed.push(myArray[index2ForArray].song)
+				index2ForArray++
+			}else if(notes_raw[index][2] == 'C'){
+				notes_Parsed.push(myArray[index2ForArray].letter)
+				notes_Parsed.push(myArray[index2ForArray].song)
+				index2ForArray++
+		
+			}else if(notes_raw[index][3] == 'D'){
+				index2ForArray++
+			}
+		}
+		timing = 1 //used to keep hold of time
+		index_ms_offset = 2500 //sets time offset to be 5000 millisecond 
+		<!--for loop that tests the length of notes_Parsed array-->
+		for (index = 0; index < notes_Parsed.length; index++) {
+		<!-- if else statments that checks and plays the audio associated with each token passed in through notes_Parsed. This will be done by first check to see if the token-->
+		<!--is ether A,B,C or D and then will check  and play the song associated with the mp3 string by the time index_ms_offset times the index-->
+			if(notes_Parsed[index] == 'A'){ 
+				//incements the index to find the next value which is a string containing the song
+				index++
+				//checks to see if the new index is a 'a.mp3' if it is executes
+				if(notes_Parsed[index] =='a.mp3'){
+					A = notes_Parsed[index] //sets the string a.mp3 to A
+					setTimeout(function(){ //calls the setTimeout Function
+					new Audio(A).play() //plays the audio A
+					}, index_ms_offset * index ) //plays audio after index_ms_offset * the current index
+				}else if(notes_Parsed[index] =='b.mp3'){
+					B = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(B).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] == 'c.mp3'){
+					C = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(C).play()
+					}, index_ms_offset * index )	
+				}else if(notes_Parsed[index] == 'd.mp3'){
+					D = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(D).play()
+					}, index_ms_offset * index )
+				}
+			}else if(notes_Parsed[index] == 'B'){
+			index++
+			if(notes_Parsed[index] =='a.mp3'){
+					A = notes_Parsed[index]
+					setTimeout(function(){
+					new Audio(A).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] =='b.mp3'){
+					B = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(B).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] == 'c.mp3'){
+					C = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(C).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] == 'd.mp3'){
+					D = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(D).play()
+					}, index_ms_offset * index )
+				}
+			}else if(notes_Parsed[index] == 'C'){
+			index++
+			if(notes_Parsed[index] =='a.mp3'){
+					A = notes_Parsed[index]
+					setTimeout(function(){
+					new Audio(A).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] =='b.mp3'){
+					B = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(B).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] == 'c.mp3'){
+					C = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(C).play()
+					}, index_ms_offset * index )
+					}else if(notes_Parsed[index] == 'd.mp3'){
+					D = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(D).play()
+					}, index_ms_offset * index )
+				}
+			}
+			else if(notes_Parsed[index] == 'D'){
+			index++
+			if(notes_Parsed[index] =='a.mp3'){
+					A = notes_Parsed[index]
+					setTimeout(function(){
+					new Audio(A).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] =='b.mp3'){
+					B = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(B).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] == 'c.mp3'){
+					C = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(C).play()
+					}, index_ms_offset * index )
+				}else if(notes_Parsed[index] == 'd.mp3'){
+					D = notes_Parsed[index]
+					setTimeout(function(){ 
+					new Audio(D).play()
+					}, index_ms_offset * index )
+				}
+			}
+		}
+		var htmlTEMPLATE = "<!doctype html>" //creates a string var called htmlTEMPLATE
+		htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>" //adds html head and top part of body to string
+		htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>" //adds the code to play the songs in script tags
+		htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>" //adds the end portion of body and html tags to the htmlTEMPLATE string
+		
+		code_output = "";// creates an empty string to hold code output
+		timing = 0; //var for starting time counter
+		index_ms_offset = 2500; // var set the offset to be 5000 ms
+		<!--for loop that tests the length of notes_Parsed array and adds the code needed to run the to the code_output string-->
+		for (index = 0; index < notes_Parsed.length; index++){
+		<!-- if else statments that checks and plays the audio associated with each token passed in through notes_Parsed by checking each string starting with the note and then the mp3-->
+			if(notes_Parsed[index] == 'A'){
+				index++
+				if(notes_Parsed[index] =='a.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('a.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='b.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('b.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='c.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('c.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='d.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('d.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				
+			}else if(notes_Parsed[index] == 'B'){
+				index++
+				if(notes_Parsed[index] =='a.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('a.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='b.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('b.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='c.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('c.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='d.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('d.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+			}else if(notes_Parsed[index] == 'C'){
+				index++
+				if(notes_Parsed[index] =='a.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('a.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='b.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('b.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='c.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('c.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='d.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('d.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+			}else if(notes_Parsed[index] == 'D'){
+				index++
+				if(notes_Parsed[index] =='a.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('a.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='b.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('b.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='c.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('c.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				else if(notes_Parsed[index] =='d.mp3'){
+					code_output = code_output + "setTimeout(function(){"
+					code_output = code_output+"new Audio('d.mp3').play()"
+					code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+					}
+				}
+			}
+		 //compiles all the code and replaces code_output into the string @@@PLAY_CODE
+		 $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+		}
+</script>
+</body>
+</html>

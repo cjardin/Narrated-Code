@@ -1,0 +1,18 @@
+i<!doctype html><html><head></head ><body><p>The Audio should play now.</p><script>
+var playlist=[4];
+playlist[0] =new Audio('mp3_notes/a3.mp3');
+playlist[0].play();
+playlist[1] =new Audio('mp3_notes/b3.mp3');
+playlist[0].addEventListener('ended',()=>{
+	playlist[1].play();
+	})
+playlist[2] =new Audio('mp3_notes/c3.mp3');
+playlist[1].addEventListener('ended',()=>{
+	playlist[2].play();
+	})
+playlist[3] =new Audio('mp3_notes/d3.mp3');
+playlist[2].addEventListener('ended',()=>{
+	playlist[3].play();
+	})
+ </script></body ></html>
+

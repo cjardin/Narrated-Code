@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<!----
+Program Author: Luke Landon - Note* First Time Programming in HTML and JS
+Course: CS 351
+Professor: Cary Jardin
+
+Program discription:
+
+When file is clicked on opens program in HTML page on browser selected.
+The program dispays the tital Music Box, a text box with notes 
+preloaded, a button to play the content in the text box, and empty 
+textbox that will contain the compiled code after the program is executed.
+The compiled code will play whatever notes where selected when put in 
+another file. The user can change the songs by changing the location and 
+letter inside the textbox by changing the notes and there locations. In this
+program the user can only select A-D and must put them in the location associated
+with each note. Example A must have no spaces before it, B must have one space before it
+, C must have two spaces before it, D must have 3 spaces before it.
+
+The limitations on this program include making sure the letters are capitalized
+and there must not be more then one letter in each level of the textbox
+-->
+<head>
+<p>Or do you want to view something better? <a class="invisible" href="MusicBoxSecret.html">Open the Door</a> </p>
+<style>
+
+
+</style>
+<!-- Adds jquery library to the program -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+</head>
+<body style ="background:url(https://the-drive.imgix.net/https%3A%2F%2Fapi.thedrive.com%2Fwp-content%2Fuploads%2F2019%2F09%2F2020_GR_Supra_Launch_Edition_Nocturnal_070_9E2BEE88433639BF41AC5DB3AC04065B4863D3271.jpg%3Fquality%3D85?w=1920&auto=compress%2Cformat&ixlib=js-1.4.1&s=d036d73217022c63b651fda37bc3f106)" >
+<!--Display Music Box as the header-->
+<h1>Music Box</h1>
+<!-- Creates a text area that is red with blue boarders and includes the notes A,B,C,D in decending order-->
+<textarea style="background-color:black; border-color:blue; color:white"id = "input_notes" rows="4" cols="4">
+A
+ B
+  C
+   D
+</textarea>
+<!-- Creates a button that the background is red and border is blue that is linked onclick with myFunction
+that will play both the sounds and generate the compiled code in the textbox-->
+<button style="background-color:black; border-color:blue; color:white" onclick="myFunction()">Play Music</button>
+<!--Creates a button that the background is red and the border is blue that will contain compiled code to play
+the sounds collected in another html page-->
+<textarea  style="background-color:black; border-color:blue; color:white" id="compiled_code" rows="20" cols="40">
+     
+</textarea>
+<script>
+<!--Function that plays when button is clicked-->
+function myFunction() {
+	//take input_notes and splits each letter up and puts them in a array
+	notes_raw = $("#input_notes").val().split(/\r?\n/);
+
+	var notes_Parsed = [] //array used to hold each token
+
+<!--for loop to check each letter passed in through notes_raw and pushes them into notes_Parsed-->
+	for (index = 0; index < notes_raw.length; index++) { 
+		if (notes_raw[index][0] == 'A'){
+			notes_Parsed.push('A')
+			}else if(notes_raw[index][1] == 'B'){
+				notes_Parsed.push('B')
+			
+			}else if(notes_raw[index][2] == 'C'){
+				notes_Parsed.push('C')
+			
+			}else if(notes_raw[index][3] == 'D'){
+				notes_Parsed.push('D')
+			
+			}
+			
+		}
+		
+		
+		timing = 0 //used to keep hold of time
+		index_ms_offset = 5000 //sets time offset to be 5000 millisecond 
+		<!--for loop that tests the length of notes_Parsed array-->
+		for (index = 0; index < notes_Parsed.length; index++) {
+		<!-- if else statments that checks and plays the audio associated with each token passed in through notes_Parsed-->
+			if(notes_Parsed[index] == 'A'){ 
+				 setTimeout(function(){ 
+									new Audio('GR_SUPRA_Tone_Start_Up.mp3').play()
+									}, index_ms_offset * index ) //
+			}else if(notes_Parsed[index] == 'B'){
+			setTimeout(function(){
+									new Audio('GR_SUPRA_Tone_Drive_Off.mp3').play()
+								}, index_ms_offset * index )
+			}else if(notes_Parsed[index] == 'C'){
+			setTimeout(function(){
+									new Audio('gr_supra_tone_blow-offs.mp3').play()
+								}, index_ms_offset * index )
+			}
+			else if(notes_Parsed[index] == 'D'){
+			setTimeout(function(){
+									new Audio('GR_SUPRA_Tone_Ignition.mp3').play()
+								}, index_ms_offset * index )
+			}
+			
+		}
+		
+		var htmlTEMPLATE = "<!doctype html>" //creates a string var called htmlTEMPLATE
+		htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>" //adds html head and top part of body to string
+		htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>" //adds the code to play the songs in script tags
+		htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>" //adds the end portion of body and html tags to the htmlTEMPLATE string
+		
+		code_output = "";// creates an empty string to hold code output
+		timing = 0; //var for starting time counter
+		index_ms_offset = 5000; // var set the offset to be 5000 ms
+		<!--for loop that tests the length of notes_Parsed array and adds the code needed to run the to the code_output string-->
+		for (index = 0; index < notes_Parsed.length; index++){
+		<!-- if else statments that checks and plays the audio associated with each token passed in through notes_Parsed-->
+			if(notes_Parsed[index] == 'A'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('GR_SUPRA_Tone_Start_Up.mp3').play()"
+				code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+			}else if(notes_Parsed[index] == 'B'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('GR_SUPRA_Tone_Drive_Off.mp3').play()"
+				code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+			}else if(notes_Parsed[index] == 'C'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('gr_supra_tone_blow-offs.mp3').play()"
+				code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+			}else if(notes_Parsed[index] == 'D'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('GR_SUPRA_Tone_Ignition.mp3').play()"
+				code_output = code_output + "}, " + index_ms_offset + " * " + index + ");"
+			}
+		
+		}
+		 
+		 $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+	}
+		
+</script>
+</body>
+</html>

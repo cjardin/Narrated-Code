@@ -1,0 +1,151 @@
+1: HTML DOCTYPE heading
+2: HTML Opening Tag
+3: HTML opening opening comment bracket
+4: programing author - Luke Landon
+5: course - cs 351
+6:
+7: programing description paragraph
+8:
+9:
+10:
+11:
+12: 
+13:
+14:
+15:
+16:
+17:
+18:
+19:
+20:
+21: ptograming limitations statment
+22: 
+23: HTML closing comment bracket
+24: opening head tag
+25: open p tag set a class = inviisble href = MusicBoxSecret.html close a tag
+26: opening style tag
+27: 
+28: 
+29: close style tag
+30: comment
+31: open script tag
+32: adds jquery to src
+33: set integrity to string
+34: set crossorgin to string and closing script tag
+35: 
+36: close head tag
+37: open body tag
+38: comment
+39: open h1 tag set Music box close h1 tag
+40: comment
+41: html text area set background red, boarder, border blue, color white
+42: note A added to html text area
+43: note B added to html text area
+44: note C added to html text area
+45: note D added to html text area
+46: html close text area
+47: comment
+48: comment
+49: open button set style background: red, boarder: blue, color: white
+50: comment
+51: comment
+52: html text area set background red, boarder, border blue, color white
+53: 
+54: close html text area
+55: open script tag
+56: comment
+57: call to function myFunction()
+58: comment
+59: split each val in input_notes and sets them into notes_raw
+60: 
+61: declares notes_Parsed array
+62: 
+63: comment
+64: for loop that will execute for notes_raw length
+65: if stament checks to see if notes_raw value at [index][0] in array is A
+66: push A into notes_Parsed 
+67: else if statment checks to see if notes_raw value at at [index][1] in array is B
+68: push B into notes_Parsed
+69:
+70: else if statment checks to see if notes_raw value at [index][2] in array is C
+71: push C into notes_Parsed
+72: 
+73: else if statment checks to see if notes_raw value at [index][3] in array is DOCTYPE
+74: push D into notes_Parsed
+75:
+76: closing bracket
+77: 
+78: closing bracket
+79:
+80: 
+81: declare int timing and set to zero
+82: declare int index_ms_offset set to 5000
+83: comment
+84: for loop that will execute for all notes_Parsed length
+85: comment
+86: if statment check to see if notes_Parsed[index] is equal to A
+87: execute declare setTimeout Function 
+88: play new Audio mp3
+89: multiply index_ms_offset by index 
+90: else if statment that checks to see if notes_Parsed[index] is equal to B
+91: execute declare setTimeout Function 
+92: play new Audio mp3
+93: multiply index_ms_offset by index 
+94: else if statment that checks to see if notes_Parsed[index] is equal to C
+95: execute declare setTimeout Function 
+96: play new Audio mp3
+97: multiply index_ms_offset by index 
+98: closing bracket
+99: else if statment that checks to see if notes_Parsed[index] is equal to C
+100: execute declare setTimeout Function 
+101: play new Audio mp3
+102: multiply index_ms_offset by index 
+103: closing bracket
+104: 
+105: closing bracket
+106:
+107: declares a string named htmlTEMPLATE and sets a string to it
+108: adds a string to htmlTEMPLATE
+109: adds a string to htmlTEMPLATE
+110: adds a string to htmlTEMPLATE
+111: 
+112: declare a string variable named code_output and set an empty string to it
+113: sets timing val to zero
+114: sets index_ms_offset to 5000
+115: comment
+116: for loop that will execute for all notes_Parsed length
+117: comment
+118: if statment check to see if notes_Parsed[index] is equal to A
+119: set code_output equal to string
+120: set code_output equal to string
+121: set code_output ewual to string + index_ms_offset + string + inded + string
+122: if else statment check to see if notes_Parsed[index] is equal to B
+123: set code_output equal to string
+124: set code_output equal to string
+125: set code_output ewual to string + index_ms_offset + string + inded + string
+126: if else statment check to see if notes_Parsed[index] is equal to C
+127: set code_output equal to string 
+128: set code_output equal to string
+129: set code_output ewual to string + index_ms_offset + string + inded + string
+130: if else statment check to see if notes_Parsed[index] is equal to D
+131: set code_output equal to string 
+132: set code_output equal to string 
+133: set code_output ewual to string + index_ms_offset + string + inded + string
+134: closing bracket
+135: 
+136: closing bracket
+137: comment
+138: set code_output to @@@PLAY_CODE and compile
+139: closing bracket
+140:
+141: close script tag
+142: close body tag
+143: close html tag
+
+
+
+
+
+
+
+
