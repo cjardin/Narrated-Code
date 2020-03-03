@@ -1,0 +1,61 @@
+Narration for html5
+
+13: importing the third party libraries call Vexflow
+15: importing the piano javascript 
+19: importing the css file
+25: Print title 
+29: Upload the textarea for the input notes
+40: Generate  Buttons
+107: stand-alone html5 textarea 
+
+
+
+Narration for Javascript
+
+17:  runPiano Function will run the main program
+21:  json2obj function can convert the three array list, alphabet, repeats, and speed sound
+	 into a object
+
+69:  getUnique function will eliminate any duplicate in the array
+
+83:  try and catch used for Error Handling
+88:  delete the lines
+93:  generate an array only show the repetition
+95:  generate an array only show the speed
+110: for loop go through alphabet notes input
+112: trim every row that does have any white space
+117: append the letter,duplicate, and speed
+125: Sorting and Unique the Alphabet Notes
+140: Check the number of row per each line 
+	 if there is more than one note will stop the code
+154: Use the filter command to determine the difference and it is not in the notes of the alphabet
+159: if there more than one in the difference array that means the user has alphabet that does not 
+	 follow the alphabet notes
+164: If statement will constraint the user and allow to use only certain number of repetitions
+176: Reference Notes
+178: Create an SVG renderer and attach it tot he DIV element named "reference notes"
+185: Size SVG
+186: and get a drawing context
+194: Connect it to the rendering context and draw!
+197: Generate your input notes
+208: Create a voice in 4/4 and add above notes
+211: Format and justify the notes to 400 pixels.
+214: Render voice
+222: Real-Time Notes 
+225: Create an SVG renderer and attach it to the DIV element named "play piano".
+232: Configure the rendering context.
+239: Create a stave of width 400 at position 10, 40 on the canvas.
+243: Add a clef and time signature.
+245: Connect it to the rendering context and draw!
+254: for loop will convert the array into json to object
+277: Adding a weight to speed or slow down the audio note
+278: for loop determine whether the following notes belong to the 
+	 correct audio
+333: Create a voice in 4/4 and add above notes
+337: Format and justify the notes to 400 pixels.
+341: Render voice
+346: Generate Button in Javascript
+360: Generate the concatenate code for stand-alone html5
+372: for loop and if statement
+     generating the code for each note and audio note
+405: print the code

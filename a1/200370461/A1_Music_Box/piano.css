@@ -1,0 +1,32 @@
+div.justified {
+		display: flex;
+		justify-content: center;
+    }
+    
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px
+}
+
+.center-piano {
+    
+    position:relative;
+    top: 10px;
+    margin: auto;
+    width: 60%;
+    border: 3px solid #000000;
+    padding: 10px
+    
+}
+
+.center-compiler {
+
+    position: relative;
+    top: 20px;
+    margin: auto;
+    width: 60%;
+    border: 3px solid #0000ff;
+    padding: 10px
+}

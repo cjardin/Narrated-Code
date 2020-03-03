@@ -1,0 +1,113 @@
+<!--
+// Assignment 1 - Javascript Music Box
+// Name: Ezer Patlan
+// Spring CS351
+// CS: Programming Language
+// Instructor: Cary Jardin
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- importing the third party libraries call Vexflow -->
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+<script src="https://npmcdn.com/vexflow@1.2.84/releases/vexflow-debug.js"></script>
+<!-- importing the piano javascript -->
+<script type="text/javascript" src="piano.js"></script>
+<!-- importing the css file -->
+<link rel="stylesheet" type="text/css" href="piano.css"/>
+
+</head>
+
+<body>
+<!-- title -->
+<div class="justified"><h1> Assignment #1: Music Box </h1></div>
+<div class="center">
+<div class="justified">
+<!-- textarea for the input notes -->
+	<textarea id="input_notes" rows="8" cols="18">
+A20.2
+ B30.1
+  C10.1
+   D20.2
+    E30.3
+     F10.1
+      G20.2
+</textarea>
+</div>
+<!-- Buttons -->
+<div class="justified">
+	<input type="button" value="Clear" onclick="javascript:eraseText();">
+	<input type="button" value="Run" onclick="javascript:runPiano();">
+	<button id="ClearNote"> Clear Note</button>
+</div>
+
+	<h3>Instructions:</h3>
+<p>Create an HTML Text Box that allows user input of coded "notes"; a "note" can be 
+	any single character you choose, it can be range from "A,B,C,D,E,F,G". Next, a number in-front of the note for how
+	many times it should play in a row. Lastly, add a decimal in-front of the note for how fast the note should play.  
+</p>
+
+
+
+	<h3>Button (Interface):</h3>
+	<ul>
+		<li>Clear - It will empty the text from the box</li>
+		<li>Run - It will run the Music Box </li>
+		<li>Clear Note - It will clear the Music Note Notation from Reference and Real-Time</li>
+	</ul>
+
+</div>
+
+<div class="center-piano">
+
+<div class="justified">
+	<h2> Reference: Piano Notes A-G </h2>
+</div>
+
+<h3>Instructions:</h3>
+<p>The musical notes are display in the browser, so the user can follow up with the audio. <a
+		href="https://www.vexflow.com/">Vexflow toolbox libray</a> is used in this Assignment.
+	It is open-source online notation rendering API. It runs right in the browser.
+</p>
+
+<div class="justified" id="reference_notes"></div>
+
+	
+
+<div class="justified" >
+	
+	<h3> A    B     C    D    E    F    G</h3>
+</div>
+
+	
+	<p> The reference notes are used for the user to follow the real-time piano notes.
+		For example, in the first left corner side the note represent note "A" and in the last 
+		right corner side the note represent note "G".
+	</p>
+
+<div class="justified">
+	<h2> Real-Time: Piano Notes </h2>
+</div>
+<div class="justified" id="play_piano"></div>
+</div>
+
+<div class="center-compiler">
+<div class="justified">
+	<h2> Compiler: Stand Alone HTML5 Page - Play Audio - </h2>
+</div>
+<h3>Instructions:</h3>
+<p>The code will generate a stand-alone HTML inside the text box.
+	This will actually play each sound. The goal is to generate a javascript that is
+	then pushed into a new, stand alone HTML documet.
+</p>
+<!-- stand-alone html5 textarea -->
+<div class="justified">
+<textarea id="compiled_code" rows="20" cols="100">
+</textarea >
+</div>
+</div>
+
+</body>
+</html>
