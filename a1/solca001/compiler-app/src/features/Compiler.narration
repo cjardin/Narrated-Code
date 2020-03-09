@@ -1,0 +1,54 @@
+1: import React, Dispatch, SetStateAction and useState from 'react';
+2: import Button, Grid and TextField from "@material-ui/core"
+3: import ISound and ISoundSetter from "../App"
+4: import BeatParser from "./BeatParser"
+5:
+6: initialize and export Props interface
+7: set beatTempo as number in Props
+8: set beatText as string in Props
+9: set compilerAt as (ISound | ISoundSetter) array
+10: setCompilerArr as ISound and ISound setter state hook
+11:
+12:
+13: Declare compileBeat function with Props as argument
+14: set tempo to 0
+15: Call beatParser function with props as argument
+16: set out with default html
+17: set html
+18: set head and title
+19: start script
+20: reverse compilerArr array
+21: for each element from compileArr
+22: if it's a ISound do 23 and 24
+23: add sound to the output and the tempo
+24: tempo starting time push forward
+25: if it's a ISound setter then do
+26: later feature todo
+27: comment
+28:
+29:
+30:
+31: add default end output and end the script part
+32: end the body part
+33: end the html part
+34: call setCompileArr with empty array
+35: return output
+36:
+37:
+38:
+39: Declare CompilerC with Props as argument
+40: declare output as a State
+41: Return a JSX element
+42: Open a React fragment
+43: Open a grid fragment with 12 unit size
+44: Set a button to call compileBeat
+45: close grid
+46: open grad fragment with 12 unit size
+47: Textfield to print the output state
+48: close grid
+49: close React fragment
+50:
+51:
+52:
+53:
+54: export CompilerC as MyCompiler constant

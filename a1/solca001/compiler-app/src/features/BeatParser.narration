@@ -1,0 +1,59 @@
+1: Import ISound and ISoundSetter from App
+2: Dispatch and SetStateAction from "react"
+3:
+4: Declare type Props
+5: Declare beatText as string in Props
+6: Declare compilerArr as (ISound | ISoundSetter)[] in Props
+7: Declare setCompilerArr as Dispatch<SetStateAction<(ISound | ISoundSetter)[]>> in Props
+8: Close Props declaration
+9:
+10: Init function BeatParserC with Props arguments
+11: Init function parsePlaySound with str as string argument
+12: Conditional if statement to get only valid line (like epurstr)
+13: array containing the results of alpha chars
+14: if result exist
+15: declare find and start lambda
+16: if a ISoundSetter is found
+17: return the object if true
+18:
+19: return null if false
+20:
+21: if ISoundSetter was found
+22: declare sound
+23: declare beat as HTMLAudioElement
+24: try to
+25: set sound to the filename
+26: beat is set to a new audio element containing the sound
+27: push to the compilerArr variable at the end of the list
+28: catch the error if something wrong happen
+29: describe the catch in alert
+30:
+31: call setCompilerArr function with compileArr s argument
+32: else statement
+33:
+34: Display alert
+35:
+36:
+37:
+38:
+39:
+40: Declare parseDeclareSound with str as string parameter
+41: Parse if it a mp3 setter
+42: Declare and set regex match
+43: if the regex match statement
+44: add match in compileArr array at the end
+45: call setCompilerArr with compiler as argument
+46:
+47:
+48:
+49:
+50: declare line and set beatText line with regex
+51: if no line statement
+52: return
+53: in line we look at each element
+54: we call parsePlaySound and send the element
+55: we call parseDeclareSound and send the element
+56:
+57:
+58:
+export the function BeatParserC as a const BeatParser
