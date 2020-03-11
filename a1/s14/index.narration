@@ -1,0 +1,86 @@
+html doctype open tag html open tag
+head open tag title open tag and close tag with title
+
+open body tag
+open and close header tag 
+label for the textbox
+
+add textarea input box
+textarea to input "A"
+input in textarea "B"
+input in textarea "C"
+input in textarea "D"
+input in textarea "E"
+close tag of textarea
+
+input button to call playNotes function on click
+
+textarea for the code output
+start tag of audiofiles
+add audio tag audio/a.mp3
+add audio tag audio/b.mp3
+add audio tag audio/c.mp3
+add audio tag audio/d.mp3
+add audio tag audio/e.mp3
+add audio tag audio/f.mp3
+
+open script tag
+declare constant for audio element "A"
+declare constant for audio element "B"
+declare constant for audio element "C"
+declare constant for audio element "D"
+declare constant for audio element "E"
+declare constant for audio element "F"
+declare sound array variable
+push "A" audio to sound array
+push "B" audio to sound array
+push "C" audio to sound array
+push "D" audio to sound array
+push "E" audio to sound array
+push "F" audio to sound array
+close script tag
+
+close tag of audio files
+
+open script tag
+declare var regex  to get the notes from textarea
+declare var globalnotes to store the notes in array
+start function playNotes
+declare temporary variable notes array
+get the notes in the textarea
+declare temporary variable m to check match regex
+while we have regex match not equal null
+if regex is lats match index
+increment regex lastindex by 1
+close paranthisis
+for all the match in group regex 
+push all to the array notes
+close paranthisis and function
+close paranthisis
+output notes array
+assign notes to globalnotes
+output sound array
+declare temporary variable start to get start time of notes
+declare htmlcode variable to store compiled html code
+add html and body tag to htmlcode
+add audiofiles tag to htmlcode
+start compiled script and add to htmlcode
+for loop start with i=0 to length of globalnotes
+declare temporary note variable to store current note
+output current note
+start for loop to play nodes multiple times if we have more nodes in 1 line like AA,BBB
+increment start by 1
+output j
+call setTimeout
+play sound
+delay the time by 1 sec multiply be start index 
+add setTimeout and compiled code to play the note with delay
+close paranthisis
+close paranthisis
+add close tag of acript to htmlcode
+add close tag of body and html to htmlcode
+addign htmlcode to textbox
+close paranthisis
+close script tag
+close body tag
+close html tag

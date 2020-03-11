@@ -1,0 +1,26 @@
+Name comment
+Class comment
+Date comment
+Program description comment
+
+Import modules from the kanren package
+
+Comment describing stringToArray function
+Defining stringToArray function
+Variable setArray is assigned to the elements of the inputted string separated by commas
+return the array from the function
+
+
+Print instructions for entering sets
+
+Declare and assign the first set to a user inputted string
+Use the replace function to remove whitespace from string
+Convert string to array using stringToArray function
+
+Declare and assign the second set to a user inputted string
+Use the replace function to remove whitespace from string
+Convert string to array using stringToArray function
+
+Declare x as a variable
+Print a description of the union set
+Look through equal members for both of these sets and print the results

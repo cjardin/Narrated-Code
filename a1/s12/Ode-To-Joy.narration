@@ -1,0 +1,203 @@
+1: this determines the document's type as html
+2: this determines the language of the page
+3: beginning of the header of the page
+4: declare character encoding
+5: declare name and size for page
+6: defines pragma directive
+7: shows title name
+8: blank
+9: begin script code for JQuery
+10: JQuery continued
+11: JQuery end
+12: end of script
+13: end of head
+14: begin body of the page
+15: create header for the page
+16: declare text box for the page
+17: text box letter
+18: text box letter
+19: text box letter
+20: text box letter
+21: text box letter
+22: text box letter
+23: text box letter
+24: text box letter
+25: text box letter
+26: text box letter
+27: text box letter
+28: text box letter
+29: text box letter
+30: text box letter
+31: text box letter
+32: text box letter
+33: text box letter
+34: text box letter
+35: end text box
+36: blank
+37: create a button to play the sounds
+38: blank
+39: begin script for the html page
+40: declare notes_raw variable from input_notes and separate them to get each notes
+41: declare notes_raw array
+42: blank
+43: begin for loop to create array of letters
+44: begin loop
+45: if block checking if at first location of the text box
+46: begin if block
+47: push letter into the array
+48: end if block
+49: else if block checking if at next location of the text box
+50: begin if block
+51: push letter into the array
+52: end if block
+53: else if block checking if at next location of the text box
+54: begin if block
+55: push letter into the array
+56: end if block
+57: else if block checking if at next location of the text box
+58: begin if block
+59: push letter into the array
+60: end if block
+61: else if block checking if at next location of the text box
+62: begin if block
+63: push letter into the array
+64: end if block
+65: else if block checking if at next location of the text box
+66: begin if block
+67: push letter into the array
+68: end if block
+69: else if block checking if at next location of the text box
+70: begin if block
+71: push letter into the array
+72: end if block
+73: else if block checking if at next location of the text box
+74: begin if block
+75: push letter into the array
+76: end if block
+77: else if block checking if at next location of the text box
+78: begin if block
+79: push letter into the array
+80: end if block
+81: else if block checking if at next location of the text box
+82: begin if block
+83: push letter into the array
+84: end if block
+85: else if block checking if at next location of the text box
+86: begin if block
+87: push letter into the array
+88: end if block
+89: else if block checking if at next location of the text box
+90: begin if block
+91: push letter into the array
+92: end if block
+93: else if block checking if at next location of the text box
+94: begin if block
+95: push letter into the array
+96: end if block
+97: else if block checking if at next location of the text box
+98: begin if block
+99: push letter into the array
+100: end if block
+101: else if block checking if at next location of the text box
+102: begin if block
+103: push letter into the array
+104: end if block
+105: else if block checking if at next location of the text box
+106: begin if block
+107: push letter into the array
+108: end if block
+109: else if block checking if at next location of the text box
+110: begin if block
+111: push letter into the array
+112: end if block
+113: else if block checking if at next location of the text box
+114: begin if block
+115: push letter into the array
+116: end if block
+117: end for loop block
+118: blank
+119: create a function called playsounds() that the button activates
+120: begin function block
+121: declare timing intial value as 0
+122: declare the index_ms_offset value to 500
+123: blank
+124: declare for loop to keep going through until the array created before have been parsed through
+125: begin for loop
+126: if block checking if at first location of the array
+127: begin if block
+128: call setTimeout() function to play the sound
+129: end if block
+130: else if block checking if at next location of the array
+131: begin if block
+132: call setTimeout() function to play the sound
+133: end if block
+134: else if block checking if at next location of the array
+135: begin if block
+136: call setTimeout() function to play the sound
+137: end if block
+138: else if block checking if at next location of the array
+139: begin if block
+140: call setTimeout() function to play the sound
+141: end if block
+142: else if block checking if at next location of the array
+143: begin if block
+144: call setTimeout() function to play the sound
+145: end if block
+146: else if block checking if at next location of the array
+147: begin if block
+148: call setTimeout() function to play the sound
+149: end if block
+150: else if block checking if at next location of the array
+151: begin if block
+152: call setTimeout() function to play the sound
+153: end if block
+154: else if block checking if at next location of the array
+155: begin if block
+156: call setTimeout() function to play the sound
+157: end if block
+158: else if block checking if at next location of the array
+159: begin if block
+160: call setTimeout() function to play the sound
+161: end if block
+162: else if block checking if at next location of the array
+163: begin if block
+164: call setTimeout() function to play the sound
+165: end if block
+166: else if block checking if at next location of the array
+167: begin if block
+168: call setTimeout() function to play the sound
+169: end if block
+170: else if block checking if at next location of the array
+171: begin if block
+172: call setTimeout() function to play the sound
+173: end if block
+174: else if block checking if at next location of the array
+175: begin if block
+176: call setTimeout() function to play the sound
+177: end if block
+178: else if block checking if at next location of the array
+179: begin if block
+180: call setTimeout() function to play the sound
+181: end if block
+182: else if block checking if at next location of the array
+183: begin if block
+184: call setTimeout() function to play the sound
+185: end if block
+186: else if block checking if at next location of the array
+187: begin if block
+188: call setTimeout() function to play the sound
+189: end if block
+190: else if block checking if at next location of the array
+191: begin if block
+192: call setTimeout() function to play the sound
+193: end if block
+194: else if block checking if at next location of the array
+195: begin if block
+196: call setTimeout() function to play the sound
+197: end if block
+198: end for loop
+199: end function
+200: blank
+201: end script section
+202: end html body
+203: end html

@@ -1,0 +1,92 @@
+declare the document type to be html
+set the html language to english
+
+open html tag
+open head tag
+
+make the image wide enought to depending on the user's device
+name the website using the title tags
+include the jquery code
+include the style.css file
+close the head tag
+
+open a body tag
+make a header using the header tag
+make a different header using the header tag
+make another header using the header tag
+declare a text box with default values
+
+
+close the textarea tag
+
+create a div tag and center any text
+create a button to play the music using the Play function
+make atext box to hold the compiled code
+make a second button to compile the html code
+close the div tag
+
+open a script tag and declare that the following code will be javascript
+
+function declaration called get_Array
+read and write the notes from  the text box and store the notes in an Array
+
+create and array to hold the notes
+
+make a for loop that goes through the notes_raw array
+
+stores "A" into notes_parsed if the first note on a line in the text box is an Array
+else if a B is in the text box at the second column, on a new row, it adds a B note to notes_parsed
+else if a C is in the text box at the third column, on a new row, it adds a C note to notes_parsed
+else if a D is in the text box at the forth column, on a new row, it adds a D note to notes_parsed
+else if a E is in the text box at the fifth column, on a new row, it adds a E note to notes_parsed
+else if a F is in the text box at the sixth column, on a new row, it adds a F note to notes_parsed
+else if a G is in the text box at the seventh column, on a new row, it adds a G note to notes_parsed
+end the for loop
+return the parsed notes array
+end the function
+
+declare a neew function to play the notes
+call get_Array and store the value into a new array 
+declare a delay
+go into the array and for each note, play its corresponding mp3 file
+play the new audio file
+increase the delay
+
+
+
+declare a function called codeGen with the argument: note
+declare a string called code
+declare an index, set to 0
+while thare are notes to play, continue the while loop
+add the notes to be played to the string
+increase the index
+remove the note from the Array
+return the string called code
+
+
+declare a new funtion called compile
+declare a string called code
+add the doc type tags to code
+add the language to code
+add a html tag to code
+add a body tag to code
+add a header to code
+add a button to code
+add a script tag to ccode
+add a function call to code
+add a temporary string to code
+add a closing bracket to code
+add a closing script tag to code
+add a closing body tag to code
+add a closing thml tag to code
+
+create an array and set the values by calling get_Array
+declare a string and set it to the value returned from codeGen
+replace the temp string "PlayMusic" with the newFile string
+add the lines of code to the second textbox
+set the text to the newFile
+
+
+closing script tag
+closing body tags
+closing html tag

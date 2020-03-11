@@ -1,0 +1,112 @@
+<!-- 
+Michael Martindill
+CS 351
+2/7/19
+
+This program will play various sound bites from the lectures that have been posted online depending on input.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<h1>Jardin Music Box</h1>
+<textarea id = "inputNotes" rows="4" cols="4" style = "margin: 0px; width: 297px; height: 108px;">
+A
+ B
+  C
+   D
+</textarea>
+<button onclick = "playSong()" id = "songButton" type="button">Play Song</button>
+<textarea placeholder ="Output code will go here" style="display: block"  id="compiledCode" rows="20" cols="40" ></textarea>
+<script>
+//Start of code
+function playSong() 
+{
+    var htmlTEMPLATE = "<!doctype html>"
+    htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>"
+    htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE<\/script>"
+    htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+    timing = 0;
+    indexOffset = 1000;
+    let notes = [];
+    notes = stringToArray(readString());
+    codeOutput = "";
+
+    for (let i = 0; i <= notes.length; i++)
+    {
+        if (notes[i] == "A")
+        {
+            audioVarA = new Audio("a.mp3");
+            setTimeout(function() { audioVarA.play() }, indexOffset * i);
+        }
+
+        else if (notes[i] == "B")
+        {
+            audioVarB = new Audio("b.mp3");
+            setTimeout(function() { audioVarB.play() }, indexOffset * i);
+        }
+
+        else if (notes[i] == "C")
+        {
+            audioVarC = new Audio("c.mp3");
+            setTimeout(function() { audioVarC.play() }, indexOffset * i);
+        }
+
+        else if (notes[i] == "D")
+        {
+            audioVarD = new Audio("d.mp3");
+            setTimeout(function() { audioVarD.play() }, indexOffset * i);
+        }
+    }
+
+    for (let i = 0; i <  notes.length; i++)
+    {
+        if (notes[i] == "A")
+        {
+            codeOutput = codeOutput + "audioVarA = new Audio('a.mp3');";
+            codeOutput = codeOutput + "setTimeout(function() { audioVarA.play() },"
+            codeOutput = codeOutput + indexOffset + "*" + i + ");";
+        }
+
+        else if (notes[i] == "B")
+        {
+            codeOutput = codeOutput + "audioVarB = new Audio('b.mp3');";
+            codeOutput = codeOutput + "setTimeout(function() { audioVarB.play() },"
+            codeOutput = codeOutput + indexOffset + "*" + i + ");";
+        }
+
+        else if (notes[i] == "C")
+        {
+            codeOutput = codeOutput + "audioVarC = new Audio('c.mp3');";
+            codeOutput = codeOutput + "setTimeout(function() { audioVarC.play() },"
+            codeOutput = codeOutput + indexOffset + "*" + i + ");";
+        }
+
+        else if (notes[i] == "D")
+        {
+            codeOutput = codeOutput + "audioVarD = new Audio('d.mp3');";
+            codeOutput = codeOutput + "setTimeout(function() { audioVarD.play() },"
+            codeOutput = codeOutput + indexOffset + "*" + i + ");";
+        }
+    }
+    compiledCode.value=(htmlTEMPLATE.replace("@@@PLAY_CODE", codeOutput));
+}
+function stringToArray(input)
+{
+    var notes = [];
+    for (let i = 0; i < input.length; i++)
+    {
+        if (input[i] == "A" || input[i] == "B" || input[i] == "C" || input[i] == "D")
+            notes.push(input[i]);
+    }
+
+    return notes;
+}
+function readString()
+{
+    let inputString = inputNotes.value;
+    return inputString;
+}
+</script>
+</body>
+</html>

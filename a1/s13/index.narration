@@ -1,0 +1,112 @@
+Start of comment
+Name
+Course
+Date
+
+Program description
+End of comment
+html doctype
+html language is english
+Start of body tag
+Start and end of Header tag displaying name of music box
+Start of textarea tag where notes will be inputted
+Default value of first line
+Default value of second line
+Default value of third line
+Default value of fourth line
+End of textarea tag
+Button that will execute the playSong function and output html code
+Start and end of textarea tag for output code
+Start of script tag
+Comment signifying the start of the script
+Defining the playSong function
+
+Declaring and assigning the variable htmlTemplate as the start of the htmloutput
+Concatenate string
+Concatenate string
+Concatenate string
+
+Declaring timing and assigning it to 0
+Declaring the offset and assigning it to 1000
+declaring an array called notes
+Assigning the variable notes to the inputted string that has been converted into an array
+Declaring and assigning codeOutput to an empty string
+
+Start of a for loop with index i and end case is length of notes array
+
+if the note at index "i" is "A" 
+
+Declare and assign an audio variable with "A" sound
+Use setTimeout function to play a.mp3 in order with play function
+
+
+if the note at index "i" is "B" 
+
+Declare and assign an audio variable with "B" sound
+Use setTimeout function to play b.mp3 in order with play function
+
+
+if the note at index "i" is "C" 
+
+Declare and assign an audio variable with "C" sound
+Use setTimeout function to play c.mp3 in order with play function
+
+
+if the note at index "i" is "D" play audio file "d.mp3"
+
+Declare and assign an audio variable with "D" sound
+Use setTimeout function to play d.mp3 in order with play function
+
+End of for loop
+
+Start of a for loop with index i and end case is length of notes array
+
+if the note at index "i" is "A"
+
+Add the string of code for the "A" case in the last for loop to codeOutput string
+Concatenate
+Concatenate
+
+
+if the note at index "i" is "B"
+
+Add the string of code for the "B" case in the last for loop to codeOutput string
+Concatenate
+Concatenate
+
+
+if the note at index "i" is "C"
+
+Add the string of code for the "C" case in the last for loop to codeOutput string
+Concatenate
+Concatenate
+
+
+if the note at index "i" is "D"
+
+Add the string of code for the "D" case in the last for loop to codeOutput string
+Concatenate
+Concatenate
+
+End of for loop
+Set the value of the second textArea to the codeOutput variable
+End of playSong function
+Defining the stringToArray function
+
+declaring a notes array
+Start of a for loop that fills the notes array with index i and where the end case is the length of the string
+
+if the element of the input at i is A, B, C, or D, push it into the notes array
+
+
+
+return the array notes from the function
+End of stringToArray function
+Defining the readString function
+
+Declare and assign inputString to the string in the first textArea
+return inputString from the function
+End of inputString definition
+End of script tag
+End of body tag
+End of html tag

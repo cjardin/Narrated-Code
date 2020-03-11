@@ -1,0 +1,62 @@
+header information
+
+
+
+import kanren into file
+import kanren commands into the file
+include the vars declaration statement
+declare a variable called x
+declare a variable called z
+declare a variable called z
+declare 3 variables: a, b, and c
+displays a number that is equal to 5
+
+displays a variable who's value is equal to z which z is equal to 3
+
+displays a value that makes two points equal
+
+displays two values who are in both sets of lists
+prints the contents of vaariables a, b, and c
+
+calls the function relation and assigns it to the parent
+declares relationships 
+
+displays the father of Bart
+
+displays the son of Homer
+
+displays the grandfather of Bart
+declares the grandparent function with two parameters
+returns the the grandparent or grandchild of a person
+prints the grandparent of Bart
+
+declare a variable type with relation attributes
+declare a variable type with relation attributes reffering to pokemon type disadvantages
+declare a variable type with relation attributes to declare pokimon types
+create relationships between pokemon and their types
+declare the relations between the first stage and second stage evolutions with different pokemon
+declare the relationship between second stage and third stage evolutions with different pokemon
+declare the pokemon type heiarchy
+
+declare the evolutions function
+returns the first stage or third stage of a pokemon
+
+intro to program
+
+ask user for input
+
+if they enter "Fire" show the following info
+ recommended pick
+ first stage evolution of pick
+ second stage evolution of pick
+if they enter "Water" show the following info
+ recommended pick
+ first stage evolution of pick
+ second stage evolution of pick
+if they enter "Grass" show the following info
+ recommended pick
+ first stage evolution of pick
+ second stage evolution of pick
+
+display the starter pokemon's type disadvantages
+display termination message

@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><body>            
+    <input type="button" onclick="playNotes();" value="Play">
+    <audio id="A"><source src="audio/a.mp3" type="audio/mp3"></audio>
+    <audio id="B"><source src="audio/b.mp3" type="audio/mp3"></audio>
+    <audio id="C"><source src="audio/c.mp3" type="audio/mp3"></audio>
+    <audio id="D"><source src="audio/d.mp3" type="audio/mp3"></audio>
+    <audio id="E"><source src="audio/e.mp3" type="audio/mp3"></audio>
+    <audio id="F"><source src="audio/f.mp3" type="audio/mp3"></audio>
+    <script>
+        const a = document.getElementById("A");
+        const b = document.getElementById("B");
+        const c = document.getElementById("C");
+        const d = document.getElementById("D");
+        const e = document.getElementById("E");
+        const f = document.getElementById("F");
+        var sound=[];
+        sound["A"]=a;
+        sound["B"]=b;
+        sound["C"]=c;
+        sound["D"]=d;
+        sound["E"]=e;
+        sound["F"]=f;
+    </script>
+    <script> function playNotes(){setTimeout(function(){sound["A"].play();},1000*1);setTimeout(function(){sound["B"].play();},1000*2);setTimeout(function(){sound["C"].play();},1000*3);setTimeout(function(){sound["D"].play();},1000*4);setTimeout(function(){sound["E"].play();},1000*5);} </script></body></html>

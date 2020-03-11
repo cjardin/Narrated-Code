@@ -1,0 +1,203 @@
+1: this determines the document's type as html
+2: this determines the language of the page
+3: beginning of the header of the page
+4: declare character encoding
+5: declare name and size for page
+6: defines pragma directive
+7: shows title name
+8: blank
+9: begin script code for JQuery
+10: JQuery continued
+11: JQuery end
+12: end of script
+13: end of head
+14: begin body of the page
+15: declare text box for the page
+16: text box letter
+17: text box letter
+18: text box letter
+19: text box letter
+20: text box letter
+21: text box letter
+22: text box letter
+23: text box letter
+24: text box letter
+25: text box letter
+26: text box letter
+27: text box letter
+28: text box letter
+29: text box letter
+30: text box letter
+31: text box letter
+32: text box letter
+33: text box letter
+34: end text box
+35: create blank text area
+36: blank
+37: end text area
+38: begin script for the html page
+39: declare notes_raw variable from input_notes and separate them to get each notes
+40: declare notes_raw array
+41: blank
+42: blank
+43: begin for loop to create array of letters
+44: begin loop
+45: if block checking if at first location of the text box
+46: begin if block
+47: push letter into the array
+48: end if block
+49: else if block checking if at next location of the text box
+50: begin if block
+51: push letter into the array
+52: end if block
+53: else if block checking if at next location of the text box
+54: begin if block
+55: push letter into the array
+56: end if block
+57: else if block checking if at next location of the text box
+58: begin if block
+59: push letter into the array
+60: end if block
+61: else if block checking if at next location of the text box
+62: begin if block
+63: push letter into the array
+64: end if block
+65: else if block checking if at next location of the text box
+66: begin if block
+67: push letter into the array
+68: end if block
+69: else if block checking if at next location of the text box
+70: begin if block
+71: push letter into the array
+72: end if block
+73: else if block checking if at next location of the text box
+74: begin if block
+75: push letter into the array
+76: end if block
+77: else if block checking if at next location of the text box
+78: begin if block
+79: push letter into the array
+80: end if block
+81: else if block checking if at next location of the text box
+82: begin if block
+83: push letter into the array
+84: end if block
+85: else if block checking if at next location of the text box
+86: begin if block
+87: push letter into the array
+88: end if block
+89: else if block checking if at next location of the text box
+90: begin if block
+91: push letter into the array
+92: end if block
+93: else if block checking if at next location of the text box
+94: begin if block
+95: push letter into the array
+96: end if block
+97: else if block checking if at next location of the text box
+98: begin if block
+99: push letter into the array
+100: end if block
+101: else if block checking if at next location of the text box
+102: begin if block
+103: push letter into the array
+104: end if block
+105: else if block checking if at next location of the text box
+106: begin if block
+107: push letter into the array
+108: end if block
+109: else if block checking if at next location of the text box
+110: begin if block
+111: push letter into the array
+112: end if block
+113: else if block checking if at next location of the text box
+114: begin if block
+115: push letter into the array
+116: end if block
+117: end for loop block
+118: blank
+119: declate htmltemplate string with initial string
+120: continue concatting the htmltemplate string
+121: continue concatting the htmltemplate string
+122: continue concatting the htmltemplate string
+123: blank
+124: initialize the code_output string as nothing
+125: creating a timing variable to testing timings
+126: creating index_ms_offset for the timing between each note
+127: begin for loop to go through the array of letters created in the text box
+128: start if block for checking if the inital location in the array has an A
+129: start generating the string for the setTimeout function with playing sounds
+130: continue concatting string
+131: continue concatting string
+132: end if block and start checking for the next letter in the array
+133: start generating the string for the setTimeout function with playing sounds
+134: continue concatting string
+135: continue concatting string
+136: end if block and start checking for the next letter in the array
+137: start generating the string for the setTimeout function with playing sounds
+138: continue concatting string
+139: continue concatting string
+140: end if block and start checking for the next letter in the array
+141: start generating the string for the setTimeout function with playing sounds
+142: continue concatting string
+143: continue concatting string
+144: end if block and start checking for the next letter in the array
+145: start generating the string for the setTimeout function with playing sounds
+146: continue concatting string
+147: continue concatting string
+148: end if block and start checking for the next letter in the array
+149: start generating the string for the setTimeout function with playing sounds
+150: continue concatting string
+151: continue concatting string
+152: end if block and start checking for the next letter in the array
+153: start generating the string for the setTimeout function with playing sounds
+154: continue concatting string
+155: continue concatting string
+156: end if block and start checking for the next letter in the array
+157: start generating the string for the setTimeout function with playing sounds
+158: continue concatting string
+159: continue concatting string
+160: end if block and start checking for the next letter in the array
+161: start generating the string for the setTimeout function with playing sounds
+162: continue concatting string
+163: continue concatting string
+164: end if block and start checking for the next letter in the array
+165: start generating the string for the setTimeout function with playing sounds
+166: continue concatting string
+167: continue concatting string
+168: end if block and start checking for the next letter in the array
+169: start generating the string for the setTimeout function with playing sounds
+170: continue concatting string
+171: continue concatting string
+172: end if block and start checking for the next letter in the array
+173: start generating the string for the setTimeout function with playing sounds
+174: continue concatting string
+175: continue concatting string
+176: end if block and start checking for the next letter in the array
+177: start generating the string for the setTimeout function with playing sounds
+178: continue concatting string
+179: continue concatting string
+180: end if block and start checking for the next letter in the array
+181: start generating the string for the setTimeout function with playing sounds
+182: continue concatting string
+183: continue concatting string
+184: end if block and start checking for the next letter in the array
+185: start generating the string for the setTimeout function with playing sounds
+186: continue concatting string
+187: continue concatting string
+188: end if block and start checking for the next letter in the array
+189: start generating the string for the setTimeout function with playing sounds
+190: continue concatting string
+191: continue concatting string
+192: end if block and start checking for the next letter in the array
+193: start generating the string for the setTimeout function with playing sounds
+194: continue concatting string
+195: continue concatting string
+196: end if block and start checking for the next letter in the array
+197: start generating the string for the setTimeout function with playing sounds
+198: continue concatting string
+199: continue concatting string
+200: end else if block
+201: end for loop
+202: swap the place where @@@PLAY_CODE is written with the new code generated
+203: end script

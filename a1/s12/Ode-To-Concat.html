@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" 
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
+    crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<textarea id="input_notes" rows="18" cols="18" style="margin: 0px; height: 290px; width: 150px;">
+A
+ B
+  C        
+   D       
+    E        
+     F             
+      G              
+       H               
+        I                
+         J
+          K
+           L
+            M
+             N
+              O
+               P
+                Q
+                 R
+</textarea>
+<textarea  id="compiled_code" rows="20" cols="40">
+
+</textarea>
+<script>
+notes_raw = $("#input_notes").val().split(/\r?\n/);
+var notes_parsed = []
+
+
+for (index = 0; index < notes_raw.length; index++) 
+{ 
+    if (notes_raw[index][0] == 'A') 
+    {
+        notes_parsed.push('A')
+    }
+    else if (notes_raw[index][1] == 'B')
+    {
+        notes_parsed.push('B')
+    }
+    else if (notes_raw[index][2] == 'C')
+    {
+        notes_parsed.push('C')
+    }
+    else if (notes_raw[index][3] == 'D')
+    {
+        notes_parsed.push('D')
+    }
+    else if (notes_raw[index][4] == 'E')
+    {
+        notes_parsed.push('E')
+    }
+    else if (notes_raw[index][5] == 'F')
+    {
+        notes_parsed.push('F')
+    }
+    else if (notes_raw[index][6] == 'G')
+    {
+        notes_parsed.push('G')
+    }
+    else if (notes_raw[index][7] == 'H')
+    {
+        notes_parsed.push('H')
+    }
+    else if (notes_raw[index][8] == 'I')
+    {
+        notes_parsed.push('I')
+    }
+    else if (notes_raw[index][9] == 'J')
+    {
+        notes_parsed.push('J')
+    }
+    else if (notes_raw[index][10] == 'K')
+    {
+        notes_parsed.push('K')
+    }
+    else if (notes_raw[index][11] == 'L')
+    {
+        notes_parsed.push('L')
+    }
+    else if (notes_raw[index][12] == 'M')
+    {
+        notes_parsed.push('M')
+    }
+    else if (notes_raw[index][13] == 'N')
+    {
+        notes_parsed.push('N')
+    }
+    else if (notes_raw[index][14] == 'O')
+    {
+        notes_parsed.push('O')
+    }
+    else if (notes_raw[index][15] == 'P')
+    {
+        notes_parsed.push('P')
+    }
+    else if (notes_raw[index][16] == 'Q')
+    {
+        notes_parsed.push('Q')
+    }
+    else if (notes_raw[index][17] == 'R')
+    {
+        notes_parsed.push('R')
+    }
+}
+
+    var htmlTEMPLATE = "<!doctype html>"
+    htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>"
+    htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>"
+    htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+    code_output = ""
+    timing = 0
+    index_ms_offset = 500
+    for (index = 0; index < notes_parsed.length; index++) { 
+        if( notes_parsed[index] == 'A'){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Opening.mp3').play()"
+            code_output = code_output + "}, " + index + "); "
+        }else if (notes_parsed[index] == 'B' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh E.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'C' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh E.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'D' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh F.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'E' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh G.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'F' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh G.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'G' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh F.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'H' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh E.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'I' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh D.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'J' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh C.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'K' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh C.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'L' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh D.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'M' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh E.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'N' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh E.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'O' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh D.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'P' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Doh D.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "16900" + ");  "
+        }else if (notes_parsed[index] == 'Q' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Homer Upset.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "17000" + ");  "
+        }else if (notes_parsed[index] == 'R' ){
+            code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('Ode To Joy Full.mp3').play()"
+            code_output = code_output + "}, " + index + " * " + index_ms_offset + " + " + "21000" + ");  "
+        }
+    }
+    $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+</script>

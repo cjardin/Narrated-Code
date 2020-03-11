@@ -1,0 +1,87 @@
+<!DOCTYPE html><html>
+<head><title>Assignment 3</title></head>
+<body>
+<h1>Assignment 3</h1>
+<label for="musicbox">Music Box Part 2</label>
+<textarea id="notes" rows="4" cols="50">
+    A=a.mp3
+    A
+    B=b.mp3
+     B
+      C=c.mp3
+      C
+      A=aa.mp3 
+      A
+   </textarea>
+<audiofiles>
+<input type="button" onclick="playNotes();" value="Play"/>
+</audiofiles>
+<script>
+    //global variables
+    var files=["a.mp3","b.mp3","c.mp3","d.mp3","e.mp3","f.mp3","aa.mp3","bb.mp3","cc.mp3","dd.mp3","ee.mp3","ff.mp3"];
+    var playing=[];
+    //regex to match notes and assignments
+    const regex = /(([A-Za-z0-9]+)(=)([A-Za-z0-9\.\_\-]+))|([A-Za-z]+)/gm;    let m;
+    var sound=[];
+</script>
+<script>
+    var globalnotes=[];
+    //function to play notes 
+    function playNotes(){
+		//setting up empty arrays
+        sound=[];
+        playing=[];
+        var start=1;
+        // let to create a temparory variable 
+        //get the textbox value
+        let str=document.getElementById("notes").value;
+        while ((m = regex.exec(str)) !== null) {
+            if (m.index === regex.lastIndex) {
+                regex.lastIndex++;
+            }
+            //case 1 assignments
+            if(m.length==6 && m[5]==undefined){
+                sound[m[2]]=m[4];
+            }else if(m[5]!=undefined && sound[m[5]]!=undefined){
+                //do nothing
+                //case 2 note
+                playing.push({"note":m[5],"mp3":sound[m[5]]});
+            }else{
+                //case 3 unassigned note
+                //ask user for the note until they did not enter correct note which is in filelist
+                let tn="";
+                let mh=m;
+                let file=null;
+                //while we don't get correct filename for assignment
+                while(file==null){
+                    tmp=undefined;
+                    tn=prompt("Note not assigned for: "+mh[5]+"\n Please enter one from:"+files);
+                    // if a user click cancel
+                    if(tn==null){
+                        alert("NODE NOT ASSIGNED. The default Will be Played")
+                        sound[mh[5]]="a.mp3";
+                        //store default a.mp3 value to note
+                        playing.push({"note":mh[5],"mp3":sound[m[5]]});
+                        file=true;                    
+                    }
+                    //if user enters valid filename
+                    if(file==null && files.includes(tn)){
+                        sound[mh[5]]=tn;
+                        //store the note value and character
+                        playing.push({"note":mh[5],"mp3":sound[m[5]]});
+                        file=true;
+                    }
+                }
+            }
+        }
+        //play the notes and there assignments
+        for(let i=0;i<playing.length;i++){
+            setTimeout(function(){
+                let ply=new Audio("audio/"+playing[i].mp3).play();
+            },i*1000);
+        }
+
+}
+</script>
+</body>
+</html>

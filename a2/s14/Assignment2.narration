@@ -1,0 +1,69 @@
+python file multi-line comments start
+author name
+complete date
+goal of this file
+python file multi-line comments end
+
+import json package
+import kanren package
+
+open json file relationships.json
+load json file
+create a relationship as father
+create a relationship as mother
+
+use loop to read items in father from the json file
+state the fact
+use loop to read items in mother from the json file
+state the fact
+
+define a parent function
+express the parent relationship
+define a grandparent function
+define an intermediate variable
+express the grandparent relationship
+define a sibling function
+define an intermediate variable
+express the sibling relationship
+define an uncle function
+define an intermediate variable
+express the uncle relationship
+
+define a variable x
+query whose father is John into variable output
+loop through the output
+print the items in output
+
+query who is William's mother into variable output
+loop through the output
+print the items in output
+
+query who is Adam's parent into variable output
+loop through the output
+print the items in output
+
+query who is Wayne's grandparent into variable output
+loop through the output
+print the items in output
+
+query whose grandparent is Megan into variable output
+loop through the output
+print the items in output
+
+put David into variable name
+query who is David's sibling into variable output
+
+if items in the output is not equal to David, store them into list siblings
+loop through siblings
+print the items in the siblings
+
+put Tiffany into variable name
+store Tiffany's father into name_father
+query who is Tiffany's uncle into variable output
+if items in the output is not equal to name_father, store them into list output
+loop through the output
+print the items in output
+define a, b, c as three variables
+query b is c's mother, a is c's father， put (a, b) into output
+loop through output
+print husband <==> wife relationship
