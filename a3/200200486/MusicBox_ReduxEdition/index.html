@@ -52,7 +52,6 @@ function MusicBox(){
 
 			if(!validData){ // Checks if assigning an mp3 value to Note.
 				alert("Expected \".mp3\" filetype, adjust values and try again.")
-				validData = false;
 			}
 			if(noteIndex[hold[0].charCodeAt()]==null){ // Creates a linked list assosciated with a specific note.
 				noteIndex[hold[0].charCodeAt()] = new LinkedListNode(hold[1].trim());
