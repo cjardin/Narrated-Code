@@ -11,14 +11,12 @@ crossorigin="anonymous"></script>
 </head>
 <body>
 	<textarea id="test" rows="6" cols="8">
-		A = a.mp3
-		A=b.mp3
-		A   = test.mp3
-		D=48464.mp3
-		A
-		B
-		C
-		D
+		A=a.mp3
+	B=b.mp3
+	C=c.mp3
+	A
+	   B
+	     C
 	</textarea>
 	<script type="text/javascript">
 
@@ -92,39 +90,22 @@ crossorigin="anonymous"></script>
 
 
 	code_output= code_output+"var playlist=["+notes.length+"];\n"; //This is creating a array that will contain all the notes in the next html doc.
-
+	var sound;
 	for (i=0;i<notes.length;i++){			//this loop adds the appropriate notes, and EventListeners
 		if (i==1){											//Plays the first note to start the domino effect.
 			code_output= code_output+"playlist[0].play();\n"
 		}
-		code_output= code_output+"playlist["+i+"] =";
-
-		switch(notes[i]) {
-			case "A":
-			code_output = code_output+"new Audio('mp3_notes/a3.mp3');\n"
-			if(i==0){break;}	//These check if this is the first note in the series, to prevent an even listener from being added.
-			code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
-			break;
-			case "B":
-			code_output = code_output+"new Audio('mp3_notes/b3.mp3');\n"
-			if(i==0){break;}
-			code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
-			break;
-			case "C":
-			code_output = code_output+"new Audio('mp3_notes/c3.mp3');\n"
-			if(i==0){break;}
-			code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
-
-			break;
-			case "D":
-			code_output = code_output+"new Audio('mp3_notes/d3.mp3');\n"
-			if(i==0){break;}
-			code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n"
-
-			break;
-			default:
-			alert("Not valid note");
+		digging = noteIndex[notes[i].charCodeAt()];
+		while(digging.next != null && digging.plays == 0){
+			digging = digging.next;
 		}
+		digging.plays--;
+
+
+		code_output= code_output+"playlist["+i+"] = new Audio('mp3_notes/"+digging.data+"');\n";
+		if(i!=0){
+		code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n";
+}
 
 	}
 
