@@ -1,0 +1,115 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Creating function name, to be called on button press
+creating class to act a datastructure
+constructor for class
+assigning data for class
+assigning next value for class
+assigning plays value for class
+
+
+
+
+declaring variables for later use
+declaring variables for later use
+declaring variables for later use
+declaring variable, splitting text area into an array.
+declaring variable, for regex checking.
+
+
+
+declaring variable, assigned true.
+
+for loop based on length of junk variables
+
+checking if junk[i] contains a = sign
+declaring variable hold, splitting the values at the = sign we found earlier.
+holding the left side
+holding the right side.
+checking if right side includes ".mp3", result is stored in validData
+
+checking if valid data holds a true or false values
+sends alert to use informing them of mistake with file type.
+
+Checks if noteindex at is storing a value at the specified index
+creates initial linked list noteIndex
+
+else
+
+sets digging value to note index at specificed index values
+starts while loop, stops when digging's next value is null
+sets digging to digging's next values
+
+
+
+
+
+
+else
+checks if junk at index value is a capital letter
+Diggins is set to noteindex at index value
+
+checks if diggings is undefined
+alerts user that the past value is undefined
+
+
+else
+creates while loop, checking if digging's next value is null
+sets diggins value to digging's next values
+
+adds 1 to digging's play values
+pushes junk at index value onto notes stack
+
+
+
+
+checks if validdata is datastructure
+
+breaks out of the loop
+
+
+
+
+code_output is being assigned a storing
+declaring sound variables
+creates a for loop based on the length of the notes values
+checking if i is = 1
+code_output is having a string added to it.
+
+diggins is being set to the value based on noteindex's index values
+creating while loop based on if diggins has a next value, and digging's play value is 0
+digging is being set to digging's next values
+
+digging's play value is lowered by 1.
+
+
+code_output is having a string added to it.
+checking if i is not 0
+code_output is having a string added to it
+
+
+
+
+calling helper function printer

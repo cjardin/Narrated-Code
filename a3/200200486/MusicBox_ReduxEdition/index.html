@@ -10,19 +10,20 @@ crossorigin="anonymous"></script>
 	<title></title>
 </head>
 <body>
-	<textarea id="test" rows="6" cols="8">
-		A=a.mp3
-		A
-		B=b.mp3
-		   B
-		C=c.mp3
-		     C
-		A=aa.mp3
-		A
-		D
+	<textarea id="test" rows="20" cols="40">
+A=a.mp3
+A
+B=b.mp3
+   B
+C=c.mp3
+     C
+A=aa.mp3
+			A
+				D
 	</textarea>
+	<button onclick="MusicBox()">make some music!</button>
 	<script type="text/javascript">
-
+function MusicBox(){
 	class LinkedListNode {
 		constructor(data) {
 			this.data = data;
@@ -112,18 +113,21 @@ crossorigin="anonymous"></script>
 
 	}
 
+	printer(code_output);
+}
 </script>
 <textarea id="compiled_code" rows="20" cols="40">
 
 </textarea>
 <script type="text/javascript">		// This is pretty much your code.
+function printer(code_output){
 var htmlTEMPLATE = "<!doctype html>"
 htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body><p>The Audio should play now.</p>"
 htmlTEMPLATE = htmlTEMPLATE + "<script>\n@@@PLAY_CODE <\/script>"
 htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
 
 $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
-
+}
 </script>
 
 </body>
