@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Box 2.0</title>
+</head>
+<style>
+  body{
+    background-color: blanchedalmond;
+  }
+  #layout{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  div{
+    float:left;
+    height:470px;
+    width:23%;
+    padding:0 10px;
+  }
+  #column2{
+    width:40%;
+  }
+  #user_input{
+    margin-left: 80px;
+  }
+  h2{
+    color: #000000;
+    text-align:center;
+  }
+  button{
+    margin-left: 80px;
+  }
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+</script>
+<script>
+  //This RegEx will indicate when user is assigning an audio file to a variable
+  const variable_def = /(.+)(=)(.+)['.mp3']/;
+  //Map will contain variables as keys, and their audio files as key values
+  let variable_map = new Map();
+  //Array will hold a list of audio files that have been invoked to play
+  let playlist = [];
+  //Index will be used to iterate through playlist
+  let index = 0;
+  //Delay will prevent our mp3 files from playing simultaneously
+  const index_ms_offset = 5001;
+  //RegEx to check for empty line
+  const empty_line_test = /(.)/;
+
+  //Function will place each line from textarea into an array
+  //We then call analyze_task and pass our array as a parameter.
+  function parse_input(){
+    //raw_input array will contain a line by line split of textarea
+    const raw_input = document.getElementById('user_input').value.split('\n');
+    //Each index will be analyzed to determine if line is a variable assignment, or variable invocation
+    analyze_task(raw_input);
+  }
+
+  //Function analyzes each line from textarea and determines if it is a variable assignment or playing the audio file
+  //If user plays an unspecified note, user is prompted for the .mp3 file they wish to associate with variable
+  function analyze_task(raw_input){
+    //Check each line and determine if we are doing variable assignment or variable invocation
+    for(let i=0; i<raw_input.length;i++){
+      //Removing any whitespace from line
+      if(/\s/g.test(raw_input[i])){
+        raw_input[i] = raw_input[i].replace(/\s/g, '');
+      }
+
+      //If line matches our RegEx then it is a variable assignment/reassignment
+      if(variable_def.test(raw_input[i])){
+        const line = raw_input[i].toString();
+        //Getting index of '='
+        const index = line.indexOf('=');
+        //Extracting variable name from line
+        const variable = line.substring(0,index);
+        //Extracting song file name
+        const music_file = line.substring(index+1, line.length+1);
+        //Creating a new audio object, pairing it with variable in our map
+        const audio_file = new Audio(music_file);
+        variable_map.set(variable, audio_file);
+      }
+      //Line must be variable invocation
+      else{
+        //Checking that our line is not empty
+        if(empty_line_test.test(raw_input[i])){
+          //Checking for Error: User calls variable that has not been defined yet
+          //User is given the opportunity to give an .mp3 file name to assign to variable and play file
+          if(!variable_map.has(raw_input[i]) && empty_line_test.test(raw_input[i])){
+            const error_message = 'Variable: ' +raw_input[i]+ ' has not been defined yet. Please specify a music file to assign: ';
+            const file_name = window.prompt(error_message);
+            const audio_file = new Audio(file_name);
+            variable_map.set(raw_input[i], audio_file);
+            playlist.push(audio_file);
+          }
+          //Variable has been defined, smooth sailing
+          else{
+            const audio_file = variable_map.get(raw_input[i]);
+            playlist.push(audio_file);
+          }
+        }
+      }
+    }
+    //Once we have parsed through each line of the text area, we can play the music
+    play_music();
+    //Once we have played the music we output a compiled code to second textarea
+    compile_code();
+  }
+
+  //Loop through playlist and play every mp3 file
+  function play_music(){
+    while(index < playlist.length){
+      const song = playlist[index];
+      setTimeout(function(){
+        song.play();
+      }, index_ms_offset*index);
+      index++;
+    }
+  }
+
+  function compile_code(){
+    let code_output='';
+    for(let i = 0; i<playlist.length; i++){
+      const audio_file = playlist[i].src;
+      code_output = code_output + "setTimeout( function(){";
+      code_output = code_output + "new Audio('"+audio_file+"').play()";
+      code_output = code_output + "}, " + index_ms_offset + " * " + i + "); "
+    }
+    //Adding a new line after generated JavaScript code
+    code_output += '\n';
+    let htmlTEMPLATE = "<!doctype html>";
+    htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head><body>";
+    htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE<\/script>";
+    htmlTEMPLATE = htmlTEMPLATE + "<\/body><\/html>";
+    //Using RegEx so our HTML code gets displayed nicely
+    htmlTEMPLATE = htmlTEMPLATE.replace(/>/gi, '>\n');
+    $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output));
+  }
+
+</script>
+<body>
+<main id="layout">
+  <h2>Welcome the Music Box 2.0</h2>
+    <h3 style="padding-left: 42%">Created by: William Cerros</h3>
+  <div id="column1">
+    <h2>Program Description</h2>
+    This program acts as a compiler where we can assign .mp3 files to variables. Just in time assignment is supported
+    along with variable reassignment. In addition, in the case of an error where the user calls a variable without
+    having defined it first, the user will be prompted to specify a .mp3 file for the variable. The program is loaded
+    with demonstrations of variable assignment, just in time assignment, variable reassignment, and error handling of
+    undefined variables. Once submit is clicked, the program will analyze every line within the first textarea. Pre-processing
+    these lines will allow us to check for undefined variables that are being used. The user is then given the opportunity
+    to specify a music file for the variable. Program uses RegEx to handle variable assignment. The section titled
+    Compiled Code will output HTML/JS code that can be run to reproduce the Music Generator program. Program comes preloaded
+    with a script that will demonstrate the aforementioned functions.
+    <br>
+    <h4> Variable Assignment format: /(.+)(=)(.+)['.mp3']/</h4>
+    <h4>Variable Calling Format: Simply type in Variable name.</h4>
+    <h4>Available .mp3 files: cat.mp3, bird.mp3, wolf.mp3, dog.mp3, sheep.mp3</h4>
+  </div>
+  <div id="column2">
+    <h2>Music Generator</h2>
+    <textarea id="user_input" cols="60" rows="10">
+     A = cat.mp3
+ A
+   B = dog.mp3
+     C = sheep.mp3
+        variable_d = wolf.mp3
+A          =                    bird.mp3
+A
+    B
+         C
+             variable_d
+EE
+    </textarea>
+    <br>
+    <button onclick='parse_input()'>Submit</button>
+  </div>
+  <div id="column3">
+    <h2>Compiled Code</h2>
+    <textarea id="compiled_code" cols="60" rows="10"></textarea>
+  </div>
+</main>
+</body>
+</html>

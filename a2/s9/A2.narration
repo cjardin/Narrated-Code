@@ -1,0 +1,95 @@
+import kanren
+import run, vars, membero, var, conde, Relation, fact, facts
+import eq_assoccomm as eq
+import commutative, associative
+
+
+comment display statement
+function intro
+print statement assignment 5
+print statement logic programming
+
+
+comment display statement
+function pizza
+print statement PIZZA!!!!!!!!
+
+
+comment display statement
+function practice
+print practice statement
+
+
+comment display statement
+function result
+print result statement
+
+
+comment declare variables
+declare x variable
+declare z variable
+
+comment heading
+call intro function
+call practice function
+print result
+print result
+print result
+print result
+
+declare z to test
+print z result
+
+declare a,b,c to var
+print a result
+print b result
+print c result
+
+comment defining operations
+add equals 'add'
+mul equals 'mul'
+
+comment addidtion and multiplication
+create fact, pass commutative and mul
+create fact, pass commutative and add
+create fact, pass associative and mul
+create fact, pass associative and add
+
+declare x and y variables
+declare r and s variables
+
+comment expression to match
+pattern, pass variables, should look like (1 + x) * y
+expr, pass variables, should look like 2 * (3 + 1)
+print
+comment x matches 3
+comment y matches 2
+
+pattern, pass variables, should look like (2 * r) + s
+expr, pass variables, should look like 5 + (6 * 2)
+print
+comment r matches 6
+comment s matches 5
+
+call result function
+call pizza function
+pizza equals Relation()
+pizza2 equals Relation()
+create facts, pass function pizza and string variables
+create facts, pass function pizza2 and string variables
+
+print result
+print result
+print result
+print result
+
+
+declare mypizza function, parameters x and z
+declare y variable
+return conde pizza(x,y) and pizza(y,z)
+
+
+print result
+print final statement
+
+

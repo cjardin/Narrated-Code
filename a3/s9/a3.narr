@@ -1,0 +1,112 @@
+//Narrating Java Script
+19: Importing JQuery Libary
+23: Opening script tag
+24: Comment
+25: Defining a RegEx variable to match .mp3 file assignment 
+26: Comment
+27: Defining a Map object, Keys are variables Key_Vaiues are the associated audio file
+28: Comment 
+29: Defining an array to hold a list of audio files that the user wants to play
+30: Comment
+31: Defining an index to iterate through our playlist
+32: Comment
+33: Defining variable index_ms_offset which will we be used with the 
+     setTimeout function in order to prevent our audio files from playling
+	 simultaneously
+34: 
+35: Comment
+36: Comment
+37: Defining function parse_input
+38: Comment
+39: Getting input from TextArea element and placing in an array, which splits
+    the user input by new line
+40: Comment
+41: Calling function analyze_task
+42: Closing brace for parse_input function
+43: 
+44: Comment
+45: Comment
+46: Defining function analyze_task
+47: Comment
+48: For loop
+49: Comment
+50: If statement checks for spaces in our array which holds input from TextArea element
+51: Removing spaces
+52: Closing brace for if statement
+53: Comment
+54: If statement tests if the current index of raw_input matches our RegEx for 
+    variable assignment
+55: toString will convert array index to a string
+56: Comment
+57: Identifying the index of '=' within our string and storing in
+    variable index
+58: Comment
+59: Taking the substring of all characters before the equal sign, which is the 
+    variable name.
+60: Comment
+61: Taking the substring of all characters after the equal sign, which is the
+    name of the .mp3 file associated with our variable defined earlier
+62: Comment
+63: Defining an audio object
+64: Placing variable and its associated audio file in our Map
+65: Closing brace
+66: Comment
+67: Else statement
+68: Comment
+69: Comment
+70: If statement checks our array at the current index and tests if it is present
+    in our variable map, if it is not then the user has requested to play a variable
+	that has not been defined yet. In this case the user is prompted with an alert 
+	which gives the user the chance to define an .mp3 file to associate with the variable
+71: Printing to user the variable they tried to invoke, and informing the user
+    the varaiable has not been defined yet
+72: Displaying error message to user and then taking the response from user
+    and placing it in variable file_name
+73: Creating a new audio file with the .mp3 file user specified
+74: Setting the variable and its associated audio object in our Map
+75: Pushing audio object to playlist
+76: Closing if statement brace
+77: Comment
+78: Else statement
+79: Getting the audio file associated with the variable located in our array
+80: Pushing audio file to our playlist
+81: Else statement closing brace
+82: Else statement closing brace
+83: Closing brace for loop
+84: Comment
+85: Calling play_music function
+86: Comment
+87: Calling compile_code function
+88: Closing brace for analyze_task function
+89: 
+90: Comment
+91: Defining function play_music 
+92: While loop iterates through each playlist index
+93: Getting the audio file from playlist index
+94: Calling setTimeout function
+95: Playing audio file
+96: Setting the length of our time out
+97: Incrementing our index variable
+98: Closing brace for while loop
+99: Closing brace for play_music function
+100: 
+101: Defining function compile_code
+102: Defining a string code_output which will display JavaScript code_output
+103: For loop will iterate through each playlist index
+104: Getting the string associated with our audio file 
+105: Appending string code_output
+106: Appending string code_output
+107: Appending string code_output
+108: For loop closing brace
+109: Comment
+110: Adding a new line to string code_output
+111: Html template
+112: Appending HTML doc
+113: Appending HTML doc
+114: Appending HTML doc
+115: Comment
+116: Formatting HTML template to have a new line after every '>' closing tag
+117: Placing code_output in compiled_code textarea
+118: Closing brace for function compiled_code
+119: 
+120: Closing script tag
