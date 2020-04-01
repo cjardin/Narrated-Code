@@ -1,0 +1,62 @@
+Author: Emanuel Ordonez
+Class: CS 351
+Assignment 1
+
+8-15: when tag body is called the qualities of the body
+9: color of border
+10: image in background
+11: centering image
+12: no repeatition of image
+13: image percent of covering background
+14: fixed image so no shifting when size changes
+
+17-28: when tag text is called the qualities of the text
+18: allows textbox to be centered
+19-20: centers textarea
+21-22: dimensions  
+23: color of border and thickness
+24: see through textarea to allow visual background
+25: font bold
+26: font size
+27: color of font
+
+30-36: when tag button is called the qualities of the button
+31: colot of text in button
+32: white button
+33: height of button
+34: weight of button
+35: making button to circle
+
+43: spacing out the top to the header
+
+45: setting the header
+
+47: spacing header and textbox
+
+49: setting a textarea
+
+51: spacing of textarea and button
+
+53: divider that is centered
+
+54: make a button to play music
+
+60: declare variables for mp3 files
+61: declare array note_lines for entry
+62: declare a variable that is able to contain audio
+63: declare b to 0 so this tells what mp3 file to play
+
+68: Read() function which is collect when button clicked
+69: reading the input in textarea and placing in notes
+70: delcare array to keep the characters that were in notes
+71: for loop that goes through the variable notes until end
+72-95: switch cases to check what character was read and placed into array
+100: call funtion Note() to go though notes and play
+
+104: Play() function is declared to play notes
+105: Plays note that is sent in variable Song
+106: increment b to be able to move to next note
+107: eventlistener that calls funtion Note when music note has ended
+
+110-143: switch cases to check what audio should be played and calls Play()
+146-148: once done going through music enable button to be able to play again

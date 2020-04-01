@@ -1,0 +1,135 @@
+<! <!DOCTYPE html>
+"debug.allowBreakpointsEverywhere" : true;
+
+<html>
+<head>
+    <title> "Music Box2" </title>
+</head>
+<body>
+
+<h1>MusicBox</h1>
+
+<textarea name = "input" id = "input-notes" rows="10"  cols= "10">
+A                       
+ B      
+  C    
+   D  
+</textarea>
+
+<!add button to html page for user to interact with to play audio >
+<button onclick="start()" type="button">Play</button>
+
+<script>
+    //get the input from the textbox and parse it based on newline
+    var rawInput = document.getElementById("input-notes").value.split(/\n/);
+    var notesParsed = [];
+  
+   //parse through the rawInput string, at each char found push into it own array
+   //new array will only contain the letters within the textbox
+    for(var i = 0; i < rawInput.length; i++)
+    {
+       notesParsed[i] = rawInput[i].charAt(i);
+    }
+
+    //create an array to hold only the audio files
+    //parse through the notesParsed array and assign an audio file for each character in ParsedNotes
+    //push each audio file into curr_audio array
+    var curr_audio = [];
+    for(var i = 0; i < notesParsed.length - 1; i++)
+    {
+        if(notesParsed[i] == 'A')
+            {
+                curr_audio.push(new Audio("audio.Mp3/cymbal_crash.mp3"));
+            }
+        else if(notesParsed[i] == 'B')
+            {
+                curr_audio.push(new Audio("audio.Mp3/cartoonRiochet.mp3"));
+            }
+        else if(notesParsed[i] == 'C')
+            {
+                curr_audio.push(new Audio("audio.Mp3/GameTone1.mp3"));
+            }
+        else if(notesParsed[i] == 'D')
+            {
+                curr_audio.push(new Audio("audio.Mp3/Grunt.mp3"));
+            }
+    }
+
+    //create recursive function that updates for the 'end' event of every audio file and class the function
+    //again for the next position in the array. Play the current audio file
+    //check condition to prevent passing the end of the array, act as main condition to end function
+    function please(i)
+    {
+        if(i == curr_audio.length){return;}
+        
+        curr_audio[i].addEventListener('ended', function(){please(i)});
+
+        curr_audio[i++].play();
+        
+    }
+    //function attached to button click to start audio, calls method that handles and plays audio files
+    function start()
+    {
+        var i = 0;
+       please(i);
+    }
+
+</script>
+
+<style>
+    textarea#compiledStyle {
+        margin: 0px;
+        width:auto;
+        height:fit-content;
+    }
+</style>
+<textarea name = "compiledStyle" id = "compiled" rows = "10" cols = "40">
+    var htmlTEMPLATE = "<!doctype html>"
+    htmlTEMPLATE = htmlTEMPLATE + "<button onclick="start()" type="button">Play</button>";
+    htmlTEMPLATE = htmlTEMPLATE + "<html><head></head><body>"
+    htmlTEMPLATE = htmlTEMPLATE + "<script>Html_Play</script>"
+    htmlTEMPLATE = htmlTEMPLATE + "</body></html>"
+    
+    output_code = ""
+    var curr_audio = [];
+    for(var i = 0; i < notesParsed.length - 1; i++)
+    {
+        if(notesParsed[i] == 'A')
+            {
+               output_code = output_code + "curr_audio.push(new Audio("audio.Mp3/cymbal_crash.mp3"));"
+            }
+        else if(notesParsed[i] == 'B')
+            {
+                output_code = output_code + "curr_audio.push(new Audio("audio.Mp3/cartoonRiochet.mp3"));"
+            }
+        else if(notesParsed[i] == 'C')
+            {
+                output_code = output_code + "curr_audio.push(new Audio("audio.Mp3/GameTone1.mp3"));"
+            }
+        else if(notesParsed[i] == 'D')
+            {
+                output_code = output_code + "curr_audio.push(new Audio("audio.Mp3/Grunt.mp3"));"
+            }
+    }
+    
+    output_code = output_code + "function please(i)"
+    {
+        output_code = output_code + "if(i == curr_audio.length){return;}"
+        
+        output_code = output_code + "curr_audio[i].addEventListener('ended', function(){please(i)});"
+    
+        output_code = output_code + "curr_audio[i++].play();"
+        
+    }
+    
+    output_code = output_code + "function start()"
+       output_code = output_code + "{
+            var i = 0;
+           please(i);
+        }"
+    
+        $("#compiled_code").val(htmlTEMPLATE.replace("compiled", code_output))
+</textarea>
+
+</body>
+</html>

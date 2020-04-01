@@ -1,0 +1,19 @@
+//this is my first time using python!
+//syntax is a strange
+//first line imports the needed packages to run the program from the git files
+
+//assigns the variable x the value of 5
+
+//assigns the number 3 to z and x to z
+
+//membero is used to assign relationships between variable sets and tell to which group the variable belongs
+
+//dont really understand the purpose of this line 
+//adds the ability to pass a token to test a function for correct output?
+
+//creates multiple logic variables at once
+
+//creates a relation object
+//using that object can create a tree of relationships 
+//in the example relationship, can ouput the parent of a child.
+//also has grandparent function that can identify the grandparent relation

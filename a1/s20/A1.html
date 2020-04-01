@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Music</title>
+<script   src="https://code.jquery.com/jquery-3.4.1.js"   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body{
+            background-color: Cyan;
+            background-image: url("image1.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 99.7% 99.2%;
+            background-attachment: fixed;
+            }
+
+        textarea{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            height: 200px;
+            border: solid 2px Cyan;
+            background-color: transparent;
+            font-weight: bold;
+            font-size: 18px;
+            color: Cyan;
+        }
+
+        button{
+            color: black;
+            background-color: white;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div style="line-height:300%"><br></div>
+
+<h1 align="Center" style="color: Cyan;">Emanuel's Music Box</h1>
+
+<div align="Center" style="color: Cyan; font-size:18px; line-height: 600%;">Characters between A-G</div>
+
+<textarea id="textbox" rows="15" cols="15" style="resize:none" >A</textarea>
+
+<div style="line-height:600%"><br></div>
+
+<div style="text-align: center">
+   <button id="button1" class="material-icons" onclick="Note()">play_arrow</button>
+   <button id="button2" onclick="compile()">compile</button>
+</div>
+
+
+<script>
+    
+    var audio = new Array('audio1.mp3','audio2.mp3','audio3.mp3','audio4.mp3','audio5.mp3','audio6.mp3','audio7.mp3');
+    var note_lines=[];
+    var Song= new Audio();
+    b=0;
+
+    function Read(){
+        button1.disabled=true;
+        notes = $("#textbox").val().split(/\r?\n/);
+        for(i = 0; i < notes.length; i++){
+            switch(notes[i][i]){
+                case 'A': note_lines.push('A');
+                    break;
+
+                case 'B': note_lines.push('B');
+                    break;
+        
+                case 'C': note_lines.push('C');
+                    break;
+
+                case 'C': note_lines.push('C');
+                    break;
+
+                case 'D': note_lines.push('D');
+                    break;
+
+                case 'E': note_lines.push('E');
+                    break;
+            
+                case 'F': note_lines.push('F');
+                    break;
+            
+                case 'G': note_lines.push('G');
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    
+    function Play(){
+        Song.play();
+        b++;
+        Song.addEventListener('ended',Note);
+    }
+
+    function Note(){
+        if(b==0)
+            Read();
+        if(note_lines.length>b){
+            switch(note_lines[b]){
+                case 'A':
+                    Song.src=audio[0];
+                    Play();
+                    break;
+                case 'B':
+                    Song.src=audio[1];
+                    Play();
+                    break;
+                case 'C':
+                    Song.src=audio[2];
+                    Play();
+                    break;
+                case 'D':
+                    Song.src=audio[3];
+                    Play();
+                    break;
+                case 'E':
+                    Song.src=audio[4];
+                    Play();
+                    break;
+                case 'F':
+                    Song.src=audio[5];
+                    Play();
+                    break;
+                case 'G':
+                    Song.src=audio[6];
+                    Play();
+                    break;
+                default:
+                    alert("Invalid");
+            }
+       
+        } 
+        else{   
+            button1.disabled=false;
+        } 
+    }
+
+    function Code(){
+        Read();
+        output="";
+        while(note_lines.length>b){
+            switch(note_lines[b]){
+                case 'A':
+                    output+= "Song.src=audio[0];";
+                    output+= "Song.play();";
+                    output+= "Song.addEventListener('ended',Note);";
+                    b++;
+                    break;
+                case 'B':
+                    output+= "Song.src=audio[1];";
+                    output+= "Song.play();";
+                    output+= "Song.addEventListener('ended',Note);";
+                    b++;
+                    break;
+                case 'C':
+                    output+= "Song.src=audio[2]";
+                    output+= "Song.play();";
+                    output+= "Song.addEventListener('ended',Note);";
+                    break;
+                case 'D':
+                    output+= "Song.src=audio[3];";
+                    output+= "Song.play();";
+                    output+= "Song.addEventListener('ended',Note);";
+                    b++;
+                    break;
+                case 'E':
+                    output+= "Song.src=audio[4];";
+                    output+= "Song.play();";
+                    output+= "Song.addEventListener('ended',Note);";
+                    b++;
+                    break;
+                case 'F':
+                    output+= "Song.src=audio[5];";
+                    output+= "Song.play();";
+                    output+= "Song.addEventListener('ended',Note);";
+                    b++;
+                    break;
+                case 'G':
+                    output+="Song.src=audio[6];";
+                    output+= "Song.play();";
+                    output+= "Song.addEventListener('ended',Note);";
+                    b++;
+                    break;
+            }
+       
+        }
+        return output;
+    }
+
+    function compile(){
+        var code = "";
+        code += "<!DOCTYPE html><html lang =\"en\"><html><body>";
+        code += "<h1>Emanuel's Music Box</h1>";
+        code += "<button id=\"button1\" onclick=\"Play()\">Play</button><script>";
+        code += "function Play(){";
+        code += "var audio = new Array('audio1.mp3','audio2.mp3','audio3.mp3','audio4.mp3','audio5.mp3','audio6.mp3','audio7.mp3');";
+        code += "var Song= new Audio();";
+        code += "@@@PLAY_MUSIC";
+        code += "};<\/script></body></html>";
+        var record = Code(audio);
+        var part2 = code.replace("@@@PLAY_MUSIC", record);
+        var text = document.getElementById("textbox");
+        text.value = part2;
+    }
+
+</script>
+        
+</body>
+</html>
