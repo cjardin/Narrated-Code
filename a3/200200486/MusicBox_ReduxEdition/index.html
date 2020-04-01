@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<textarea id="test" rows="6" cols="8">
+		A=a.mp3
+		A
+		B=b.mp3
+		   B
+		C=c.mp3
+		     C
+		A=aa.mp3
+		A
+		D
+	</textarea>
+	<script type="text/javascript">
+
+	class LinkedListNode {
+		constructor(data) {
+			this.data = data;
+			this.next = null;
+			this.plays=0;
+		}
+
+	}
+	var digging;
+	var code_output="";
+	var notes = [];
+	var noteIndex = [];
+	var junk = $("#test").val().split(/\r?\n/);
+	var reg = /\=/;
+
+
+	var validData = true;
+	// should add a try block here.
+	for (i=0; i<junk.length; i++)
+	{
+		if(junk[i].search(reg) != -1){//checks if we're assigning or playing a note
+			var hold = junk[i].split(/\=/);
+			hold [0] = hold[0].trim();
+			hold [1] = hold[1].trim();
+			validData = hold[1].includes(".mp3")
+
+			if(!validData){ // Checks if assigning an mp3 value to Note.
+				alert("Expected \".mp3\" filetype, adjust values and try again.")
+				validData = false;
+			}
+			if(noteIndex[hold[0].charCodeAt()]==null){ // Creates a linked list assosciated with a specific note.
+				noteIndex[hold[0].charCodeAt()] = new LinkedListNode(hold[1].trim());
+			}
+			else {		//adds reasigned mp3 value in sequence to the assosciated note. without deleting past assignments
+
+				digging = noteIndex[hold[0].charCodeAt()]
+				while(digging.next != null){
+					digging = digging.next;
+				}
+				digging.next = new LinkedListNode(hold[1].trim());
+			}
+
+		}
+
+		else{// addes notes to playlist, and validates how many plays per note assignmnet.
+			if(junk[i].trim().match(/[A-Z]/)){
+				digging = noteIndex[junk[i].trim().charCodeAt()]
+
+				if(digging == undefined){
+					alert("The note "+junk[i].trim()+" Has not been assigned a value. note will be skipped.")
+
+				}
+				else{
+					while(digging.next != null){
+						digging = digging.next;
+					}
+					digging.plays++;
+					notes.push(junk[i].trim())
+				}
+			}
+		}
+
+		if(!validData)
+		{
+			break;// should swap with throws.
+		}
+	};
+
+
+	code_output= code_output+"var playlist=["+notes.length+"];\n"; //This is creating a array that will contain all the notes in the next html doc.
+	var sound;
+	for (i=0;i<notes.length;i++){			//this loop adds the appropriate notes, and EventListeners
+		if (i==1){											//Plays the first note to start the domino effect.
+			code_output= code_output+"playlist[0].play();\n"
+		}
+		digging = noteIndex[notes[i].charCodeAt()];
+		while(digging.next != null && digging.plays == 0){
+			digging = digging.next;
+		}
+		digging.plays--;
+
+
+		code_output= code_output+"playlist["+i+"] = new Audio('mp3_notes/"+digging.data+"');\n";
+		if(i!=0){
+		code_output = code_output+"playlist["+(i-1)+"].addEventListener('ended',()=>{\n	playlist["+i+"].play();\n	})\n";
+}
+
+	}
+
+</script>
+<textarea id="compiled_code" rows="20" cols="40">
+
+</textarea>
+<script type="text/javascript">		// This is pretty much your code.
+var htmlTEMPLATE = "<!doctype html>"
+htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body><p>The Audio should play now.</p>"
+htmlTEMPLATE = htmlTEMPLATE + "<script>\n@@@PLAY_CODE <\/script>"
+htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+$("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+
+</script>
+
+</body>
+</html>
