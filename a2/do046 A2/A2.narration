@@ -1,0 +1,37 @@
+1: declare kanren and docx2txt packages
+5: function for counting how many times a word was used
+7: counts is a dictionary variable
+8: parses the words into a string
+10: counts the number of repeated words
+17: returns dictionary to be used outside of function
+19: function to convert .docx to .txt file; purpose of creating a .txt is in order to analyze the file; can't analyze a .docx file
+21: function call to process .docx file
+23: obtains file name from the directory
+25: creates a .txt file with the file name
+27: prints the information into the text file
+29: declared variables
+30: creates a relation variable to identify synonym words
+31: create a variable to identify if no synonyms are stored in the word bank
+32: holds the value of run()
+33: holds the value of run()
+35: Threshold levels (small, medium, high); thresholds to categorize if the words were used too little to too many
+45: for loop function creates the word to synonym word relation
+49: head is the main word
+50: tail are the synonym words
+54: holds the value when no synonyms are found
+57: prompt for the user to understand what this program is, and how to use it
+64: the user inputs what file he/she wants to check for improvement
+67: function call to create a .docx file to a .txt file
+70: put the txt file into a string
+71: extracts the file name before '.'
+72: open the txt file with the file name
+73: .read() creates a string out of the txt file
+75: word count function returns the number of times each word is used
+78: creates a file called, "UPDATE_SYNONYM.txt" to hold words that are not found
+79: in the word bank of synonyms
+82: creates a report with the words the paper used a lot along with it's count
+87: checks how many times the words are used and applies the adequate
+88: amount of synonyms for the word based on threshold
+89: the threshold is divided into small, medium and high
+117: closes files
+121: notifies the user that a file was created
