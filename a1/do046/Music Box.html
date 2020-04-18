@@ -14,7 +14,7 @@
             }
         </style>
 
-        <h1>Music Box Page</h1>
+        <h1 style="font-size: 40px">CS 351 Music Box Page - Chris Do</h1>
 
     <p> Random notes generator:    
         <button onclick="randomize()" type="button">Randomize</button>
@@ -30,45 +30,82 @@ A
 
     <button onclick="queueSound()" type="button">Submit </button>
     <p>Playing:</p>
-    <p id="songName"></p>
 
+<textarea id="what's_playing" cols="45" style="font-size: 15pt" ></textarea>
     <script>
         var characterArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-        var functionArray = [sound0, sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10, sound11, sound12, sound13, sound14, sound15, sound16, sound17, sound18, sound19, sound20, sound21, sound22, sound23, sound24, sound25, sound26];
-
+ 
         function queueSound(){
-            notes_raw = $('#input_notes').val().split(/\r?\n/);
+            notes_raw = $('#input_notes').val().split('\n');
 
             var notes_parsed = [];
             for(index = 0; index < notes_raw.length; index++)
             {
                 for(index2 = 0; index2 < notes_raw.length; index2++)
                 {
-                    for(index3 = 0; index3 < 26; index3++)
-                    {
-                        if(notes_raw[index][index2] == characterArray[index3])
-                        {
-                            notes_parsed.push(functionArray[index3]);
-                        }
-                    }
+                    notes_parsed.push(notes_raw[index][index2])
+
                 }
             }
+            console.log("\n")
 
             var start = 0;
-                while(notes_parsed.length > 0){                   
-
-                    index = 4000
-                    const func = notes_parsed.shift();
-                    setTimeout(function(){func()}, start);
+            while(notes_parsed.length > 0){    
+                index = 3000               
+                const note = notes_parsed.shift()
+                if(note == "A"){
+                    setTimeout(function() {
+                        var name = 'Water Drop Sound High-SoundBible.com-1387792987.mp3';
+                        var audio = new Audio(name);
+                        displaySongName(name);
+                        audio.play();
+                    }, start)
                     start = start + index;
                 }
+                else if(note == "B"){
+                    setTimeout(function() {
+                    var name = 'Fart-Common-Everyday-Fart_Mike-Koenig.mp3';
+                    var audio = new Audio(name);
+                    displaySongName(name);
+                    audio.play(); 
+                    }, start);
+                    start = start + index;
+                }
+                else if(note == "C"){
+                    setTimeout(function() {
+                    var name = 'dun_dun_dun-Delsym-719755295.mp3';
+                    var audio = new Audio(name);
+                    displaySongName(name);
+                    audio.play();
+                    }, start);
+                    start = start + index;
+                }
+                else if(note == "D"){
+                    setTimeout(function() {
+                        var name = 'Evil Laugh-SoundBible.com-874992221.mp3';
+                        var audio = new Audio(name);
+                        displaySongName(name);
+                        audio.play();
+                    }, start);
+                    start = start + index;
+                }
+                else if(note == "E"){
+                    setTimeout(function() {
+                        var name = 'DJ Scratching-SoundBible.com-587375072.mp3'
+                        var audio = new Audio(name);
+                        displaySongName(name);
+                        audio.play();
+                    }, start);
+                    start = start + index;
+                }
+            }
         }
 
         function randomize() {
             var text = "";
 
             for (let step = 0; step < 5; step++) {
-                text += characterArray[Math.floor((Math.random() * 25))] + '\n';
+                text += characterArray[Math.floor((Math.random() * 5))] + '\n';
                 for (let space = -1; space < step; space++){
                     text += ' ';
                 }
@@ -78,197 +115,10 @@ A
 
         function displaySongName(name)
         {
-            document.getElementById("songName").innerHTML = name;
+            document.getElementById("what's_playing").value = name;
         }
 
-        function sound0(){
-            name = 'Fly Buzzing-SoundBible.com-1512331015.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound1(){
-            var name = 'Fart-Common-Everyday-Fart_Mike-Koenig.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound2(){
-            var name = 'dun_dun_dun-Delsym-719755295.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound3(){
-            var name = 'Swords Clashing-SoundBible.com-912903192.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound4(){
-            var name = 'Water Drop Sound High-SoundBible.com-1387792987.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound5(){
-            var name = 'baboon.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound6(){
-            var name = 'america-dial-tone-daniel_simon.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound7(){
-            var name = 'Bubbling-SoundBible.com-1684132696.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound8(){
-            var name = 'Pager Beeps-SoundBible.com-260751720.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound9(){
-            var name = 'puppy-barking_ds.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound10(){
-            var name = 'Horn Honk-SoundBible.com-1634776698.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound11(){
-            var name = 'Alien_Machine_Gun-Matt_Cutillo-2023875589.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound12(){
-            var name = 'Bomb 2-SoundBible.com-953367492.mp3';
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound13(){
-            var name = 'DJ Scratching-SoundBible.com-587375072.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound14(){
-            var name = 'Elevator Ding-SoundBible.com-685385892.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound15(){
-            var name = 'Evil Laugh-SoundBible.com-874992221.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound16(){
-            var name = 'Goat Bah-SoundBible.com-959734934.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound17(){
-            var name = 'Missile_Impact-Osama_bin_Laden-2012236287.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound18(){
-            var name = 'Peacock Noise-SoundBible.com-743736356.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound19(){
-            var name = 'Pling-KevanGC-1485374730.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound20(){
-            var name = 'Applause Moderate 2 -SoundBible.com-1871339441.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound21(){
-            var name = 'alligator3.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound22(){
-            var name = 'Cheetah2.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound23(){
-            var name = 'bat1.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound24(){
-            var name = 'baboonm.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound25(){
-            var name = 'Maniacal Witches Laugh-SoundBible.com-262127569.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
-
-        function sound26(){
-            var name = 'Seashore And Seagulls-SoundBible.com-1708097714.mp3'
-            var audio = new Audio(name);
-            displaySongName(name);
-            audio.play();
-        }
     </script>
 </body>
 </html>
+
