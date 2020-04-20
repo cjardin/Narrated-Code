@@ -1,0 +1,20 @@
+Ezer Patlan
+CS351
+Instructor: Mr. Cary Jardin
+HW2: Logic Programming in Python
+5-12: importing kanren,sympy, numpy, itertools, and json 
+25: prime function to check whether it is a prime or not
+29: if is a variable isvar(x)
+33: return the sequence of prime numbers
+38: else if is successful then check is prime and if is not then it fails
+41: read the json file and store in data
+55: intialize variable n
+59: check the array and filter the numbers that are prime numbers
+64: the attributes is for the user to read the data
+69: print the attributes
+74: for loop prints the prime numbers of all employees
+82-85: Initialize the relations and variables
+90: store the employee data into the facts to build our relationship and constraints using the Kanren libraries
+97-110: the x,y,z are empty variables and are going to fillout as output solution and find the correlation and
+print the names of the employees that belong in that specific profession.
+

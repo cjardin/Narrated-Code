@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
+</head>  
+
+<body id="main" style="background-color: #0099cc">
+    <title>CS 351 Assignment Page</title>
+
+    <h1 style="font-size: 40px">CS 351 Music Box Page - Chris Do</h1>
+
+    <p> Random notes generator:  
+        <button onclick="randomize()" type="button">Randomize</button>
+        <button onclick="html_template()" type="button">Submit </button>
+    </p>
+
+    <div>
+        <label for="input_notes" style="display:inline-block; font-size: 15pt; margin:0">Input Notes -------------------------> Output Notes</label>
+        <button onclick="copy()" type="button">Copy</button>
+    </div>
+
+<textarea id="input_notes" rows="20" style="font-size: 15pt">
+A
+ B
+  C
+   D
+    E
+</textarea>
+
+<textarea id="compiled_code" rows="20" style="font-size: 15pt">@@@PLAY_CODE</textarea>
+
+<p style="font-size: 15pt">Playing: </p>
+<textarea id="whats_playing" cols="42" style="font-size: 15pt" ></textarea>
+
+    <script>
+        var characterArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        var audioArray = ['Water Drop Sound High-SoundBible.com-1387792987.mp3', 'Fart-Common-Everyday-Fart_Mike-Koenig.mp3', 'dun_dun_dun-Delsym-719755295.mp3','Elevator Ding-SoundBible.com-685385892.mp3','DJ Scratching-SoundBible.com-587375072.mp3']
+  
+        function getNotes() {
+            notes_raw = $('#input_notes').val().split('\n');
+
+            var notes_parsed = [];
+            for(index = 0; index < notes_raw.length; index++)
+            {
+                for(index2 = 0; index2 < notes_raw.length; index2++)
+                {
+                    notes_parsed.push(notes_raw[index][index2]);
+                }
+            }
+            return notes_parsed;
+        }
+
+        function queueSound(){
+            notes_raw = $('#input_notes').val().split('\n');
+
+            var notes_parsed = [];
+            notes_parsed = getNotes()
+
+            var start = 0;
+            while(notes_parsed.length > 0){    
+                index = 2750               
+                const note = notes_parsed.shift()
+                if(note == "A"){
+                    setTimeout(function() {
+                        var name = 'Water Drop Sound High-SoundBible.com-1387792987.mp3';
+                        var audio = new Audio(name);
+                        displaySongName(name);
+                        audio.play();
+                    }, start)
+                    start = start + index;
+                }
+                else if(note == "B"){
+                    setTimeout(function() {
+                    var name = 'Fart-Common-Everyday-Fart_Mike-Koenig.mp3';
+                    var audio = new Audio(name);
+                    displaySongName(name);
+                    audio.play(); 
+                    }, start);
+                    start = start + index;
+                }
+                else if(note == "C"){
+                    setTimeout(function() {
+                    var name = 'dun_dun_dun-Delsym-719755295.mp3';
+                    var audio = new Audio(name);
+                    displaySongName(name);
+                    audio.play();
+                    }, start);
+                    start = start + index;
+                }
+                else if(note == "D"){
+                    setTimeout(function() {
+                        var name = 'Elevator Ding-SoundBible.com-685385892.mp3';
+                        var audio = new Audio(name);
+                        displaySongName(name);
+                        audio.play();
+                    }, start);
+                    start = start + index;
+                }
+                else if(note == "E"){
+                    setTimeout(function() {
+                        var name = 'DJ Scratching-SoundBible.com-587375072.mp3'
+                        var audio = new Audio(name);
+                        displaySongName(name);
+                        audio.play();
+                    }, start);
+                    start = start + index;
+                }
+            }
+        }
+
+        function get_playlist() {
+            var notes_parsed = [];
+            notes_parsed = getNotes()
+
+            var script = "";
+            var start = 0;
+            index = 2000;
+            while(notes_parsed.length > 0) {
+                const note = notes_parsed.shift()
+                if(note == "A"){
+                    script += "setTimeout(function () {var name=" + "'" + audioArray[note.charCodeAt(0)-65] + "'" + "; var audio = new Audio(name); audio.play();}," + start + ");"
+                    start += index;
+                }
+                else if(note == "B"){
+                    script += "setTimeout(function () {var name=" + "'" + audioArray[note.charCodeAt(0)-65] + "'" + "; var audio = new Audio(name); audio.play();}," + start + ");"
+                    start += index;
+                }
+                else if(note == "C"){
+                    script += "setTimeout(function () {var name=" + "'" + audioArray[note.charCodeAt(0)-65] + "'" + "; var audio = new Audio(name); audio.play();}," + start + ");"
+                    start += index;
+                }
+                else if(note == "D"){
+                    script += "setTimeout(function () {var name=" + "'" + audioArray[note.charCodeAt(0)-65] + "'" + "; var audio = new Audio(name); audio.play();}," + start + ");"
+                    start += index;
+                }
+                else if(note == "E"){
+                    script += "setTimeout(function () {var name=" + "'" + audioArray[note.charCodeAt(0)-65] + "'" + "; var audio = new Audio(name); audio.play();}," + start + ");"
+                    start += index;
+                }
+            }
+            return script;
+        }
+
+        function html_template() {
+            var html = "";
+
+            var htmlTEMPLATE = "<!doctype html>"
+            htmlTEMPLATE += "<html><head><\/head ><body style='background-color: #0099cc'>"
+            htmlTEMPLATE += "<title>Output Page</title>"
+            htmlTEMPLATE += "<script>@@@PLAY_CODE <\/script>"
+            htmlTEMPLATE += "<\/body ><\/html>"
+
+            var code_output = get_playlist();
+
+            $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+            queueSound()
+        }
+
+        function randomize() {
+            var text = "";
+
+            for (let step = 0; step < 5; step++) {
+                text += characterArray[Math.floor((Math.random() * 5))] + '\n';
+                for (let space = -1; space < step; space++){
+                    text += ' ';
+                }
+            }
+            document.getElementById("input_notes").value = text;
+        }
+
+        function displaySongName(name)
+        {
+            document.getElementById("whats_playing").value = name;
+        }
+
+        function copy() {
+            let textarea = document.getElementById("compiled_code");
+            textarea.select();
+            document.execCommand("copy");
+            alert("Copied!")
+        }
+    </script>
+</body>
+</html>
