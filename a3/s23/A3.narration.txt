@@ -1,0 +1,147 @@
+html document type
+authors name
+assignment number
+date
+this is my second time using html.
+end of heading
+language of page
+open head tag
+charset
+links stylesheet of file
+open and close title of assignment
+closes head tag
+open script tag
+importing jquery
+integrity attribute
+crossorigin attribute
+closes script tag
+open a new script tag
+comment
+assigns variable definition
+comment
+assigns variable_assign to new Map
+comment
+defines array containing notes
+defines index
+defines index offset
+comment
+defines empty
+
+comment
+defining Play_input function
+comment
+reads the text box and stores the inputs into a string array
+comment
+checks if it is a variable or not
+closing bracket
+
+comment
+comment
+defining function analyze_task
+comment
+for loop
+comment
+if statement
+removes any whitespace from line
+closing bracket
+
+comment
+if statement
+converts to string
+comment
+identifies index of =
+comment
+gets variable assigning of file or what is behind the =
+comment
+gets variable name of mp3 file
+comment
+Defining an audio object
+variable and its audio file is placed in Map
+closing bracket
+comment
+else statement
+comment
+if statement
+comment
+comment
+if statement
+error message
+displays error message
+creates new audio file
+variable and its audio file is placed in Map
+pushes audio object to audio
+closing bracket
+comment
+else statement
+variable and its audio file is placed in Map
+Pushing audio object to audio
+closing bracket
+closing bracket
+closing bracket
+closing bracket
+comment
+calls Play function
+comment
+calls code_Gen function
+closing bracket
+
+comment
+defining Play function
+while loop
+gets audio file from audio index
+calls setTimeout function
+plays song
+sets length ot timeout
+increments index
+closing bracket
+closing bracket
+
+defining code_Gen function
+defining compiled_code string
+for loop
+gets string from audio file
+appends string compiled_code
+appends string compiled_code
+appends string compiled_code
+closing bracket
+comment
+add the doc type tags to code
+add the language to code
+adds a html head tag to code
+adds a play_Code tag to code
+adds a body tag to code
+comment
+adds a replace tag to code
+play_code is replaced by compiled_code
+closing bracket
+
+closing script tag
+opening body tag
+main id tag
+opening and closing of p class tag
+div id
+opening and closing of h2 tag
+opening of textarea "input_notes" id
+text in textarea
+text in textarea
+text in textarea
+text in textarea
+text in textarea
+text in textarea
+text in textarea
+text in textarea
+text in textarea
+text in textarea
+
+closing of textarea
+br tag or line break tag
+
+button Play calls Play_input function
+closes div tag
+column2 is aasigned to new div tag
+opening and closing of h2 tag
+opening and closing of new text area
+closing of div tag
+closing of main tag
+closing of body tag
+closing of html tag

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+    background-color: hsl(143, 100%, 65%)
+    }
+</style>
+
+<script>
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"
+</script>
+
+</head>
+<body>
+<h1> Music Box Page</h1>
+
+<textarea id="input_notes" rows="5" cols="8">
+A
+B
+B
+C
+D
+E
+F
+G
+</textarea>
+
+<button type="button" onclick="playSound()">PLAY</button>
+
+<script>
+        
+  function playSound() {
+    
+
+    let notesRaw = document.getElementById("input_notes").value;
+
+    let notesParsed = notesRaw.split(/\r?\n/);
+    
+    
+    function playSound_r() {
+      const delay = 1000;
+
+      let note = notesParsed.shift();
+      console.log(note);
+
+      for (let i = 0; i < note.length; i++) {
+        let sound = note[i];
+        let file = "";
+        switch (sound) {
+          case 'A':
+            file = "A_Piano.wav";
+            break;
+          case 'B':
+            file = "B_Piano.wav";
+            break;
+          case 'C': 
+            file = "C_Piano.wav";
+            break;
+          case 'D': 
+            file = "D_Piano.wav";
+            break;
+          case 'E': 
+            file = "E_Piano.wav";
+            break;
+          case 'F': 
+            file = "F_Piano.wav";
+            break;
+          case 'G': 
+            file = "G_Piano.wav";
+            break;
+          default:
+            break;
+        }
+
+        new Audio(file).play();
+      }
+      
+      if (notesParsed.length > 0) {
+        setTimeout(playSound_r, delay);
+      }
+    }
+
+    playSound_r();
+
+
+  }
+      
+</script>
+
+</body>
+</html>

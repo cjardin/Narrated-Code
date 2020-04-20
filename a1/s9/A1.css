@@ -1,0 +1,34 @@
+/*
+// Author: Daniel B. Martinez
+// Email: marti931@cougars.csusm.edu
+// Course: CS351
+// Prof: C. Jardin
+// Assignment 1: Music Box - A1.css
+// Note!!!: This is my first time using javasctipt, html, and css
+*/
+
+body
+{
+  background-color: black;
+  background-position: center;
+  background-image: url("A1 Photo.jpg");
+  background-attachment: scroll;
+}
+
+h1
+{
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  font-family: times new roman;
+  font-size: 60px;
+}
+
+p
+{
+  color: white;
+  text-align: center;
+  font-family: arial;
+  font-style: italic;
+  font-size: 20px;
+}

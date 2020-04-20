@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Box Page</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Music Box</h1>
+<h2>Notes</h2>
+<p>Enter the notes from A-G (LINE BY LINE). Then, click Play!!!!!</p>
+<textarea id="inputNotes" rows="4" cols="4" style="width:100%">
+</textarea>
+<button onclick="play()" style="width:100%; background-color: red; font-size: 40px;">Play</button>
+<script>
+        function parsedNotes(){
+            var parsed_notes = []; //Notes array from area text
+            raw_notes = $("#inputNotes").val().split('\n');
+            for(let index = 0; index < raw_notes.length; index++){
+                parsed_notes.push(raw_notes[index]);
+            }
+            return parsed_notes;
+        }
+        function play(){
+            var parsed_notes = parsedNotes();
+            var ms_offset =1000; //offset in ms.
+            for(let index = 0; index < parsed_notes.length; index++){
+                setTimeout(function(){
+                    new Audio(parsed_notes[index]+".mp3").play();},ms_offset*index);
+            }
+        }
+</script>
+<h2>HTML Generation</h2>
+<textarea id="compiled_code" rows="50" cols="50" style="width:100%">
+</textarea>
+<button onclick="HTMLGenerator()", style="font-size : 40px; background-color: blue; width:100%">Generator!</button>
+
+<script>
+    function HTMLGenerator()
+    {
+        var compiled_notes = parsedNotes();
+        var code_output ="";
+        var ms_offset =1000; //offset in ms.
+        //----------HTML TEMPLATE--------------//
+        var htmlTEMPLATE = "<!doctype html>";
+        htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>";
+        htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>";
+        htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>";
+        //---------Code Generation------------//
+        for(let i = 0; i<compiled_notes.length; i++){
+            code_output = code_output + "setTimeout(function(){new Audio(\"" + compiled_notes[i] + ".mp3\").play();}," + ms_offset + "*" + i +");";
+        }
+        $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output));
+    }
+</script>
+</body>
+</html>

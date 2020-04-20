@@ -1,0 +1,131 @@
+var mp3Strings = ['new Audio("/GuitarSounds/E1.mp3")', 'new Audio("/GuitarSounds/B.mp3")', 'new Audio("/GuitarSounds/G.mp3")', 'new Audio("/GuitarSounds/D.mp3")' ,'new Audio("/GuitarSounds/A.mp3")','new Audio("/GuitarSounds/E6.mp3")']
+
+var htmlTEMPLATE = "<!doctype html>"
+htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>"
+htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>"
+htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+
+function parseText(){
+  var text = document.getElementById("text").value
+  var variables = {}
+  var numVar = 0
+  var offset = 500
+  var output = ""
+
+  if(text === ""){
+    alert("You did not enter anything. Try again")
+    return
+  }
+  
+  var splitLines = text.split("\n")
+  
+  for(var i = 0; i < splitLines.length; i++){
+    
+    var checkVars = splitLines[i].split("=")
+    
+    if(checkVars.length != 1){
+      if(checkVars[1].trim() == "E1.mp3"){
+        variables[checkVars[0]] = "e"
+      }
+      else if(checkVars[1].trim() == "B.mp3"){
+        variables[checkVars[0]] = "B"
+      }
+      else if(checkVars[1].trim() == "G.mp3"){
+        variables[checkVars[0]] = "G"
+      }
+      else if(checkVars[1].trim() == "D.mp3"){
+        variables[checkVars[0]] = "D"
+      }
+      else if(checkVars[1].trim() == "A.mp3"){
+        variables[checkVars[0]] = "A"
+      }
+      else if(checkVars[1].trim() == "E6.mp3"){
+        variables[checkVars[0]] = "E"
+      }
+      numVar++
+    }
+  }
+
+  for(var i = numVar; i < splitLines.length; i++){
+    if(splitLines[i] !== ""){
+      
+      splitLines[i] = splitLines[i].trim().split(" ");
+      
+      for(var j = 0; j < splitLines[i].length; j++){
+        
+        if(splitLines[i][j] in variables){
+
+          if(variables[splitLines[i][j]] == "e"){
+
+            setTimeout(function(){
+              new Audio("/GuitarSounds/E1.mp3").play()
+            }, offset*i)
+
+            output += "setTimeout(function(){" + mp3Strings[0] + ".play()},offset*i)\n"
+
+          }
+          else if(variables[splitLines[i][j]] == "B"){
+            
+            setTimeout(function(){
+              new Audio("/GuitarSounds/B.mp3").play();
+            }, offset*i);
+
+            output += "setTimeout(function(){" + mp3Strings[1] + ".play()},offset*i)\n"
+
+          }
+          else if(variables[splitLines[i][j]] == "G"){
+            
+            setTimeout(function(){
+              new Audio("/GuitarSounds/G.mp3").play()
+            }, offset*i);
+
+            output += "setTimeout(function(){" + mp3Strings[2] + ".play()},offset*i)\n"
+
+          }
+          else if(variables[splitLines[i][j]] == "D"){
+            
+            setTimeout(function(){
+              new Audio("/GuitarSounds/D.mp3").play()
+            }, offset*i)
+
+            output += "setTimeout(function(){" + mp3Strings[3] + ".play()},offset*i)\n"
+
+          }
+          else if(variables[splitLines[i][j]] == "A"){
+            setTimeout(function(){
+              new Audio("/GuitarSounds/A.mp3").play()
+            }, offset*i)
+
+            output += "setTimeout(function(){" + mp3Strings[4] + ".play()},offset*i)\n"
+
+          }
+          else if(variables[splitLines[i][j]] == "E"){
+            
+            setTimeout(function(){
+              new Audio("/GuitarSounds/E6.mp3").play()
+            }, offset*i)
+
+            output += "setTimeout(function(){" + mp3Strings[5] + ".play()},offset*i)\n"
+
+          }
+        }
+        else{
+          
+          alert("Undeclared Variable: " + splitLines[i][j])
+          document.getElementById("text").value = ""
+          return
+
+        }
+        
+      }
+
+    }
+
+  }
+  
+  document.getElementById("compiled_code").value = htmlTEMPLATE.replace("@@@PLAY_CODE", output)
+  
+}
+
+

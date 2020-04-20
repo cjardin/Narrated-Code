@@ -1,0 +1,71 @@
+1: Declare array of strings representing the creation of an audio object
+3: Declare htmlTemplate variable to hold html code that will be used to store our compiled code
+4: Declare htmlTemplate variable to hold html code that will be used to store our compiled code
+5: Declare htmlTemplate variable to hold html code that will be used to store our compiled code
+6: Declare htmlTemplate variable to hold html code that will be used to store our compiled code
+9: function header for parseText function
+10: Declare variable to hold text from the html text area
+11: Declare a dict whose key is a user entered variable name and the value is the note it corresponds to
+12: Declare variable to count number of variables declared by the user
+13: Declare variable for the length of the offset for each of our notes to play
+14: Declare string to hold our compiled code output
+16: Check if the text area was empty
+17: Alert the user that they did not enter anything
+18: Return from the function
+21: Declare a list that is the result of splitting our text variable on a newline character
+23: for loop header
+25: Declare a list that is the result of splitting the current line we are reading on an equal sign character
+27: Check if the list length is not 1
+28: Check if the file is the E1 mp3
+29: Map the variable name to "e"
+31: Check if the file is the B mp3
+32: Map the variable name to "B"
+34: Check if the file is the G mp3
+35: Map the variable name to "G"
+37: Check if the file is the D mp3
+38: Map the variable name to "D"
+40: Check if the file is the A mp3
+41: Map the variable name to "A"
+43: Check if the file is the E6 mp3
+44: Map the variable name to "E"
+46: Increment number of variables counter since we have added a new variable
+50: for loop header 
+51: Check if the current line is not empty
+53: Split the current line by the whitespace character
+55: for loop header
+57: Check if the current character of our line is in our variables dict
+59: Check if the variable maps to "e"
+61: Call setTimeout function in order to play the E1 mp3
+62: Call setTimeout function in order to play the E1 mp3
+63: Call setTimeout function in order to play the E1 mp3
+65: Append our code to the output string that will hold our compiled code
+68: Check if the variable maps to "B"
+70: Call setTimeout function in order to play the B mp3
+71: Call setTimeout function in order to play the B mp3
+72: Call setTimeout function in order to play the B mp3
+74: Append our code to the output string that will hold our compiled code
+77: Check if the variable maps to "G"
+79: Call setTimeout function in order to play the G mp3
+80: Call setTimeout function in order to play the G mp3
+81: Call setTimeout function in order to play the G mp3
+83: Append our code to the output string that will hold our compiled code
+86: Check if the variable maps to "D"
+88: Call setTimeout function in order to play the D mp3
+89: Call setTimeout function in order to play the D mp3
+90: Call setTimeout function in order to play the D mp3
+92: Append our code to the output string that will hold our compiled code
+95: Check if the variable maps to "A"
+96: Call setTimeout function in order to play the A mp3
+97: Call setTimeout function in order to play the A mp3
+98: Call setTimeout function in order to play the A mp3
+100: Append our code to the output string that will hold our compiled code
+103: Check if the variable maps to "E"
+105: Call setTimeout function in order to play the E6 mp3
+106: Call setTimeout function in order to play the E6 mp3
+107: Call setTimeout function in order to play the E6 mp3
+109: Append our code to the output string that will hold our compiled code
+113: else statement
+115: Alert the user that an undeclared variable was used
+116: Reset the text area to be blank
+117: Return from the function
+127: Print our compiled code output to the other text area

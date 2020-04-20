@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+</script>
+
+</head>
+
+<body>
+<h1>Music Box Page</h1>
+
+<textarea id="input_notes" rows="4" cols="4">
+A
+ B
+  C
+   D
+</textarea>
+
+<br>
+<br>
+
+<p1 id="playNext"></p1>
+
+<br>
+<br>
+
+<textarea id="compiled_code" rows="20" cols="40">
+
+</textarea>
+
+<script>
+        //This is where narration begins...
+	
+	notes_raw = $("#input_notes").val().split(/\r?\n/)
+	var audio1 = new Audio('Short Egg Cracking.mp3')
+	var audio2 = new Audio('Radio Tune.mp3')
+
+	var notes_parsed = []
+	//var notes_parsed = ['A', 'B', 'C', 'D']
+
+	for(index = 0; index < notes_raw.length; index++){
+		if(notes_raw[index][0] == 'A'){
+			notes_parsed.push('A')
+		}else if(notes_raw[index][1] == 'B'){
+			notes_parsed.push('B')
+		}
+		/*
+		} else if(notes_raw[index][2] == 'C'){
+			notes_parse.push('C')
+		} else if(notes_raw[index][3] == 'D'){
+			notes_parse.push('D')*/
+	} //var notes_parsed = ['A', 'B']
+	
+	//add an addEventListener("ended", myFunction) on each index to play the next one
+	//audio1.addEventListener("ended", function(){audio2.play()})
+
+	function finished() 
+	{
+		alert("Audio has finished!")
+	}
+	
+	index_ms_offset = 3000
+	for(index = 0; index < notes_parsed.length; index++)
+	{
+		if(notes_parsed[index] == 'A')
+		{
+			setTimeout(function(){audio1.play()}, index_ms_offset * index)
+			audio1.addEventListener("ended", finished)
+		} else if(notes_parsed[index] == 'B')
+		{
+			setTimeout(function(){audio2.play()}, index_ms_offset * index)
+			audio2.addEventListener("ended", finished)
+		}
+	}
+
+	var htmlTEMPLATE = "<!doctype html>"
+	htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>"
+	htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>"
+	htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+	code_output = ""
+	timing = 0
+	index_ms_offset = 3000
+	for(index = 0; index < notes_parsed.length; index++)
+	{
+		if(notes_parsed[index] == 'A')
+		{
+			code_output = code_output + "setTimeout(function(){"
+			code_output = code_output + "new Audio('Short Egg Cracking.mp3').play()"
+			code_output = code_output + "}, " + index_ms_offset + "*" +  index + ");"
+			code_output = code_output + "new Audio('Short Egg Cracking.mp3').addEventListener('ended', function(){"
+			code_output = code_output + "alert('Audio has finished!')});"
+		} else if(notes_parsed[index] == 'B')
+		{
+			code_output = code_output + "setTimeout(function(){"
+			code_output = code_output + "new Audio('Radio Tune.mp3').play()"
+			code_output = code_output + "}, " + index_ms_offset + "*" +  index + ");"
+			code_output = code_output + "new Audio('Radio Tune.mp3').addEventListener('ended', function(){"
+			code_output = code_output + "alert('Audio has finished!')});"
+		}
+	}
+	
+	$("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+
+
+	/*
+	timing = 0
+	index_ms_offset = 3000
+	for(index = 0; index < notes_parsed.length; index++)
+	{
+		if(notes_parsed[index] == 'A')
+		{
+			setTimeout(function(){new Audio('Short Egg Cracking.mp3').play()}, index_ms_offset * index) 
+		}
+		else if(notes_parsed[index] == 'B')
+		{
+			setTimeout(function(){new Audio('Radio Tune.mp3').play()}, index_ms_offset * index) 
+		}
+	}
+
+	*/
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+bracket for comment for html page
+author name
+author email
+course name
+professors name
+assignment number
+note to professor
+clsoe bracket
+
+html doctype heading
+html opening tag
+head opening tag
+
+include the jquery code
+include the src
+include the integrity
+include the crossorigin
+
+include the link to A1.css file
+
+title of html page
+head closing tag
+body opening tag
+
+html heading "Music Box"
+
+audio opening tag
+open audio source a_note.mp3
+open audio source b_note.mp3
+open audio source c_note.mp3
+open audio source d_note.mp3
+close audio tag
+
+align text area to center of screen
+textarea opening tag
+include letter A
+include letter B
+include letter C
+include letter D
+close textarea tag
+close center tag
+
+center opening tag
+html paragraph "play audio"
+
+button play audio
+
+opening script tag, include A1.js code
+center opening tag
+textarea opening tag for creating stand alone HTML page
+
+close textarea tag
+close center tag
+close body tag
+close html tag
+
+
+
+
+
+comment for javascript code
+author name
+author email
+course name
+professors name
+assignment number
+note to professor
+
+function getinfo
+bracket
+split notes
+
+create array called parsed
+have i eqauls zero
+
+while loop
+bracket
+have j equals zero
+
+while loop
+bracket
+create temp variable
+
+create two dimensional array and eqaul to temp
+
+if statement
+push a note
+
+else if statement
+push b note
+
+else if statement
+push c note
+
+else if statement
+push d note
+
+increment j
+close bracket
+
+increment i
+close bracket
+
+return parsed
+close getinfo function
+
+function playAudio
+bracket
+have parsed notes equals getinfo
+variable offset eqauls one thousand
+variable i eqauls zero
+
+while loop
+bracket
+if statement
+bracket
+chain notes(a) using setTimeout
+close bracket
+
+else if statement
+bracket
+chain notes(b) using setTimeout 
+close bracket
+
+else if statement
+bracket
+chain notes(c) using setTimeout
+close bracket
+
+else if statement
+bracket
+chain notes(d) using setTimeout
+close bracket
+
+increment i
+close bracket
+
+comment, create stand alone HTML, code generation
+variable htmlTEMPLATE = doctype
+htmlTEMPLATE += head and body
+htmlTEMPLATE += script
+htmlTEMPLATE += close body
+
+code output is open string
+variable offset equals one thousand
+variable i equals zero
+
+while loop
+bracket
+if statement
+bracket
+code output += setTimeout function
+code output += to audio file a_note
+code output += multiply offset and i
+close bracket
+
+else if statement
+bracket
+code output += setTimeout function
+code output += to audio file b_note
+code output += multiply offset and i
+close bracket
+
+else if statement
+bracket
+code output += setTimeout function
+code output += to audio file c_note
+code output += multiply offset and i
+close bracket
+
+else if statement
+bracket
+code output += setTimeout function
+code output += to audio file d_note
+code output += multiply offset and i
+close bracket
+
+increment i
+close bracket
+
+create a string that has javascript code in it
+close playAudio function
+
+
+
+
+
+
+
+
+open comment for CSS code
+author name
+author email
+course name
+professors name
+assignment number
+note to professor
+close comment
+
+html body 
+bracket
+back ground color black
+center it
+upload photo
+have photo scroll down with page
+close bracket
+
+html heading
+bracket
+font color white
+align to center
+font decoration underline
+font family times new roman
+font size sixty
+close bracket
+
+html paragraph
+bracket
+font color white
+align to center
+font family arial
+font style italic
+font size twenty
+close bracket

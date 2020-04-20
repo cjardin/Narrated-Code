@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- Author:Fernando Juarez
+     Assignment: HW3
+     Date: March 30, 2020
+     This is my second time using html.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+        <title>CS351: Fernando's Music Box</title>
+</head>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+</script>
+<script>
+  //user assigns an mp3 file to a variable
+  const var_def = /(.+)(=)(.+)['.mp3']/;
+  //Assign will contain variables as keys, and their audio files as key values
+  let variable_assign = new Map();
+  //Array containing the notes to play
+  let notes_played = [];
+  let index = 0;
+  const index_ms_offset = 5000;
+  //checks for non empty lines
+  const empty = /(.)/;
+
+  //Play Function will put msuic notes into an array
+  function Play_input(){
+    //reads the text box and stores the inputs into a string array(nospaces)
+    const notes_raw = document.getElementById('input_notes').value.split('\n');
+    //check if variable or not
+    analyze_task(notes_raw);
+  }
+
+  //determines if it is a variable assignment or playing the audio file
+  //error checks if valid variable assigning has occured
+  function analyze_task(notes_raw){
+    //Checks each line and determine if we are doing variable assignment or variable invocation
+    for(let i=0; i<notes_raw.length;i++){
+      //removes any whitespace from line
+      if(/\s/g.test(notes_raw[i])){
+        notes_raw[i] = notes_raw[i].replace(/\s/g, '');
+      }
+
+      //If it is a variable assignment
+      if(var_def.test(notes_raw[i])){
+        const line = notes_raw[i].toString();
+        //Getting index of '='
+        const index = line.indexOf('=');
+        //Extracting variable name from text
+        const variable = line.substring(0,index);
+        //Extracting song file name
+        const music_file = line.substring(index+1, line.length+1);
+        //creates a new audio object
+        const audio_file = new Audio(music_file);
+        variable_assign.set(variable, audio_file);
+      }
+      //Line must be variable invocation
+      else{
+        //Checking that our line is not empty
+        if(empty.test(notes_raw[i])){
+          //Checking for Error: User calls variable that has not been defined yet
+          //User is given the opportunity to give an .mp3 file name to assign to variable and play file
+          if(!variable_assign.has(notes_raw[i]) && empty.test(notes_raw[i])){
+            const error_message = 'Variable: ' +notes_raw[i]+ ' has not been defined yet. Please specify a music file to assign: ';
+            const file_name = window.prompt(error_message);
+            const audio_file = new Audio(file_name);
+            variable_assign.set(notes_raw[i], audio_file);
+            notes_played.push(audio_file);
+          }
+          //Variable has been defined, smooth sailing
+          else{
+            const audio_file = variable_assign.get(notes_raw[i]);
+            notes_played.push(audio_file);
+          }
+        }
+      }
+    }
+    //play the music
+    Play();
+    //compiled code will output to compiled code once music is played
+    code_Gen();
+  }
+
+  //Loop through notes_played and play every mp3 file
+  function Play(){
+    while(index < notes_played.length){
+      const song = notes_played[index];
+      setTimeout(function(){
+        song.play();
+      }, index_ms_offset*index);
+      index++;
+    }
+  }
+
+  function code_Gen(){
+    let compiled_code='';
+    for(let i = 0; i<notes_played.length; i++){
+      const audio_file = notes_played[i].src;
+      compiled_code = compiled_code + "setTimeout( function(){";
+      compiled_code = compiled_code + "new Audio('"+audio_file+"').play()";
+      compiled_code = compiled_code + "}, " + index_ms_offset + " * " + i + "); "
+    }
+    //Adding a new line after generated JavaScript code
+    compiled_code += '\n';
+    let htmlTEMPLATE = "<!doctype html>";
+    htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head><body>";
+    htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE<\/script>";
+    htmlTEMPLATE = htmlTEMPLATE + "<\/body><\/html>";
+    //ouputs html code
+    htmlTEMPLATE = htmlTEMPLATE.replace(/>/gi, '>\n');
+    $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", compiled_code));
+  }
+
+</script>
+<body>
+<main id="layout">
+  <p class="blink">Fernando's Music Box</p>
+  <div id="column1">
+    <h2>Notes Generator</h2>
+    <textarea id="input_notes" cols="45" rows="10">
+     A = a.mp3
+ A
+   B = b.mp3
+     C = c.mp3
+        D = d.mp3
+A = b.mp3
+A
+    B
+         C
+                D
+
+    </textarea>
+    <br>
+
+    <button onclick='Play_input()'>Play</button>
+  </div>
+  <div id="column2">
+    <h2>Code Output</h2>
+    <textarea id="compiled_code" cols="55" rows="10"></textarea>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,86 @@
+1: DOCTYPE for HTML file
+2: open HTML file with the language is English
+3: open the head tag
+4: meta tag with character set of UTF-8
+5: title tag with the name "Music Box Page"
+6: open the script tag
+7: the direct URL for jQuery
+8:
+9: close the script tag
+10: close the head tag
+11: open the body tag
+12: h1 tag with the content "Music Box"
+13: h2 tag with the content "Notes"
+14: p tag with the contents of the Music Box introduction
+15: p tag with the contents of the Music Box introduction
+16: textarea for holding the input Notes
+17: close textarea tag
+18: button tag to play the notes from textarea by calling the function parsedNotes()
+19: open script tag
+20: declare the function parsedNotes() to return an array of notes from textarea
+21: declare the variable array named "parsed_notes"
+22: declare the variable named "letter_note" and initialize empty string
+23: declare the variable named "source_file" and initialize empty string
+24: declare the variable list named "playlist" and initialize empty string
+25: declare the variable array named "raw_notes" to hold the notes from splitting from the textarea
+26: for loop to traverse through all of the notes in the raw_notes array
+27: if statment to check if the "match" array is not null with regex
+28: opening curly bracket
+29: assign letter_note to the second element in the "match" array
+30: assign source_file to the second element in the "match" array
+31: assign the playlist with letter_note index to the source_file
+32: closing curly bracket for if statement
+33: else if statement to check the match array is not null with regex
+34: if statment to check if the first element in "match" array is not in the playlist list
+35: call window.alert() function to alert if the note has not been assign yet
+36: assign the the parsed_notes array to null array
+37: break statement to stop the for loop if the note has not been assign yet
+38: closing curly bracket for if statement
+39: else statement
+40: push the element in playlist list to parsed_notes array
+41: closing curly bracket for else statement
+42: closing curly bracket for else if statement
+43: blank line
+44: closing bracket for the for loop
+45: return the parsed_notes
+46: closing bracket for function parsedNotes()
+47: declare the function play()
+48: blank line
+49: declare the varaible parsedNotes and initialize to the value by calling the function parsedNotes()
+50: declare the variable ms_offset and initialize to 1000ms
+51: if statement to check if the parsed_notes is not null
+52: for loop to traverse through all of the elements in the parsed_notes
+53: calling the setTimeout() with the function
+54: initiate Audio object with the mp3 files and call play() function from the Audio object
+55: closing curly bracket for the for loop
+56: closing curly bracket for the if statement
+57: else statement
+58: comment line
+59: closing curly bracket for else statement
+60: closing the curly bracket for function play()
+61: closing the script tag
+62: h2 tag with the contents "HTMLGeneration"
+63: textarea for holding the HTML code
+64: closing the textarea tag
+65: button tag to generate HTML code by calling the function HTMLGenerator()
+66: blank line
+67: open the script tag
+68: declare the function HTMLGenerator()
+69: opening curly bracket for the funciton HTMLGenerator()
+70: declare the variable compiled_notes and initialize to the value by calling the function parsedNotes()
+71: declare the variable code_output and initialize to empty string
+72: declare the variable ms_offset and initialize to 1000ms
+73: comment line
+74: declare the variable htmlTEMPLATE and assign to DOCTYPE HTML tag
+75: concatenate the htmlTEMPLATE
+76: concatenate the htmlTEMPLATE
+77: concatenate the htmlTEMPLATE
+78: comment line
+79: for loop to traverse through all of the elements in the compiled_notes array
+80: concatenate code_output
+81: closing curly bracket for the for loop
+82: replace "@@@PLAY_CODE" with the code_output variable
+83: closing curly bracket for the function HTMLGenerator()
+84: close the script tag
+85: close the body tag
+86: close the html tag

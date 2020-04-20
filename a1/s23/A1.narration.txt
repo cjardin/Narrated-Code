@@ -1,0 +1,92 @@
+html document type
+
+language of page
+authors name
+assignment number
+date
+info
+end of heading
+open head tag
+charset
+links stylesheet of file
+open and close title of assignment
+open script tag
+closes head tag
+
+open body tag
+centered body title of class
+text area of where notes should go
+textarea to input "A"
+textarea to input "B"
+textarea to input "C"
+textarea to input "D"
+closes tag of text area
+creates a style for text: aligns text centered
+input button to play once clicked
+creates text area
+create button to compile code output
+closes div class
+
+javascript text type
+
+start fucntion get_Music
+reads the notes and stores
+
+array containing notes
+
+foor loop starting at index = 0
+bracket
+if stament, checks to see if notes_raw value at [index][0] in array is A and pushes A into notes_played
+else if stament, checks to see if notes_raw value at [index][1] in array is B and pushes B into notes_played
+else if stament, checks to see if notes_raw value at [index][2] in array is C and pushes C into notes_played
+if stament, checks to see if notes_raw value at [index][3] in array is D and pushes D into notes_played
+if stament, checks to see if notes_raw value at [index][4] in array is E and pushes E into notes_played
+if stament, checks to see if notes_raw value at [index][0] in array is F and pushes F into notes_played
+bracket closes loop
+returns notes_played function, plays notes
+closes fucntion get_Music
+
+starts play function
+declares array to hold notes
+sets idx at 0
+sets timeout for each note
+plays mp3 files with the establsihed format
+sets offset to 5000
+closing bracket
+closing bracket for fucntion play
+
+starts fucntion codeGen
+declare a variable named code and set an empty string to it
+sets idx at 0
+starts while loop to check if note lenght is not empty
+adds the notes to be played
+increment idx
+removes the notes from the array
+returns code
+closing bracket for codeGen
+
+starts function Compile
+declare a variable named code and set an empty string to it
+add the doc type tags to code
+add the language to code
+adds a html tag to code
+adds a body tag to code
+adds a header to code
+adds a button to code
+adds a script tag to ccode
+adds a function play call to code
+adds a temporary string to code
+adds a closing bracket to code
+adds a closing script tag to code
+adds a closing body tag to code
+adds a closing thml tag to code
+
+creates an array and sets values by calling get_Music
+declares a string and sets it to codeGen
+replaces the temp string "PlayMusic" with the newFile string
+adds the code to the second textbox
+sets the text to the newFile
+closing bracket to compile function
+closes script tag
+closes body tag
+closes html tag

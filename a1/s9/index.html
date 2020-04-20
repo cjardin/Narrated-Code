@@ -1,0 +1,55 @@
+<!--
+Author: Daniel B. Martinez
+Email:  marti931@cougars.csusm.edu
+Course: CS 351
+Prof:   Cary Jardin
+Assignment 1: Music Box - index.html
+Note!!!: This is my first time using javasctipt, html, and css
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="A1.css"/>
+
+<title>CS 351: Assignment 1</title>
+</head>
+<body>
+
+<h1>Music Box</h1>
+
+<audio id="myaudio">
+  <source src="a_note.mp3" type="audio/mpeg"></source>
+  <source src="b_note.mp3" type="audio/mpeg"></source>
+  <source src="c_note.mp3" type="audio/mpeg"></source>
+  <source src="d_note.mp3" type="audio/mpeg"></source>
+</audio>
+
+<center>
+<textarea id="input_notes" rows="4" cols="4" style="background-color:lightblue">
+A
+ B
+  C
+   D
+</textarea>
+</center>
+
+<center>
+<p>click the button to play audio</p>
+
+<button onclick="playAudio()" type="button">Play Me</button></center>
+
+<script type="text/javascript" src="A1.js"></script>
+<center>
+<textarea id="compiled_code" rows="20" cols="40" style="background-color:lightblue">
+
+</textarea>
+</center>
+</body>
+</html>

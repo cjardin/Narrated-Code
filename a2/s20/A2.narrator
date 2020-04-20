@@ -1,0 +1,43 @@
+A2.py file
+
+I am not really knowledgable of python but I really felt that I wanted to test it as so I got a
+little carried away and started Assignment without looking at what logic programming was.
+I did some program just using python without logic programming and then found out that was not 
+logic programming so I had to pretty much start all over. I didn't know what application I wanted
+to do, I felt that logic programming could be useful in some way but I think it really limited what 
+I wanted to program. 
+
+5: import file kanren
+6: import functions in lanren that are used
+
+8: declare course name
+9: declare professor name
+
+12: create a relation course for course to professor
+13: assign professor to course by course relation
+
+16: create a relation from professor to student
+
+19-20: making a relation between course and student from the professor
+
+23-30: menu of the application
+
+33-55: while loop to go through multiple inputs
+
+    34-38: try catch exception for inputs
+
+        35: integer input
+        
+        36-38: if not an integer exception is thrown and print error
+
+    40-41: Case 1 print course name
+
+    43-45: Case 2 print professor of course
+
+    47-50: Case 3 add a student
+
+    52-54: Case 4 print all students in course
+
+    56-57: Case 5 quit program
+
+    59-60: If integer not in range of 1-5 print error

@@ -1,0 +1,60 @@
+1: DOCTYPE for HTML file
+2: open HTML file with the language is English
+3: open the head tag
+4: meta tag with character set of UTF-8
+5: title tag with the name "Music Box Page"
+6: open the script tag
+7: the direct URL for jQuery
+8:
+9: close the script tag
+10: close the head tag
+11: open the body tag
+12: h1 tag with the content "Music Box"
+13: h2 tag with the content "Notes"
+14: p tag with the contents of the Music Box introduction
+15: textarea for holding the input Notes
+16: close textarea tag
+17: button tag to play the notes from textarea by calling the function parsedNotes()
+18: open script tag
+19: declare the function parsedNotes() to return an array of notes from textarea
+20: declare the variable array named "parsed_notes"
+21: declare the variable array named "raw_notes" to hold the notes from splitting from the textarea
+22: for loop to traverse through all of the notes in the raw_notes array
+23: push each of the note from raw_notes array to parsed_notes array
+24: closing curly bracket for the for loop
+25: return the array parsed_notes
+26: closing the curly bracket for the function parsedNotes()
+27: declare the function play()
+28: declare the variable parsed_notes array and assign to whatever return from parsedNotes()
+29: declare the variable ms_offset and assign to 1000ms
+30: for loop to traverse through all of the parsed_notes array
+31: call function setTimeout
+32: initiate Audio object with the mp3 files and call play() function from the Audio object
+33: closing curly bracket for the for loop
+34: closing curly bracket for the function play()
+35: close the script tag
+36: h2 tag with the content "HTML Generation"
+37: textarea for holding the HTML code
+38: close textarea tag
+39: button tag to generate HTML code by calling the function HTMLGenerator()
+40: blank line
+41: open script tag
+42: declare the function HTMLGenerator()
+43: opening curly bracket
+44: declare the variable array compile_notes to get the array from function parsedNotes()
+45: declare the string variable code_output and initalize with empty string
+46: declare the variable ms_offset and assign to 1000ms
+47: comment line
+48: declare the variable htmlTEMPLATE and assign to DOCTYPE HTML tag
+49: concatenate the htmlTEMPLATE
+50: concatenate the htmlTEMPLATE
+51: concatenate the htmlTEMPLATE
+52: comment line
+53: for loop to traverse through all of the notes in compile_notes array
+54: concatenate code_output
+55: closing curly bracket for the for loop
+56: replace "@@@PLAY_CODE" with the code_output variable
+57: closing curly bracket for the HTMLGenerator()
+58: close the script tag
+59: close body tag
+60: close html tag

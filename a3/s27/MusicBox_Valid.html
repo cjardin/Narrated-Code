@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Box Page</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Music Box</h1>
+<h2>Notes</h2>
+<p>Assign the notes with the source of mp3 file (Ex, A.mp3). Then, enter the notes LINE BY LINE</p>
+<p>FINALLY, CLICK PLAY!!!!!!!</p>
+<textarea id="inputNotes" rows="4" cols="4" style="width:100%">
+</textarea>
+<button onclick="play()" style="width:100%; background-color: red; font-size: 40px;">Play</button>
+<script>
+        function parsedNotes(){
+            var parsed_notes = []; //Notes array from area text
+            var letter_note = ""; 
+            var source_file = "";
+            var playlist = {};
+            raw_notes = $("#inputNotes").val().split('\n');
+            for(let index = 0; index < raw_notes.length; index++){
+                if((match = raw_notes[index].match(/([A-G])\x3D([A-G].mp3)/))!== null)
+                {
+                    letter_note = match[1];
+                    source_file = match[2];
+                    playlist[letter_note] = source_file;
+                }
+                else if((match = raw_notes[index].match(/[A-G]/))!==null){
+                    if(!(match[0] in playlist)){
+                        window.alert(match[0] + " has not been assigned yet!");
+                        parsed_notes = null;
+                        break;
+                    }
+                    else{
+                        parsed_notes.push(playlist[match[0]]);
+                    }
+                }
+
+            }
+            return parsed_notes;
+        }
+        function play(){
+
+            var parsed_notes = parsedNotes();
+            var ms_offset =1000; //offset in ms.
+            if (parsed_notes!== null){
+                for(let index = 0; index < parsed_notes.length; index++){
+                    setTimeout(function(){
+                    new Audio(parsed_notes[index]).play();},ms_offset*index);
+                }
+            }
+            else{
+                //do nothing
+            }
+        }
+</script>
+<h2>HTML Generation</h2>
+<textarea id="compiled_code" rows="50" cols="50" style="width:100%">
+</textarea>
+<button onclick="HTMLGenerator()", style="font-size : 40px; background-color: blue; width:100%">Generator!</button>
+
+<script>
+    function HTMLGenerator()
+    {
+        var compiled_notes = parsedNotes();
+        var code_output ="";
+        var ms_offset =1000; //offset in ms.
+        //----------HTML TEMPLATE--------------//
+        var htmlTEMPLATE = "<!doctype html>";
+        htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>";
+        htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>";
+        htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>";
+        //---------Code Generation------------//
+        for(let i = 0; i<compiled_notes.length; i++){
+            code_output = code_output + "setTimeout(function(){new Audio(\"" + compiled_notes[i] + "\").play();}," + ms_offset + "*" + i +");";
+        }
+        $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output));
+    }
+</script>
+</body>
+</html>

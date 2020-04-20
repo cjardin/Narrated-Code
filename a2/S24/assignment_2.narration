@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+8: imported kanren package along with run, var, Relation, facts functionality
+
+10: defined parent as Relation()
+11: defined member as var()
+
+13: declared string variable dad to hold user's father's name
+14: declared string variable child1 to hold user's sibling's name
+15: declared string variable child2 to hold user's name
+
+17: passed in family member as parameters in parent function which is passes inside facts() function
+
+20: prints opening statement introducing father of child1
+21: prints parent of child1 where variable member is used to specify which family member to be called
+22: prints opening statement introducing the children of father
+21: prints children of father where variable member is used to specify which family member to be called
