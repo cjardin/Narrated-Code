@@ -5,7 +5,8 @@ Kanren/Python Libraries
 from kanren import isvar, run, membero, facts, Relation
 from kanren.assoccomm import eq_assoccomm as eq
 from kanren.assoccomm import commutative, associative
-from kanren.core import success, fail, goaleval,conde, condeseq, eq, var
+from kanren.core import success, fail, goaleval,conde, condeseq, eq, var, everyg
+from kanren.goals import permuteq
 from sympy.ntheory.generate import prime, isprime
 import itertools as it
 import json
@@ -109,3 +110,87 @@ for i in findType:
         print('\t\t'.join([str(x) for x in item]))
     
     print('*'*57)
+
+
+
+'''
+Sudoku Function - possible(y,x,n) and solve(grid)
+written by Dr. Thorsten Altenkirch on a recursive Sudoku solver.
+Modifing the code and incorporated into the kanren libraries to test
+puzzle algorithm.
+'''
+'''
+Possible Function
+It finds the missing number by giving the location coordinates of the cell.
+For example, x and y are the index of the board, once located the cell.
+It will began searching numbers inside the 3x3 matrix
+and if the input number does not match the numbers inside the small grid.
+The input number will be store inside the empty cell from the 3x3 matrix grid.
+'''
+def possible(y,x,n):
+    ''' initialize variables'''
+    global grid
+    array=[]
+    ''' initialize for loop and if true there is no number similar to the
+    input number inside the row or column of the grid or board.'''
+    for i in range(0,9):
+        if grid[y][i]==n:
+            if grid[i][x]==n:
+                return False
+    ''' initialize variables and calculate the index location of the board.'''
+    output=var()
+    x0=(x//3)*3
+    y0=(y//3)*3
+    ''' initialize a for loop and store the values inside array'''
+    for i in range(0,3):
+        for j in range(0,3):
+            array.append(grid[y0+i][x0+j])
+    ''' Applying Kanren functions into the Sudoku algorithm.
+    The functions are use to implement a logic program to verify
+    whether the input variable is identical to the numbers inside the array.
+    If there is no numbers identical to the numbers inside the array, then
+    the function will return True.'''
+    find_number=run(1,output,eq(output,n),membero(output,array))
+    if len(find_number) != 0:
+        return False
+    return True
+
+
+''' solve function is a recursive function. It will go through every cell of the grid
+and apply the possible function. If the input is True then inside the if statement, it will
+store the input into the grid cell. After, it will recursive into the solve function again, until
+it solves all empty cells from the sudoku puzzle.'''
+def solve(grid):
+    for y in range(9):
+        for x in range(9):
+            if grid[y][x] == 0:
+                for n in range(1,10):
+                    if possible(y,x,n):
+                        grid[y][x] = n
+                        grid=solve(grid)
+    return grid   
+
+
+
+'''
+grid Data
+'''
+print("\n")
+print("Input Sudoko")
+grid = [[5,3,0,0,7,0,0,0,0],
+        [6,0,0,1,9,5,0,0,0],
+        [0,9,8,0,0,0,0,6,0],
+        [8,0,0,0,6,0,0,0,3],
+        [4,0,0,8,0,3,0,0,1],
+        [7,0,0,0,2,0,0,0,6],
+        [0,6,0,0,0,0,2,8,0],
+        [0,0,0,4,1,9,0,0,5],
+        [0,0,0,0,8,0,0,7,9]]
+
+''' Print the output and store the output'''
+print(np.matrix(grid))
+print("\n")
+print("Solve Sudoku")
+result = solve(grid)
+print(np.matrix(result))
+print("\n")

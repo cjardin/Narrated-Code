@@ -17,4 +17,12 @@ HW2: Logic Programming in Python
 90: store the employee data into the facts to build our relationship and constraints using the Kanren libraries
 97-110: the x,y,z are empty variables and are going to fillout as output solution and find the correlation and
 print the names of the employees that belong in that specific profession.
-
+130-196: Sudoku Function - possible(y,x,n) and solve(grid) written by Dr. Thorsten Altenkirch on a recursive Sudoku solver. Modifing the code and incorporated into the kanren libraries to test puzzle algorithm.130: Possible Function, It finds the missing number by giving the location coordinates of the cell. For example, x and y are the index of the board, once located the cell.  It will began searching numbers inside the 3x3 matrix and if the input number does not match the numbers inside the small grid. The input number will be store inside the empty cell from the 3x3 matrix grid.
+132-133: initialize variables
+136-139: initialize for loop and if true there is no number similar to the  input number inside the row or column of the grid or board.
+141-143: initialize variables and calculate the index location of the board.
+145-147: initialize a for loop and store the values inside array
+153-156: Applying Kanren functions into the Sudoku algorithm.The functions are use to implement a logic program to verify whether the input variable is identical to the numbers inside the array. If there is no numbers identical to the numbers inside the array, then the function will return True.
+163-171: solve function is a recursive function. It will go through every cell of the grid and apply the possible function. If the input is True then inside the if statement, it will store the input into the grid cell. After, it will recursive into the solve function again, until it solves all empty cells from the sudoku puzzle.
+179-188: grid data
+191-196: Print the output and store the output
