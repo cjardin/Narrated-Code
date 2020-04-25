@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"  crossorigin="anonyous"></script>
+  </head>
+
+  <body>
+    <h1>Music Box Page</h1>
+    Enter Score Here:<br>
+    <textarea id="input_notes" rows="30" cols="100">
+F=c.mp3
+E=c.mp3
+D=c.mp3
+C=c.mp3
+     H
+    B
+   A
+  G
+   F
+  E
+ D
+C 
+
+C=c.mp3
+C
+D=d.mp3
+ D
+E=e.mp3
+  E
+F=f.mp3
+   F
+G=g.mp3
+  G
+A=a.mp3
+   A
+B=b.mp3
+    B
+H=cc.mp3
+     H 
+
+    </textarea>
+
+    <br><button onclick="play_music()"><b>PLAY SCORE!</b></button><br><br>
+    <div id=errorMessage></div><br>
+
+    Generated Script:<br>
+    <textarea id='compiled_code' rows="15" cols="100">
+    </textarea>
+
+    <script>
+      //BROWSER URL: file:///Users/sarahlotherington/Documents/playerPiano/index.html
+
+      //Delayed Play
+      const index_ms_offset = 500;
+
+      function delayedPlay(soundFile, noteOrder) {
+        setTimeout(function(){
+          (new Audio(soundFile)).play()
+        }, index_ms_offset * noteOrder)
+      }
+
+      function play_music() {
+
+        //Default Assign Sounds
+        let tones = {
+          A: '',
+          B: '',
+          C: '',
+          D: '',
+          E: '',
+          F: '',
+          G: '',
+          H: ''
+        }
+
+        //Generated Script:
+        var htmlTEMPLATE = "<!DOCTYPE html>"
+        htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head><body>"
+        htmlTEMPLATE = htmlTEMPLATE + "<button onclick=\"playThis()\"><b>CLICK to ACTIVATE PAGE!</b></button>"
+        htmlTEMPLATE = htmlTEMPLATE + "<script>indexOffset=500;"
+        htmlTEMPLATE = htmlTEMPLATE + "function playThis(){@@@PLAY_CODE}"
+        htmlTEMPLATE = htmlTEMPLATE + "<\/script><\/body><\/html>"
+        
+        let code_output = "";
+
+        //get notes from 1st text box, store in notes_raw
+        let   notes_raw = $("#input_notes");
+
+        //split/parse line by line, store in notes_raw
+        notes_raw = notes_raw.val().split(/\r?\n/);    //return, character, newline
+
+        //initialize variables
+        var notes_parsed = []
+        var soundMatch;
+        var patternSound;
+        var noteMatch;
+        var patternNote;
+        var numErrors = 0;
+        var error_lines = [];
+        var noErrorMsg='';
+        var errorMsg= '';
+        
+        //setup loop through parsed notes_raw
+        for (index = 0; index < notes_raw.length; index++) {
+          // Match a NoteSound/note assignment
+          //
+          const soundExp = /^[ ]*([A-H])[\=]([0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\!\-\#\(\)\%\+\~\_ ]+[.][m][p][3])[ ]*$/;
+          //see if there is a note assignment occurring
+          soundMatch = notes_raw[index].match(soundExp);
+          //if yes, assign the note it's tone
+          if (soundMatch) {
+            //const pattern = [ 'A','=','442978__pacway__la-a.mp3','.mp3' ];
+            //console.log(JSON.stringify(soundMatch));      //print out regex groups
+            patternSound = [fullMatch, note, soundFile] = soundMatch;
+            console.log(`Derive note '${note}' from sound file '${soundFile}'.`);   //print note and soundFile
+            tones[note] = soundFile;    //assign soundFile to note
+          }
+          // Match a note
+          // Play error sound if note is not assigned 
+          // 
+          const noteExp = /^\s*([A-H])\s*$/;
+          //see if there is just a note occurring
+          noteMatch = notes_raw[index].match(noteExp);
+          //if yes, push the note to be played.
+          if (noteMatch) {
+            patternNote = [fullMatch, note] = noteMatch
+            console.log(noteMatch[0]);
+            
+            if(tones[note] == '' || tones[note] == 'ERROR-TONE.mp3'){
+              tones[note] = 'ERROR-TONE.mp3';
+              numErrors++;
+              //console.log(numErrors);
+              error_lines.push(index);
+            }
+
+            code_output = code_output + "setTimeout(function(){new Audio('"
+            code_output = code_output + tones[note];
+            code_output = code_output + "').play()}," + index_ms_offset + "*" + index + ");"
+            
+            //Save the note to be played
+            notes_parsed.push(note);
+          }
+        }
+
+        //write error message
+        if (numErrors<=0) {
+          noErrorMsg = 'There are ' + numErrors + ' errors.';
+          document.getElementById("errorMessage").innerHTML = noErrorMsg;
+        }
+        else if (numErrors>0) {
+          errorMsg = 'There are ' + numErrors 
+            + ' errors in the above code (ERROR-TONE will play). Please review lines ';
+          for (var j = 0; j < error_lines.length; j++){
+            //console.log(error_lines[j] + ' ');
+            if (j<error_lines.length - 1)
+              errorMsg = errorMsg + error_lines[j] + ', ';
+            else 
+              errorMsg = errorMsg + error_lines[j] + '.';
+          }
+          console.log(errorMsg);
+          document.getElementById("errorMessage").innerHTML = errorMsg;   
+        }
+        
+        //Play music (compiled code)
+        //console.log(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output));
+        //console.log(code_output);
+        $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+        eval(code_output);        
+      }
+    </script>
+  </body>
+</html>
