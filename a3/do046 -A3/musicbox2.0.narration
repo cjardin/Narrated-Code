@@ -1,0 +1,127 @@
+Initiating HTML doc
+
+
+
+Include jquery library for use in program
+
+Creating the body of the HTML page; Setting the background color to a sky blue color #0099cc
+Declaring title for the tab "CS 351 Assignment Page"
+
+Included the header tag, basically the title of the HTML page and my name
+
+
+
+Included a "Submit" button where each line in the textarea is parsed and an .mp3 file is played for each letter present in the line. Calls html_template()
+
+
+
+Included a label on what the difference between the 2 textareas are; the first textarea is where the notes go, the second textarea is where the output html/javascript code is
+
+
+
+Textarea box which include the notes, the default is:
+A=A.mp3
+A
+ B=B.mp3
+ B
+  C=C.mp3
+  C
+   A=AA.mp3
+   A
+    D
+
+Included another textarea to output the javascript/html code generated from the notes
+
+Script area where all the functions are contained
+Declare a global map to hold the key which is the note and the value which is the note assignment
+
+Global list of sounds. Notes_parsed is a list that holds the Audio object. Audio_file holds the note value
+
+
+Created a getNotes() function, a function that obtains 
+Takes in notes, parses it from the textarea
+
+
+returns notes_raw
+
+function checkAssignments() //checks if the notes are assigned 
+stores the raw_notes from the textarea into notes_raw
+
+
+for loop to itterate through the notes_raw and check if the notes are assigned, if not it will alert the user to assign the note
+if statement where notes has an assignment
+convert the note from notes_raw into a String and then trim. Trim() removes white space at beginning and end of string
+obtain the note from the note that was just converted into a string
+obtain the assignment audio file
+create audio object
+set the note to the assignment audio file by setting to map object created, note_map
+
+update list the audio files that were assigned
+update list the audio files that were assigned
+
+note does not have an assignment
+convert the note from notes_raw into a String and then trim. Trim() removes white space at beginning and end of string
+
+if statement to check with the map if the note was assigned or note
+throws an error to the user that a note is note assigned and gives the user the option to assign the note to it
+create audio object
+set the note to the assignment audio file by setting to map object created, note_map
+
+
+update list the audio files that were assigned
+update list the audio files that were assigned
+
+
+
+
+
+queueSound is a function that takes the notes_parsed list, and plays each audio object found inside the list
+start variable to hold value for setTimeout, it is updated everytime a .mp3 plays
+
+while loop that goes through the notes_parsed list
+index is the value on how much time should be played in between notes
+notes_parsed.shift() takes one note out of the array one at a time
+plays the file
+'start' variable adjusts how long the other .mp3 file should play for
+updates the duration on how long a .mp3 file should wait for
+
+
+
+get_playlist() is a function that creates javascript/html code from notes the user input
+declare script variable to hold the script part of the html
+start variable to hold value for setTimeout, it is updated everytime a .mp3 plays
+while loop that goes through the audio_file list
+index is the value on how much time should be played in between notes
+notes_parsed.shift() takes one note out of the array one at a time
+updates the script 
+'start' variable adjusts how long the other .mp3 file should play for
+updates the duration on how long a .mp3 file should wait for
+
+return the script
+
+
+html_template is a function that generates the whole html page, so it contains the generated javascript/html code with the notes
+declare html variable to hold the html file
+
+
+
+
+
+
+calls checkAssignments
+stores the script into code_output
+
+replaces the textarea with id: compiled_code, with the whole code
+after the code replaces the value inside the textarea, it executes queuesound()
+
+
+created a copy function, for when the user clicks on the "Copy" button, it copies whatever text is inside of the "compiled_code" textarea
+get the textarea named "compiled_code"
+selects the textarea
+execute the copy command
+alerts to the user that the text inside of textarea was copied
+
+
+end of the Script
+end of the body
+end of html
