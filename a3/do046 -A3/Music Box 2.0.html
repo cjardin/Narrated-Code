@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
+</head>
+
+<body id="main" style="background-color: #0099cc">
+    <title>CS 351 Assignment Page 2.0</title>
+
+    <h1 style="font-size: 40px">CS 351 Music Box Page 2.0 - Chris Do</h1>
+
+    <p> Play Notes: 
+        <button onclick="html_template()" type="button">Submit </button>
+    </p>
+
+    <div>
+        <label for="input_notes" style="display:inline-block; font-size: 15pt; margin:0">Input Notes -------------------------> Output Notes</label>
+        <button onclick="copy()" type="button">Copy</button>
+    </div>
+
+<textarea id="input_notes" rows="20" style="font-size: 15pt">
+A=A.mp3
+A
+ B=B.mp3
+ B
+  C=C.mp3
+  C
+   A=AA.mp3
+   A
+    D</textarea>
+
+<textarea id="compiled_code" rows="20" style="font-size: 15pt">@@@PLAY_CODE</textarea>
+
+<script>
+    var note_map = new Map();
+
+    var notes_parsed = [];
+    var audio_file = [];
+
+    function getNotes() {
+        var notes_raw = document.getElementById('input_notes').value.split(/\r?\n/);
+
+        return notes_raw;
+    }
+
+    function checkAssignments() {
+        notes_raw = getNotes();
+
+
+        for(var index = 0; index < notes_raw.length; index++) {
+            if(notes_raw[index].includes("=")) {
+                var string_notes = notes_raw[index].toString().trim();
+                var note = string_notes.substring(0,1);
+                var assignment = string_notes.substring(2,);
+                var audio_assignment = new Audio(assignment);
+                note_map.set(note, audio_assignment); 
+
+                notes_parsed.push(audio_assignment);
+                audio_file.push(assignment);
+            }
+            else {
+                var note = notes_raw[index].toString().trim();
+
+                if(!note_map.has(note)) {
+                    var assignment = window.prompt("I'm throwing an error at you ->" + note + " is not assigned. Specify a audio file to note " + note + ". OPTIONS: A.mp3 - E.mp3 and AA.mp3");
+                    var audio_assignment = new Audio(assignment);
+                    note_map.set(note, audio_assignment);
+
+
+                    notes_parsed.push(audio_assignment);
+                    audio_file.push(assignment);
+                }     
+            }
+        }
+    }
+
+    function queueSound() {
+        var start = 0;
+        while(notes_parsed.length > 0) {
+            var index = 2750;
+            const note = notes_parsed.shift();
+            setTimeout(function() {
+                note.play();
+            }, start);
+            start += index;
+        }
+    }
+
+    function get_playlist() {
+        var script = "";
+        var start = 0;
+        while(audio_file.length > 0) {
+            var index = 2750;
+            var note = audio_file.shift()
+            script += "setTimeout(function () {var name=" + "'" + note + "'" + "; var audio = new Audio(name); audio.play();}," + start + ");"
+            start += index;
+        }
+
+        return script;
+    }
+
+    function html_template() {
+        var htmlTEMPLATE = "<!doctype html>"
+        htmlTEMPLATE += "<html><head><\/head ><body style='background-color: #0099cc'>"
+        htmlTEMPLATE += "<title>Output Page</title>"
+        htmlTEMPLATE += "<script>@@@PLAY_CODE <\/script>"
+        htmlTEMPLATE += "<\/body ><\/html>"
+
+
+        checkAssignments();
+        var code_output = get_playlist();
+
+        $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+        queueSound();
+    }
+
+    function copy() {
+            let textarea = document.getElementById("compiled_code");
+            textarea.select();
+            document.execCommand("copy");
+            alert("Copied!")
+    }
+
+</script>
+</body>
+</html>
