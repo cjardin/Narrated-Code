@@ -1,0 +1,100 @@
+importing classes from kanren package
+
+price variable is set to relation
+user ratings variable is set to relation
+screen size variable is set to relation
+pixel density variable is set to relation
+number of cores variable is set to relation
+weight variable is set to relation
+
+print the header for the program
+print statement for a space
+
+facts for price are set
+facts for user ratings are set
+facts for screen size are set
+facts for number of cores are set
+facts for weight are set
+
+print for telling the user to pick 1 for IPhone and 2 for Samsung
+answer is set to input from user
+
+apple price is called from facts and set to the variable
+samsung price is called from facts and set to the variable
+if answer is IPhone
+print you are right, the iphone price 
+if samsung
+print samsung price
+else
+wrong input
+
+print to space
+
+answer is set to input from user
+
+apple ratings is called from facts and set to the variable
+samsung ratings is called from facts and set to the variable
+if answer is IPhone
+print you are right, the iphone ratings 
+if samsung
+print samsung ratings
+else
+wrong input
+
+print to space
+
+answer is set to input from user
+
+apple size is called from facts and set to the variable
+samsung size is called from facts and set to the variable
+if answer is samsung
+print you are right, the samsung size is bigger 
+if iphone
+print iphone size and why its smaller
+else
+wrong input
+
+print to space
+
+answer is set to input from user
+
+apple pixel is called from facts and set to the variable
+samsung pixel is called from facts and set to the variable
+if answer is Samsung
+print you are right, the samsung pixel density is larger 
+if iphone
+print iphone pixel density is smaller by how much
+else
+wrong input
+
+print to space
+
+answer is set to input from user
+
+apple cores is called from facts and set to the variable
+samsung cores is called from facts and set to the variable
+if answer is samsung
+print you are right, the samsung has more cores 
+if iphone
+print iphone cores, and how many less cores
+else
+wrong input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

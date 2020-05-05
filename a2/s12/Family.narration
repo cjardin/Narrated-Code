@@ -1,0 +1,132 @@
+1: python type here
+2: information on relations
+3: author
+4: where its from
+5: the document place
+6: site where it was from
+7: This has the library from Kanren and using Relations and its parts
+8: Using the tree library for visual representation of the tree
+9: importing regular expressions for removing symbols from text
+10: blank
+11: declare a father relation
+12: declare a mother relation
+13: blank
+14: create father relations
+15: create father relations
+16: create father relations
+17: create father relations
+18: create father relations
+19: create father relations
+20: create father relations
+21: create father relations
+22: create father relations
+23: create father relations
+24: create father relations
+25: create father relations
+26: create father relations
+27: blank
+28: create mother relations
+29: create mother relations
+30: create mother relations
+31: create mother relations
+32: create mother relations
+33: create mother relations
+34: create mother relations
+35: create mother relations
+36: create mother relations
+37: create mother relations
+38: create mother relations
+39: create mother relations
+40: create mother relations
+41: create mother relations
+42: blank
+43: call var() function from relations to be used later in run calls
+44: blank
+45: print string for testing
+46: blank
+47: print the tuple for the john is the father of who
+48: blank
+49: comment line for the output
+50: father of michael printed
+51: blank
+52: blank
+53: define parent function
+54: code given using conde for the parent function to return the parent
+55: blank
+56: blank
+57: output for father of michael
+58: print parents of daniel
+59: blank
+60: blank
+61: parents output in a comment
+62: grandparent function declared
+63: var() function called again for grandparent
+64: return the grandparent of the passed values
+65: blank
+66: blank
+67: print grandparents of calli
+68: comment output
+69: print who Jim is the grandparent of
+70: blank
+71: blank
+72: output for the grandchildren of Jim as a comment
+73: define sibling function
+74: call var() again for siblings
+75: return statement for the siblings output
+76: blank
+77: blank
+78: define function to use
+79: begin for loop for regex
+80: complete the regex for filtering out non alphabetical text
+81: create empty string to use to convert the tuple to a string
+82: begin for loop to build string
+83: concat the string
+84: return the completed string
+85: blank
+86: blank
+87: comment line to show all spouses
+88: create and x y and z for the var() function
+89: blank
+90: print all spouses
+91: comment output
+92: blank
+93: begin creating the simple text family tree from hard coded run calls
+94: print string for labeling
+95: prints all children of bruce and berniece
+96: print string to label
+97: print children of terry
+98: print string to label
+99: print children of lynda
+100: print string to label
+101: print children of barbara
+102: print string to label
+103: print children of lorie
+104: print string to label
+105: print children of leslie
+106: print string to label
+107: print children of john
+108: blank
+109: string printed for labeling other side of family tree
+110: print string to label
+111: print children of jim and margie
+112: print string to label
+113: print children of jim
+114: print string to label
+115: print children of mindy
+116: blank
+117: create variable for bruce to work with
+118: create variable for john to work with
+119: create variable for leslie to work with
+120: create variable for jesse and calli to work with
+121: create variable for michael daniel and rachael to work with
+122: blank
+123: comment line for where the visual tree will be created
+124: create tree object
+125: create the root node of the tree Bruce
+126: create the first child of the root John
+127: create second child of root Leslie
+128: create children of John (had issues here since sometimes it would only get of of the children not both so i combined them)
+129: continued since long line of code
+130: create children of leslie (same issue as line 128)
+131: continued since long line of code
+132: print the completed tree

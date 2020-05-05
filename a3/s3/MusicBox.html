@@ -1,0 +1,222 @@
+<html>
+	<head>
+		<style>
+			#left { float: left; }
+			#input {  overflow: hidden; }
+		</style>
+	</head>
+	<body>
+		<div id='left'>
+			<div style="margin: 0px 20px 20px 20px;">
+				<div>Tempo</div>
+				<input type="number" id="tempo" min="20" max="200" value="85"></input>
+				<button id="play" onclick="playSong()">Play</button>
+			</div>
+			<div style="margin: 0px 20px 20px 20px;">
+				<div>Input</div>
+				<textarea id="input" rows="75" cols="25"></textarea>
+			</div>
+		</div>
+		<div>
+			<textarea id='output' style="width: 60%; height: 90%;"></textarea>
+			<div id = "musicBoxDiv"></div>
+		</div>
+		<script>
+			let staticVoices = {};
+
+			function Patterns() {}
+			Patterns.assignVoice = new RegExp(/([0-9A-Za-z]+) *= *(.+\.mp3)/);
+			Patterns.callVoice = new RegExp(/([0-9A-Za-z])+/g);
+			Patterns.callRest = new RegExp('');
+
+			function Frame( voices ) {
+				this.voices = voices;
+			}
+			Frame.tokenOffset = 65;
+						   
+			function playSong() {
+				staticVoices = {};
+				let tempo = document.getElementById( 'tempo' ).value;
+				let htmlString = `\
+<html>
+	<head>
+	<\/head>
+	<body>
+		<script>
+			let TEMPO = ${tempo};
+			let DELAY = 60 / TEMPO * 500;
+			@@PLAY_CODE@@
+		<\/script>
+		<div id='output'></div>
+	<\/body>
+<\/html>`;
+
+				let frames = [];
+				let lines = document.getElementById( 'input' ).value.split( "\n" );
+				
+				// RegEx matching done here
+				//
+				lines.some( function( line ) {		
+					if (Patterns.assignVoice.test( line )) {
+						let match = Patterns.assignVoice.exec( line );
+						voiceSymbol = match[1];
+						fileSymbol = match[2];
+						staticVoices[voiceSymbol] = fileSymbol;
+					}
+					else if (Patterns.callVoice.test( line )) {
+						Patterns.callVoice.lastIndex = 0;
+						let voices = [];
+						while ((match = Patterns.callVoice.exec( line )) !== null) {
+							for (i = 0; i < match.length; i++) {
+								if (i == 0) continue;
+								if (staticVoices[match[i]]) {
+									voices.push( match[i] );
+								}
+								else {
+									let errorText = "\n{RUNTIME ERROR}\nCalling unassigned static voice: " + match[i] + "\n";
+									htmlString = htmlString.replace( '@@PLAY_CODE@@', errorText );
+									frames = [];
+									return true;
+								}
+							}
+						}
+						frames.push( new Frame( voices ) );
+					}
+					else if (Patterns.callRest.test( line )) {
+						let rest = []
+						frames.push( new Frame( rest ));
+					}
+					else {
+							let errorText = "\n{SYNTAX ERROR}\nSyntax error found at line: \"" + line + "\"\n";
+							htmlString = htmlString.replace( '@@PLAY_CODE@@', errorText );
+							frames = [];
+							return true;
+						}
+				});
+				
+				let playFramesText = '';
+				for (let i = 0; i < frames.length; i++) {
+					playFramesText += 'setTimeout( function(){';
+					for (let j = 0; j < frames[i].voices.length; j++) {
+						playFramesText += `new Audio("${staticVoices[frames[i].voices[j]]}").play();`;
+					}
+					playFramesText += `return;}, DELAY*${i} );`; // Use a delay instead of an eventListener in order to better support polyphonic sound
+				}
+				
+				htmlString = htmlString.replace( '@@PLAY_CODE@@', playFramesText );
+				document.getElementById( 'output' ).innerHTML = htmlString;
+				
+				let musicBox = document.getElementById( 'musicBox' );
+				if (musicBox)
+					musicBox.remove();
+					
+				document.getElementById( 'musicBoxDiv' ).innerHTML += '<iframe id="musicBox" style="width:0;height:0;border:none"></iframe>';
+				let musicBoxDoc = document.getElementById( 'musicBox' ).contentWindow.document;
+				musicBoxDoc.open();
+				setTimeout( function(){musicBoxDoc.write( htmlString );}, 100 );
+				setTimeout( function(){musicBoxDoc.close();}, 200 );	
+			}
+// DEFAULT SONG, NO NARRATION
+			// Wind Scene, from ChronoTrigger OST (Copyright SquareSoft, 1995)
+			/*
+			Available notes:
+			 2D,  2E,  2F,  2G,  2A,  2Bb, 3C
+			 3D,  3E,  3F,  3G,  3A,  4C,  4D
+			 4E,  4F,  4Gb, 4G,  4A,  5C,  5D
+			 5E,  5F
+			*/
+
+			let windScene = `\
+A=2D.mp3
+B=2E.mp3
+C=2F.mp3
+D=2G.mp3
+E=2A.mp3
+F=2Bb.mp3
+G=3C.mp3
+H=3D.mp3
+I=3E.mp3
+J=3F.mp3
+K=3G.mp3
+L=3A.mp3
+M=4C.mp3
+N=4D.mp3
+O=4E.mp3
+P=4F.mp3
+Q=4Gb.mp3
+R=4G.mp3
+S=4A.mp3
+T=5C.mp3
+U=5D.mp3
+V=5E.mp3
+W=5F.mp3
+                    U
+
+                     V
+					 
+       H              W
+           L         V
+              O    T
+                  S
+     F              U
+         J
+            M
+                    U
+    E              T
+         J        S
+      G        P
+            M    R
+  C               S
+         J
+ B           N   R
+        I
+A             O
+    E          P
+        I         S
+                   T
+   D                 V
+       H
+                      W
+          K
+      G            T
+          K
+             N
+               P
+            M O
+
+                     V
+					 
+       H              W
+           L         V
+              O    T
+                  S
+     F              U
+         J
+            M
+                    U
+    E              T
+         J        S
+      G        P
+            M    R
+  C               S
+         J
+ B           N   R
+        I
+A             O
+    E          P
+        I         S
+                   T
+   D             R   V
+          K         U
+    E             ST
+           L        U
+       H         R  U
+           L
+              O
+                 R
+             N  Q S U`;
+			document.getElementById( "input" ).innerHTML = windScene;
+// END OF DEFAULT SONG
+		</script>
+	</body>
+<html>

@@ -1,0 +1,166 @@
+1: Name
+2: Date
+3: Class
+4: Assignment
+5: 
+6: Function Name
+7: Function Description
+8: Function Declaration
+9: 
+10: Array to hold all known notes with file values
+11: Array to hold queue of files to play
+12: Regex rule to see if string contains "="
+13: Regex rule to get string before "="
+14: Regex rule to get string after "="
+15: Array of all file names that can be used
+16: 
+17: Link to stackoverflow answer I utilized
+18: 
+19: Parses the text area into an array of lines
+20: 
+21: 
+22: Begin for loop examining each line of text area
+23: 
+24: Link to stackoverflow answer I utilized to clear white space in a string
+25: 
+26: Get the current line of the array, clear its white space
+27: 
+28: 
+29: Check if line has equals sign using regex rule
+30: 
+31: 
+32: Get the string before the equals sign, assign to prefix
+33: Get the string after the equals sign, assign to suffix
+34: A bool to track if a match for file names is made
+35: A bool to track if the assigned note currently exists already in the system
+36: 
+37: 
+38: For loop that iterates through all music files
+39: 
+40: Checks if the string after the equals sign matches a known music file
+41: 
+42: If a match, set match to true
+43: 
+44: 
+45: 
+46: 
+47: If no made was made
+48: 
+49: Output that the assigned file does not match any valid files
+50: Set queue to empty
+51: Exit function by returning empty queue
+52: 
+53: 
+54: 
+55: Iterate through array of notes in the system
+56: 
+57: 
+58: 
+59: If the token is already in the system
+60: 
+61: Update its file relation to the new assigned file
+62: Log update
+63: Update found to true
+64: Break for loop
+65: 
+66: 
+67: 
+68: 
+69: If the token is not found in the system
+70: 
+71: Create note object
+72: Log new note creation
+73: Push new note to the known notes array
+74: 
+75: 
+76: 
+77: reset match flag
+78: reset found flag
+79: 
+80: 
+81: 
+82: if no equal sign was found in the line
+83: 
+84: iterate through known notes to the system
+85: 
+86: if the current line matches a known note
+87: 
+88: log queue
+89: push the respective file to the queue of notes to be played
+90: break for loop
+91: 
+92: 
+93: 
+94: 
+95: 
+96: 
+97: return array of notes to play
+98: 
+99: 
+100: 
+101: 
+102: 
+103: playMusic() function declaration
+104: 
+105: get the list of notes to play in order by calling getNotes(), set to noteArray
+106: Let beat interval be 1500 milliseconds
+107: Print the HTML code to play the music by calling printHTML()
+108: 
+109: iterate through queue of notes
+110: 
+111: log the playing of current note
+112: create new audio object with given file, assign to note
+113: call setTimeout function
+114: play new audio file
+115: delay for i * 1500
+116: 
+117: 
+118: 
+119: 
+120: printHTML() declaration
+121: 
+122: create output variable
+123: HTML CODE
+124: HTML CODE
+125: HTML CODE
+126: HTML CODE
+127: HTML CODE
+128: HTML CODE
+129: HTML CODE
+130: close line
+131: 
+132: iterate through list of files to play
+133: 
+134: get current file
+135: HTML CODE
+136: HTML CODE
+137: HTML CODE
+138: HTML CODE
+139: HTML CODE
+140: HTML CODE
+141: 
+142: 
+143: 
+144: HTML CODE
+145: HTML CODE
+146: HTML CODE
+147: HTML CODE
+148: HTML CODE
+149: HTML CODE
+150: HTML CODE
+151: HTML CODE
+152: 
+153: 
+154: 
+155: Check if the array of notes to play is greater than 0, this prevents overriding error in text area if less than 0
+156: 
+157: if it is, output HTML code,
+158: 
+159: 
+160: 
+161: 
+162: buttonClick() declaration
+163: 
+164: call playMusic()
+165: call printHTML()
+166:

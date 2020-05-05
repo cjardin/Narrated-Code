@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Eagle Lake' rel='stylesheet'>
+<style>
+body{
+  font-family:'Eagle Lake';
+  background-image: url('Agrabah.png');
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+<h1 style="color:white;" align = "center">Programming Assignment 1: Musicbox </h1>
+<h2 style= "color:white;" align = "center"> By: Mane Telpian </h2>
+<p>
+<img style = "position:absolute; top:500px; left:1100px" src="aladdin.gif" >
+</p>
+<div style = "position:absolute; top:300px; left:540px">
+<textarea id ="input_notes" rows="15" cols="25">
+  C
+   D
+    E
+  C
+   D
+    E
+  C
+    E
+       H
+ B
+        I
+       H
+ B
+       H
+   D
+   D
+   D
+   D
+    E
+  C
+    E
+     F
+      G
+       H
+     F
+      G
+       H
+      G
+         J
+   D
+    E
+         J
+   D
+         J
+     F
+     F
+     F
+     F
+      G
+    E
+A
+ B
+  C
+       H
+A
+ B
+  C
+       H
+A
+ B
+  C
+    E
+A
+ B
+  C
+    E
+A
+ B
+  C
+A
+A
+ B
+  C
+A
+A
+    E
+     F
+      G
+    E
+  C
+   D
+    E
+  C
+    E
+       H
+ B
+        I
+       H
+ B
+       H
+    E
+       H
+    E
+  C
+ B
+A
+A
+ B
+  C
+    E
+       H
+    E
+       H
+  C
+ B
+  C
+ B
+A
+    E
+       H
+    E
+       H
+  C
+  C
+ B
+A
+    E
+    E
+      G
+    E
+   D
+    E
+  C
+    E
+       H
+  C
+       H
+    E
+A
+A
+ B
+  C
+    E
+       H
+    E
+       H
+  C
+ B
+  C
+ B
+A
+    E
+       H
+    E
+       H
+  C
+  C
+  C
+ B
+A
+    E
+    E
+      G
+    E
+   D
+    E
+    E
+       H
+  C
+ B
+A
+</textarea>
+<textarea id = "compiled_code" rows = "15" cols = "25">
+</textarea>
+
+<button type="button" onclick="play()">Play</button>
+</div>
+
+<script>
+  function play() {
+    notes_raw = $('#input_notes').val().split(/\r?\n/);
+
+    var notes_p = [];
+
+    for (index = 0; index < notes_raw.length; index++) {
+      if (notes_raw[index][0] == 'A'){
+        notes_p.push('A');
+      }
+      else if(notes_raw[index][1] == 'B'){
+        notes_p.push('B');
+      }
+      else if(notes_raw[index][2] == 'C'){
+        notes_p.push('C');
+      }
+      else if(notes_raw[index][3] == 'D'){
+        notes_p.push('D');
+      }
+      else if(notes_raw[index][4] == 'E'){
+        notes_p.push('E');
+      }
+      else if(notes_raw[index][5] == 'F'){
+        notes_p.push('F');
+      }
+      else if(notes_raw[index][6] == 'G'){
+        notes_p.push('G');
+      }
+      else if(notes_raw[index][7] == 'H'){
+        notes_p.push('H');
+      }
+      else if(notes_raw[index][8] == 'I'){
+        notes_p.push('I');
+      }
+      else if(notes_raw[index][9] == 'J'){
+        notes_p.push('J');
+      }
+    }
+    timing = 0
+
+    index_0_offset = 400
+    index_1_offset = 400
+    index_2_offset = 400
+    index_3_offset = 400
+    index_4_offset = 400
+    index_5_offset = 400
+    index_6_offset = 400
+    index_7_offset = 400
+    index_8_offset = 400
+    index_9_offset = 400
+
+    for (index = 0; index < notes_p.length; index++) {
+      if (notes_p[index] == 'A'){
+        setTimeout(function(){
+          new Audio('A.wav').play();
+        }, index_0_offset *  index)
+      }
+      else if(notes_p[index] == 'B'){
+        setTimeout(function() {
+          new Audio('B.wav').play();
+        }, index_1_offset * index)
+      }
+      else if(notes_p[index] == 'C'){
+        setTimeout(function() {
+          new Audio('C.wav').play();
+        }, index_2_offset * index)
+      }
+      else if(notes_p[index] == 'D'){
+        setTimeout(function() {
+          new Audio('D.wav').play();
+        }, index_3_offset * index)
+      }
+      else if(notes_p[index] == 'E'){
+        setTimeout(function() {
+          new Audio('E.wav').play();
+        }, index_4_offset * index)
+      }
+      else if(notes_p[index] == 'F'){
+        setTimeout(function() {
+          new Audio('F.wav').play();
+        }, index_5_offset * index)
+      }
+      else if(notes_p[index] == 'G'){
+        setTimeout(function() {
+          new Audio('G.wav').play();
+        }, index_6_offset * index)
+      }
+      else if(notes_p[index] == 'H'){
+        setTimeout(function() {
+          new Audio('Eb.wav').play();
+        }, index_7_offset * index)
+      }
+      else if(notes_p[index] == 'I'){
+        setTimeout(function() {
+          new Audio('Db.wav').play();
+        }, index_8_offset * index)
+      }
+      else if(notes_p[index] == 'J'){
+        setTimeout(function() {
+          new Audio('Fsharp.wav').play();
+        }, index_9_offset * index)
+      }
+    }
+
+    var htmlTEMPLATE = "<!doctype html>"
+		htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>"
+		htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>"
+		htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+    code_output = "";
+		timing = 0;
+    index_0_offset = 400
+    index_1_offset = 400
+    index_2_offset = 400
+    index_3_offset = 400
+    index_4_offset = 400
+    index_5_offset = 400
+    index_6_offset = 400
+    index_7_offset = 400
+    index_8_offset = 400
+    index_9_offset = 400
+
+    for (index = 0; index < notes_p.length; index++){
+			if(notes_p[index] == 'A'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('A.wav').play()"
+				code_output = code_output + "}, " + index_0_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'B'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('B.wav').play()"
+				code_output = code_output + "}, " + index_1_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'C'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('C.wav').play()"
+				code_output = code_output + "}, " + index_2_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'D'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('D.wav').play()"
+				code_output = code_output + "}, " + index_3_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'E'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('E.wav').play()"
+				code_output = code_output + "}, " + index_4_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'F'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('F.wav').play()"
+				code_output = code_output + "}, " + index_5_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'G'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('G.wav').play()"
+				code_output = code_output + "}, " + index_6_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'H'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('Eb.wav').play()"
+				code_output = code_output + "}, " + index_7_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'I'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('Db.wav').play()"
+				code_output = code_output + "}, " + index_8_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'J'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('Fsharp').play()"
+				code_output = code_output + "}, " + index_9_offset + " * " + index + ");"
+			}
+		}
+		 $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+	}
+</script>
+</body>
+</html>

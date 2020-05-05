@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+    <body>
+        <div>
+            <div>
+                <h1>Welcome to the Player Piano!</h1>
+                <h2>Matthew Flavin - CS 351</h2>
+
+                <p>The following piano notes are available to be assigned:
+                    </br>
+                        C_sharp_hi.mp3, C_sharp_lo.mp3, D_sharp_hi.mp3, D_sharp_lo.mp3,E_hi.mp3, E_lo.mp3, F_sharp.mp3, G.mp3, Z.mp3 (Special Runaway Portion)
+                    </br>
+                    <strong>Intro to Kanye West's "Runaway" by default.</strong>
+                </p>
+
+                <textarea id="notes" rows="20" cols="50">
+                    E = E_hi.mp3
+                    E
+                    E
+                    E
+                    E = E_lo.mp3
+                    E
+
+                    D = D_sharp_hi.mp3
+                    D
+                    D
+                    D
+                    D = D_sharp_lo.mp3
+                    D
+
+                    C = C_sharp_hi.mp3
+                    C
+                    C
+                    C
+                    C = C_sharp_lo.mp3
+                    C 
+
+                    G = G.mp3
+                    G
+                    G
+                    F = F_sharp.mp3
+                    F
+                    E = E_hi.mp3
+                    E
+
+                    Fantasy = Z.mp3
+                    Fantasy
+                </textarea>
+                </br>
+
+                <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+                <script src="a1.js"></script>
+        
+                <button type="button" id="musicbtn" onclick="buttonClick()">
+                    Play Music!
+                </button>
+                
+            </div>
+
+            <div>
+                <p>
+                    Output Code:
+                </p>
+                <textarea id="HTMLoutput" rows="30" cols="200">
+
+                </textarea>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+ 1: Narration
+ 6: Importing kanren into file 7: Importing kanren cammands
+ 8: including vars declaration statement
+ 9: declaring a variable called x
+ 10: declaring a variable called y
+ 11: declaring a variable called z
+ 12: declaring 3 more variables: a, b, and c
+ 13: prints out 5
+: prints out 3 (note z = 3)
+ 17: prints out 2 (I think its showing a value that makes two points equal)
+ 19: prints out two values that are from both lists 
+ 20: prints out the variables a, b, c (4,5,6)

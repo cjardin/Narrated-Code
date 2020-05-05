@@ -1,0 +1,102 @@
+doctype declaration
+opening html tag
+
+opening head tag
+opening script tag
+
+
+
+closing script tag
+closing head tag
+
+opening body tag
+
+h1 tag with "Music Box" as the header
+h2 tag with "Assignment 1" as the sub-header
+
+Textarea box with the notes to be played
+
+
+
+
+
+
+button tag that on click it plays the sounds and generate javascript to put in a stand alone html file. Includes some css to customize button
+
+
+textarea box that holds javascript after button is pressed
+
+opening script tag
+
+
+create a playMusic function
+assigning an empty array to the varaible 'notes_parsed'
+
+Parse the textarea notes as strings and store them into an array 'notes_array'
+for loop to push each note into an array 'notes_parsed'
+if/else if statements to check which notes to push into the array in a certain order
+
+
+
+
+
+
+
+
+
+
+
+
+assigns the integer '4000' to the variable 'offset'
+for loop to go through all of the notes in the array 'notes_parsed'
+if/else if statements to decide which note to play as we iterate through the array 'notes_parsed' using the setTimeout function to addd a delay to when the note is played 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+declare the variable htmlTEMPLATE and adds html tags to create an html file as a string
+
+
+
+
+assigns an empty string to the variable 'code_output'
+assigns the integer '4000' to the variable 'offset'
+for loop to iterate through the notes_parsed array
+series of if/else if statements to check which note to add to the string code_output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+replaces @@@PLAY_CODE in htmlTEMPLATE string with the string code_output
+
+close script tag
+
+close body tag
+close html tag

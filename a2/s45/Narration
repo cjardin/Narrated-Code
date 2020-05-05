@@ -1,0 +1,54 @@
+1: importing from kanren
+2: importing from kanren.core
+3:importing from sympy.ntheory.generate
+4: importing from itertools
+6: declaring the prime_test function
+7-10: prime_test returns a list of primes starting at 2 with a length of n, passed to the function
+13: the first part of the switch
+14: returns a list with the first a primes, where a is entered by the user
+17: the second part of the switch
+18-21: declaring variables needed for this function
+22: temp contains a list of prime numbers of length a
+23: while loop that runs as long as variable i is less that a
+24-28: if/else statement that check if a is a part of temp, which means it is a primes
+29-31: if/else statement that shows a message depending on the value of the result variable
+34: the third part of the switch
+35-39: declaring needed variables
+40: temp holds a list of primes of length a
+41-46: basically the same as switch two, just checks to see if a is already a primes
+47-48: if it is, this message is statement
+49-56: if it is not a prime, it enters a while loop that tests so see what primes divide into a, appending the primes that do into the factors array
+58: print out the list of factors
+61: the fourth part of the switch
+62-64: declaring required variables
+65-67: while loop that creates a list of all numbers from 1 to a
+69: this returns a list of all the primes from the list of integers using membero
+72: the fifth part of the switch
+73-75: declaring required variables
+78: a while loop that makes it so i is equal to the prime bigger than a
+81: reducing i so that temp[i] is equal to the prime smaller than a
+82-83: checks to see if temp[i+1] is equal to a, and returns the message that a is already a prime
+85-95: if a is not prime, this subtracts a from the larger prime or subtracts the smaller prime from a, and then returns a message depending on which difference is smaller
+98: the sixth part of the switch
+99-104: declaring needed variables
+106-107: while loop that runs until temp[i] is the prime bigger than a
+109: if a is a prime, this runs
+110-113: declaring variables needed for this if statement
+114-115: adding and subtracting 6 to check for those sexy primes
+116: creating a list of primes equal to the length of j
+118-123: while loop that checks to see if j is a prime
+125: resetting z to 0
+127-132: while loop that checks to see if k is a prime
+134-141: series of if/else statements that returns a message depending on the values of the result variables
+143-144: if a is not a prime, it just goes to this else statement
+147: the seventh part of the switch
+148: return a closing message
+150: declaring the def for the switch
+151: honestly, not experienced with python enough to know why I need this part, but I do
+152-158: declaring the different sections of the switch
+160: making func equal to the switcher, and giving an error message if you choose an invalid choice
+161: what each part of the switch returns their messages/outputs to
+163-167: variables used in the main section of the program
+168: asking the user to input a number to check
+169-179: list of the possible things you can discover about your number
+178-180: while loop that allows you to keep finding out facts until you enter 7 and exit the program

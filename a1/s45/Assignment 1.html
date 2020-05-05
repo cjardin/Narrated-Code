@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script
+src="https://code.jquery.com/jquery-3.5.0.js"
+integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+crossorigin="anonymous">
+</script>
+
+</head>
+<body>
+
+<h1>Music Box Page</h1>
+<textarea id = "input_notes" rows="9" cols="9">
+
+A
+ B
+  C
+   D
+    E
+     F
+      G
+       H
+        I
+</textarea>
+
+<textarea id = "complied_code" rows = "20" cols = "40">
+</textarea>
+
+<button id = "play">
+  Press for something...interesting
+</button>
+
+<button id = 'output'>
+  Press for some code
+</button>
+
+<video width = "640" height = "360" id = "playVideo2">
+<source src = "WOW.mp4" type = "video/mp4">
+</video>
+
+<video width = "480" height = "360" id = "playVideo1">
+<source src = "Down.mp4" type = "video/mp4">
+</video>
+
+<script>
+//This is where your narration begins...
+
+notes_raw = $("#input_notes").val().split("\n");
+
+$('#play').on('click', function(){
+
+var notes_parsed = []
+for (index = 0; index < notes_raw.length; index++) {
+  if (notes_raw[index][0] == 'A'){
+    notes_parsed.push('A')
+  }else if (notes_raw[index][1] == 'B'){
+    notes_parsed.push('B')
+  }else if (notes_raw[index][2] == 'C'){
+    notes_parsed.push('C')
+  }else if (notes_raw[index][3] == 'D'){
+    notes_parsed.push('D')
+  }else if (notes_raw[index][4] == 'E'){
+    notes_parsed.push('E')
+  }else if (notes_raw[index][5] == 'F'){
+    notes_parsed.push('F')
+  }else if (notes_raw[index][6] == 'G'){
+    notes_parsed.push('G')
+  }else if (notes_raw[index][7] == 'H'){
+    notes_parsed.push('H')
+  }else if (notes_raw[index][8] == 'I'){
+    notes_parsed.push('I')
+  }
+}
+timing = 0
+  for (index = 0; index < notes_parsed.length; index++){
+  if(notes_parsed[index] == 'A'){
+    new Audio('H4.mp3').play()
+
+}else if(notes_parsed[index] == 'B'){
+  setTimeout(function(){
+    new Audio('H1.mp3').play()
+  },3000)
+
+}else if(notes_parsed[index] == 'C'){
+  setTimeout(function(){
+    new Audio('H0.mp3').play()
+  },0)
+
+}else if(notes_parsed[index] == 'D'){
+  setTimeout(function(){
+    new Audio('H2.mp3').play()
+  },10000)
+
+}else if(notes_parsed[index] == 'E'){
+  setTimeout(function(){
+    new Audio('H3.mp3').play()
+  },8000)
+
+}else if(notes_parsed[index] == 'F'){
+  setTimeout(function(){
+    new Audio('DU1.mp3').play()
+  }, 20000)
+
+}else if(notes_parsed[index] == 'G'){
+  setTimeout(function(){
+    new Audio('DU3.mp3').play()
+  }, 30000)
+}else if(notes_parsed[index] == 'H'){
+  setTimeout(function(){
+    new Audio('DU4.mp3').play()
+  }, 35000)
+}else if(notes_parsed[index] == 'I'){
+  setTimeout(function(){
+    playVideo1.play()
+  }, 39000)
+}
+}
+})
+
+$('#output').on('click', function(){
+var htmlTemp = "<!doctype html>"
+htmlTemp = htmlTemp + "<html><head><\/head ><body>"
+htmlTemp = htmlTemp + "<script> @@@PLAY_CODE <\/script>"
+htmlTemp = htmlTemp + "<\/body ><\/html>"
+
+var code_out = ""
+code_out = code_out + "new Audio('H4.mp3').play()"
+code_out = code_out + "}"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out +"new Audio('H1.mp3').play()"
+code_out = code_out + "}," + "3000)"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out + "  new Audio('H0.mp3').play()"
+code_out = code_out + "}," + "0)"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out + "new Audio('H2.mp3').play()"
+code_out = code_out + "}," + "10000)"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out + "new Audio('H3.mp3').play()"
+code_out = code_out + "}," + "8000)"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out + "new Audio('DU1.mp3').play()"
+code_out = code_out + "}," + "20000)"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out + "new Audio('DU3.mp3').play()"
+code_out = code_out + "}," + "30000)"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out + "new Audio('DU4.mp3').play()"
+code_out = code_out + "}," + "35000)"
+code_out = code_out + "setTimeout(function(){"
+code_out = code_out + "playVideo1.play()"
+code_out = code_out + "}," + "39000)"
+$("#complied_code").val(htmlTemp.replace("@@@PLAY_CODE", code_out));
+playVideo2.play();
+});
+
+</script>
+
+</body>
+
+</html>

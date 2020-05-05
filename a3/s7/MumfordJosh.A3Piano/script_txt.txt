@@ -1,0 +1,41 @@
+/* set up arrays with letters that will represent the keys of the piano  */
+const WHITE_KEYS = ['s', 'd', 'f', 'g', 'h', 'j', 'k']
+const BLACK_KEYS = ['e', 'r', 'u', 'i', 'o']
+
+/* need to get all the keys as elements. */
+const keys = document.querySelectorAll('.key')
+const whiteKey = document.querySelectorAll('.key.white')
+const blackKey = document.querySelectorAll('.key.black')
+
+/* loop for all the keys and use eventlistener when we click on a key. create playnote function for the key we want to play. 
+add functionality to use keyboard to play keys too */
+keys.forEach(key => {
+    key.addEventListener('click', () => playNote(key)) })
+
+/* playNote takes a key argument. to do that get the html element from our piano file useing getElementById using our data set in that file.
+Need to restart audio whenever a key is played instead of only playing when the sound ends.
+Use currentTime to reset the audio whenever the key is clicked.
+Need to add animation for when a key is pressed. Solution change key color when pressed, need eventlistener to return key to orginal state after the key has been pressed. 
+*/
+function playNote(key)
+{
+    const noteAudio = document.getElementById(key.dataset.note)
+    noteAudio.currentTime = 0;
+    noteAudio.play()
+    key.classList.add('active');
+    noteAudio.addEventListener('ended', () => { key.classList.remove('active')
+});
+}
+
+/* function to play the correct piano key when the corresponding letter within the black and white key arrays is pressed. Use playNote for the correct index within the array. Need to add code to prevent sound being played endlessly if a key is held down  */
+document.addEventListener('keydown', e => {
+    if(e.repeat) return;
+    const key = e.key
+    const w_KeyIndex = WHITE_KEYS.indexOf(key)
+    const b_KeyIndex = BLACK_KEYS.indexOf(key)
+
+    if(w_KeyIndex > -1) 
+    { playNote(whiteKey[w_KeyIndex])}
+    if(b_KeyIndex > -1)
+    { playNote(blackKey[b_KeyIndex])}
+})

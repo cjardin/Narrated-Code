@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head> 
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+ integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" id = "button" href="styles.css">
+
+
+
+<h1 id = "intro">Music Box Page</h1>
+<form>
+	<textarea id="notes" rows="4" cols="4">
+A
+ B
+  A
+   C
+    D
+     A
+      D
+       B
+        C
+         A
+          B
+           A
+            B
+             D
+              C 
+               A
+	</textarea>
+	<script src = "assign1.js"> </script>
+    <p>
+       	<input id = "button1" type="button" value="Play Sound" onclick = "playSound(); printHTML();"> </input>
+       	<input id = "button2" type="button" value="Done" onclick = ""> </input>
+   	</p>
+
+   	<br><br><br>
+
+   	<p id = "messageNote" style="position:absolute; left: 500; top: 100; font-size: 30px;"></p> 
+
+</form>
+<br><br><br>
+	<p>
+      Output Code:
+  </p>
+  <textarea id="HTMLoutput" rows="30" cols="200">
+
+  </textarea>
+</body>
+</html>

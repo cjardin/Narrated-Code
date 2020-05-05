@@ -1,0 +1,58 @@
+import Account class from account.py
+Import modules from the kanren package
+Import modules from the kanren.core package
+Import modules from the kanren.arith package
+
+register the account class
+
+creates a group of Accounts and stores them into the accounts group
+
+
+
+
+creates optional variable names for strings just in case for debugging
+
+
+
+
+
+
+initial account info
+account info after the transformation
+
+assigns first names to the theorists group
+
+uses logical all function to give $10 to people from the accounts group and also apart of the theorists group
+
+
+
+
+
+uses logical all function to take away $10 from people from accounts group who make more than $100
+
+
+
+print string
+prints the people who are rich(more than $100) and taxes them by taking $10
+
+print string
+prints the people who are theorists and gives them $10
+
+creates a group of accounts and stores into stimulus group
+
+
+
+
+uses logical all function to add $1200 to people who make less than 75000 from stimulus group and stores in qualified
+
+
+
+uses logical all function to add $0 to people who make more than 75000 from stimulus group and stores in not_qualified
+
+
+
+print string
+prints the people who are not qualified for the stimulus checks with their same balance
+
+print string
+prints the people who are qualified for the stimulus checks with their new balance

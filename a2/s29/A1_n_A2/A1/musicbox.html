@@ -1,0 +1,129 @@
+<!-- Dionisio de Leon
+Course:CS 351 Programming Languages 
+Date:5/1/2020
+Description: This program will play medlies from Super Mario World
+Note: First time using javascript/html
+Note2: After this semester, I want to figure out how to have an image change with each song. Can't do it b/c of current time constraints...-->
+
+<!DOCTYPE html> <!--document type declaration -->
+<html> <!-- indicates beginning of html document-->
+<head> <!--head is a containter for metadata (data about data)-->
+    <title>CS 351 A1</title> <!--title of the html doc-->
+  
+</head><!--end of head-->
+<body > <!--beginning of visible part of html doc-->
+
+<div style="background-image: url('SMW.jpg');"> <!--displays Super Mario World image in the background-->
+
+<h1>Music Box Page of Super Mario World </h1> <!--headers identified with <h1> to <h6>, h1 = more important-->
+
+<!--start of text area where notes are entered-->
+<textarea id="input_notes" rows="4" cols="4">
+A
+ B
+  C
+   D</textarea>
+
+<button onclick= "playingSong()" id = "songButton" type = "button" >Play Songs</button> <!--displays Play Songs button-->
+
+<textarea placeholder="Output code here" style=" display: block" id = "compiled" rows = "30" cols = "30"></textarea> <!--location of where the outputed code will be-->
+
+
+<script>//used to define a client-side script (javascript)
+
+
+function readingString()
+{
+    let inputString = input_notes.value;
+    return inputString;
+}
+
+function stringToArray(input)
+{
+    var notes = [];
+    for(let i = 0; i < input.length; i++)
+    {
+        if(input[i] == "A" || input[i] == "B" || input[i] == "C" || input[i] == "D")
+            notes.push(input[i]);
+    }
+    return notes;
+}
+
+function playingSong()
+{
+    time = 0;
+    offsetIndex = 7900;
+    let notes = [];
+    notes = stringToArray(readingString());
+    outputCode = "";
+
+    var htmlTEMPLATE = "<!doctype html>"
+    htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>"
+    htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE<\/script>"
+    htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+    for(let i = 0; i <= notes.length; i++)
+    {
+        if(notes[i] == "A")
+        {
+            audioA = new Audio('Course_Clear.mp3');
+            setTimeout(function() { audioA.play() }, offsetIndex * i);
+        }
+
+        else if(notes[i] == "B")
+        {
+            audioB = new Audio('Bonus_Clear.mp3');
+            setTimeout(function() { audioB.play() }, offsetIndex * i);
+        }
+
+        else if(notes[i] == "C")
+        {
+            audioC = new Audio('Player_Down.mp3');
+            setTimeout(function() { audioC.play() }, offsetIndex * i);
+        }
+
+        else if(notes[i] == "D")
+        {
+            audioD = new Audio('Game_Over.mp3');
+            setTimeout(function() { audioD.play() }, offsetIndex * i);
+        }
+    }
+
+    for(let i = 0; i < notes.length; i++)
+    {
+        if(notes[i] == "A")
+        {
+            outputCode = outputCode + " audioA = new Audio('Course_Clear.mp3');";
+            outputCode = outputCode + "setTimeout(function() { audioA.play() },"
+            outputCode = outputCode + offsetIndex + "*" + i + ");";
+        }
+
+        else if(notes[i] == "B")
+        {
+            outputCode = outputCode + " audioB = new Audio('Bonus_Clear.mp3');";
+            outputCode = outputCode + "setTimeout(function() { audioB.play() },";
+            outputCode = outputCode + offsetIndex + "*" + i + ");";
+        }
+
+        else if(notes[i] == "C")
+        {
+            outputCode = outputCode + " audioC = new Audio('Player_Down.mp3');";
+            outputCode = outputCode + "setTimeout(function() { audioC.play() },";
+            outputCode = outputCode + offsetIndex + "*" + i + ");";
+        }
+
+        else if(notes[i] == "D")
+        {
+            outputCode = outputCode + " audioA = new Audio('Game_Over.mp3');";
+            outputCode = outputCode + "setTimeout(function() { audioD.play() },";
+            outputCode = outputCode + offsetIndex + "*" + i + ");";
+        }
+    }
+
+    compiled.value=(htmlTEMPLATE.replace("@@@PLAY_CODE", outputCode));
+
+}
+
+</script>
+</body>
+</html>

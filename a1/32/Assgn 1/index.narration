@@ -1,0 +1,142 @@
+declare the Document Type
+open html tag
+open head tag
+
+script set to jquery for further function use
+
+end script
+
+style sheet set to styles.css
+open h1 tag, string added to the top of the page
+
+open form tag
+open textarea with 4 cols and 4 rows
+| some begining letters to test the program
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+V
+end textarea tag
+open paragragh tag
+make a button with the function playSound() attached to it
+another button to end the program and link the removeElement() to remove the ability to play the program
+end paragraph tag
+a bunch of breaks to give some space
+
+| different letters to make it glide across the screen
+
+end form tag
+open script tag for js
+variable interval
+variable done is set to false
+function header load that will process the letters
+the barMove variable will be each of the letters gliding across the screen
+sets the interval to the builtin function setInterval
+
+variable dir is set to 1
+pos is set to the current x location of the letters
+screenWidth uses jquery to get the size of the screen 
+function start is created
+the fontweight is set to bold
+if the position of the letter is greater than the screen width, then remove it so that it doesnt create problems
+else if pos < 0 direction is set to 1
+position is incremeneted to direction
+letter poisiotn is updated with the new location
+end
+
+end
+
+if bool done is true, 
+clear the interval for the ltter movement
+end
+
+rewrite message function initialized
+para variable set to the address given
+text is changed to the string entered
+if the string is A,
+set to red
+if B
+set to blue
+if C
+set to green
+if D
+set to orange
+end
+sends the address to the load function
+end
+
+
+addSounds function initialized
+ 
+notesRaw variable is set to the value in the textarea
+notes_parsed initialized
+count = 0
+for loop to go through the notesRaw array
+if noteRaw is A
+then push the note and letter to the notes_parsedarray
+count is incrememented
+end
+if noteRaw is B
+then push the note and letter to the notes_parsedarray
+count is incrememented
+end
+if noteRaw is C
+then push the note and letter to the notes_parsedarray
+count is incrememented
+end
+if noteRaw is D
+then push the note and letter to the notes_parsedarray
+count is incrememented
+end
+
+end
+
+playSound function sent with the variable
+end
+
+playSound function initialized with paramter notes_array
+index offset set to 1000 ms
+count is set to 1 in the beginings for offset
+textinarea is set to the text on the html page
+
+for loop to go through notes_array
+let the address equal the messagenote
+let playMusic variable equal to the address from the array
+if note equals A
+setTimeout with the function
+new Audio with the music address played
+rewriteMessage is classed with the letter and address
+index offset is multiplied by count to create a time difference between the notes
+if note equals B
+setTimeout with the function
+new Audio with the music address played
+rewriteMessage is classed with the letter and address
+index offset is multiplied by count to create a time difference between the notes
+if note equals C
+setTimeout with the function
+new Audio with the music address played
+rewriteMessage is classed with the letter and address
+index offset is multiplied by count to create a time difference between the notes
+if note equals D
+setTimeout with the function
+new Audio with the music address played
+rewriteMessage is classed with the letter and address
+index offset is multiplied by count to create a time difference between the notes
+end
+count is incremented by 1.4 to create a nice difference between the notes
+end 
+end
+script tag is closed
+body tag is closed
+html tag is closed

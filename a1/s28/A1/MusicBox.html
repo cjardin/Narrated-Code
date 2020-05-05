@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background-image: url('office.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  //background-size: cover;
+}
+</style>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>Music Box</h1>
+
+<textarea id ="input_notes" rows="4" cols="4">
+A
+ B
+  C
+   D
+</textarea>
+
+<textarea id ="compiled_code" rows="4" cols="40">
+</textarea>
+
+<button type="button" onclick="play()">Play</button>
+
+<script>
+  function play() {
+    notes_raw = $('#input_notes').val().split(/\r?\n/);
+
+    var notes_p = [];
+
+    for (index = 0; index < notes_raw.length; index++) {
+      if (notes_raw[index][0] == 'A'){
+        notes_p.push('A');
+      }
+      else if(notes_raw[index][1] == 'B'){
+        notes_p.push('B');
+      }
+      else if(notes_raw[index][2] == 'C'){
+        notes_p.push('C');
+      }
+      else if(notes_raw[index][3] == 'D'){
+        notes_p.push('D');
+      }
+    }
+    timing = 0
+
+    index_0_offset = 32002
+    index_1_offset = 32500
+    index_2_offset = 20005
+    index_3_offset = 20000
+
+    for (index = 0; index < notes_p.length; index++) {
+      console.log(index);
+      if (notes_p[index] == 'A'){
+        setTimeout(function(){
+          new Audio('office.mp3').play();
+        }, index_0_offset *  index)
+      }
+      else if(notes_p[index] == 'B'){
+        setTimeout(function() {
+          new Audio('Ryan Started the Fire  Dwight.mp3').play();
+        }, index_1_offset * index)
+      }
+      else if(notes_p[index] == 'C'){
+        setTimeout(function() {
+          new Audio('Awful and humiliating.mp3').play();
+        }, index_2_offset * index)
+      }
+      else if(notes_p[index] == 'D'){
+        setTimeout(function() {
+          new Audio('Trash talk.mp3').play();
+        }, index_3_offset * index)
+      }
+    }
+
+    //compiled code
+    var htmlTEMPLATE = "<!doctype html>" //creates a string var called htmlTEMPLATE
+		htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>" //adds html head and top part of body to string
+		htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>" //adds the code to play the songs in script tags
+		htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>" //adds the end portion of body and html tags to the htmlTEMPLATE string
+
+    code_output = "";// creates an empty string to hold code output
+		timing = 0; //var for starting time counter
+    index_0_offset = 32002
+    index_1_offset = 32500
+    index_2_offset = 20005
+    index_3_offset = 20000
+
+    for (index = 0; index < notes_p.length; index++){
+	//	<!-- if else statments that checks and plays the audio associated with each token passed in through notes_Parsed-->
+			if(notes_p[index] == 'A'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('office.mp3').play()"
+				code_output = code_output + "}, " + index_0_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'B'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('Ryan Started the Fire  Dwight.mp3').play()"
+				code_output = code_output + "}, " + index_1_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'C'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('Awful and humiliating.mp3').play()"
+				code_output = code_output + "}, " + index_2_offset + " * " + index + ");"
+			}else if(notes_p[index] == 'D'){
+				code_output = code_output + "setTimeout(function(){"
+				code_output = code_output+"new Audio('Trash talk.mp3').play()"
+				code_output = code_output + "}, " + index_3_offset + " * " + index + ");"
+			}
+
+		}
+
+		 $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+	}
+
+
+
+
+</script>
+
+
+</body>
+</html>

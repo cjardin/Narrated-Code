@@ -1,0 +1,57 @@
+import kanren package
+
+
+create a function who will check if there is people on the list asked
+check the int it receive,
+    if it null, it signal that the object asked wasn't references
+    return 0 if fail
+
+    return 1 if it's succesful
+
+create function that will print all the containe of the relations
+parsing of the tuple
+conversion of the tuple into a list 
+print how many object there is in the list (that represent the number of trainee, manager or managed)
+print one by one each object of the list
+
+
+
+
+declare the relations
+declare the relations
+declare needed variable
+declare needed variable
+declare needed variable
+
+
+declare tu username by taking the input 
+
+Initiate the first "launching"
+
+
+launch the loop to permit the user to enter as many as object he want
+check if the input is corresponding 
+ask an input for the name of the new object
+creating a new relation between the user and the new object
+increase the varibale that i use to determine how many object there are in any list (because of the tuple)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+declare a list that will be used to parse the tuplet into list
+loop to permit the user to ask for data as many time as he want
+check if the input is a list or juste a error, 
+run the kanren run to find all the relation with the counter of any "list" at first parameter to show all the relations
+call the funstion show that print all the tuple.

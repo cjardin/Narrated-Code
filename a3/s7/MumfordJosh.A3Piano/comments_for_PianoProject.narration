@@ -1,0 +1,43 @@
+ //comments for Piano.html
+<! add a link to my external styles code>
+<! create script tag to link the scripts that control the piano>
+
+<! define the keys and which color key the note will be. defines white and black keys into classes> 
+
+ <! create audio tags for all the notes of the piano so the sounds can be played 
+
+//comments for styles.css
+  /* include box-sizing property to control padding and border of our piano keys */
+
+ /* set the formatting of our background.*/
+
+ /* format our piano and how the keys should look including how they sit next to each other */
+    /* use flex-box to have keys sit next to each other not overlap */
+
+/*Create parent class key to control styles of white and black keys. Also to make easier to control both keys of the piano in the javascript. */
+
+/* have two css styles for both the black and white keys of the piano */
+
+/* have two classes for when the white and black keys are pressed. will change the color of the keys.  */
+
+ /* must get the black keys to overlay on top of the white keys. Manipulate the margins to get the keys to line up correctly
+    */
+
+ /* uses z-index to have the black keys lay on top of the white keys. z-index determines which element will be in front. */
+
+//comments for script.js
+/* set up arrays with letters that will represent the keys of the piano  */
+
+/* need to get all the keys as elements. */
+
+/* loop for all the keys and use eventlistener when we click on a key. create playnote function for the key we want to play. 
+add functionality to use keyboard to play keys too */
+
+/* playNote takes a key argument. to do that get the html element from our piano file useing getElementById using our data set in that file.
+Need to restart audio whenever a key is played instead of only playing when the sound ends.
+Use currentTime to reset the audio whenever the key is clicked.
+Need to add animation for when a key is pressed. Solution change key color when pressed, need eventlistener to return key to orginal state after the key has been pressed. 
+*/
+
+/* function to play the correct piano key when the corresponding letter within the black and white key arrays is pressed. Use playNote for the correct index within the array. Need to add code to prevent sound being played endlessly if a key is held down  */
+

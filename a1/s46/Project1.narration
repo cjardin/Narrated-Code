@@ -1,0 +1,154 @@
+This is my first time using html and javascript
+
+1: Initialize document type
+2: Make HTML
+3: Make header
+
+5: Create script
+6: intilize jquery cnd
+
+8: end script
+
+10: end header
+11: make body
+
+13: make header text
+
+15: create text area
+16: A object
+17: B object
+18: C object
+19: D object
+20: end text area
+
+22: initialize gif image
+
+24: ceate button to write instructions compilation
+25: make text area for compiled code
+26: end text area
+
+28: beginning of script
+
+30: function to play the sounds
+
+32: intitialize doc type
+33: create header/html
+34: create scripts
+35: end header/html
+
+37: parse notes
+
+39: create aray for notes
+40: initialize first mp3 sound
+
+42: beginning of for loop to push notes into array
+
+44: conditional statement for A
+
+46: push A onto array
+
+48: conditional statement for B
+
+50: push B onto array
+
+52: condiitonal statement for C
+
+54: push C onto array
+
+56: conditional statement for D
+
+58: push D onto array
+
+
+
+62: sets beginning of time
+63: makes offset for time elapsed between sounds
+64: beginning of for loop to play sounds
+
+66: conditional statement for A
+
+68: elapse time
+
+70: play A
+71: offset
+
+73: conditional statement for B
+
+75: elapse time
+
+77: play B
+78: offset
+
+80: condiitonal statement for C
+
+79: elapse time
+
+81: play C
+82: offset
+
+83: conditional statement for D
+
+89: elapse time
+
+91: play D
+92: offset
+
+
+
+96: create output variable
+97: create for loop to create output
+
+99: conditional statement for A
+
+101: add timeout to output
+102: add mp3 sound of A to output
+103: add offset to output
+
+105: conditional statement for B
+
+107: add timeout to output
+108: add mp3 sound of B to output
+109: add offset to output
+
+111: conditional statement for C
+
+113: add timeout to output
+114: add mp3 sound of C to output
+115: add offset to output
+
+117: conditional statement for D
+
+119: add timeout to output
+120: add mp3 sound of A to output
+121: add offset to output
+
+
+124: shows compiled code
+
+126: end script
+
+
+129: end body
+130: end html doc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

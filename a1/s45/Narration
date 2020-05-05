@@ -1,0 +1,45 @@
+Avery Helgesen
+Assignment 1 Narration file
+Music Box HTML5/Javascript
+
+14 : Make the Words "Music Box Page" appear on screen
+15 : Declare a text box that will contain the notes to be played
+16-25 : Notes written into program that will be played
+26 : End of designated text box for notes
+28 : A second textbox that will contain the output of Javascript
+29 : Close of textbox area
+31 : Declaring a button named "play"
+32 : What will be written on the button
+33 : Close button
+35 : A second declared button for "output"
+36 : What will be said on the "output" button
+37 : Close button area
+39 : Declaring a video, with the width, height, and id "playVideo2"
+40 : Stating what the source for playVideo2 is
+41 : Close video declaration
+43 : Declaring a second video with width, height, and id "playVideo1"
+44 : Stating the source for playVideo1
+45 : Close video declaration
+47 : Beginning of the script
+50 : Splitting the notes contained in the first textbox so that they are on different indices, and storing into notes_raw array
+52 : When the button with id "play" is clicked, it will run the code below
+54 : Declare the notes_parsed array
+55 : For loop that will run as long as the declared variable index is less than the length of notes_raw
+56-75 : A long series of if/else statements that will store the letters A-I into the notes_parsed array depending on what letter is present at each index in the notes_raw array
+76 : Declaring the use of the setTimeout function, starting the current time at 0
+77 : Another for loop that runs the length of the notes_parsed array
+78-113 : Another series of if/else statements that will play different audio clips depending on the current value of notes_parsed at the index value, as well as delay the playing of each note for the number of milliseconds designated at the end
+114-117 : The last  clip is actually a video clip with audio attached, just an attempt to get more experience working with Javascript
+120 :  End of the function that will be executed when you press the button with the id "play"
+122 : When you press the button with the id "output", the following code runs
+123 : Declaring a variable that will hold the strings used to write the opening parts of an html file
+124-126 :  Adding the required sections of an html file to the end of the htmlTemp string, as well as putting a special variable between the opening and closing of the script area, which will be replaced
+128 : Declaring  the variable code_out as a string
+129-152 : Adding each line of code that contain the notes and their timings to the code_out variable
+153 : I am unsure of what to do here, as I couldn't play this video the same way you play an audio clip
+155 : Command that will output htmlTemp as well as replace the variable inside of the opening and closing of script within htmlTemp with what is contained in the variable code_out
+156 : Playing the video attached to playVideo2, as I wanted to play around a bit more, and I though it was slightly amusing
+157 : End of the code that will be executed when the button with id "output" is clicked
+159 : End of the script area
+161 : End of the body area
+163 : End of the html area

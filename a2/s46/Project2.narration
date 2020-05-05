@@ -1,0 +1,10 @@
+1: imported kanren package (run, eq, memero, var)
+
+3: creates x
+4: creates z
+
+6: prints a logical statement that asks for a number, such that the number is (5)
+
+8: prints a logical statement that asks for a number such that it equals(eq) another number(2)
+
+10: prints a logical statement that asks for a number(s) such that the number(s) are in both (1, 2, 3) and (2, 3, 4)

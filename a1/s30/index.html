@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script
+          src="https://code.jquery.com/jquery-3.4.1.js"
+          integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+          crossorigin="anonymous">
+</script>
+</head>
+
+<body>
+
+<h1>Music Box</h1>
+<h2>Assignment 1</h2>
+
+<textarea id="input_notes" rows="4" cols="4">
+A
+ B
+  C
+   D
+</textarea>
+
+<button type="button" onclick="playMusic()" style="background-color: black; color:white; border: 2px solid #008CBA";> Play/Generate </button>
+
+
+<textarea placeholder ="Output code will go here" style="display: block"  id="compiled_code" rows="20" cols="40" ></textarea>
+
+<script>
+	//this is where narration begins
+
+function playMusic(){
+	var notes_parsed = []
+
+	notes_array = $("#input_notes").val().split(/\r?\n/);
+	for (index=0; index < notes_array.length; index++){
+		if(notes_array[index][0] == 'A'){
+			notes_parsed.push('A')
+		} else if(notes_array[index][1] == 'B'){
+			notes_parsed.push('B')
+		} else if(notes_array[index][2] == 'C'){
+			notes_parsed.push('C')
+		} else if(notes_array[index][3] == 'D'){
+			notes_parsed.push('D')
+		}
+	}
+
+
+
+  var offset = 4000; //offset * index
+	for (index=0; index<notes_parsed.length; index++){
+		if(notes_parsed[index] == 'A'){
+          setTimeout(function(){ new Audio('A.mp3').play()  }, offset * index);
+
+		} else if(notes_parsed[index] == 'B'){
+          setTimeout(function(){ new Audio('B.mp3').play()  }, offset * index);
+
+		} else if(notes_parsed[index] == 'C'){
+          setTimeout(function(){ new Audio('C.mp3').play()  }, offset * index);
+
+		} else if(notes_parsed[index] == 'D'){
+          setTimeout(function(){ new Audio('D.mp3').play()  }, offset * index);
+
+		}
+
+	}
+
+
+
+  var htmlTEMPLATE = "<!doctype html>"
+		htmlTEMPLATE += "<html><head><\/head ><body>"
+		htmlTEMPLATE += "<script>@@@PLAY_CODE <\/script>"
+		htmlTEMPLATE += "<\/body ><\/html>"
+
+    code_output = ""
+    offset = 4000
+        for (index = 0; index < notes_parsed.length; index++) {
+            if( notes_parsed[index] == 'A'){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "new Audio('A.mp3').play()"
+                code_output = code_output + "}, " + offset + " * " + index + "); "
+            }else if (notes_parsed[index] == 'B' ){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "new Audio('B.mp3').play()"
+                code_output = code_output + "}, " + offset + " * " + index +");  "
+            }else if (notes_parsed[index] == 'C' ){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "new Audio('C.mp3').play()"
+                code_output = code_output + "}, " + offset + " * " + index +");  "
+            }else if (notes_parsed[index] == 'D' ){
+                code_output = code_output + "setTimeout( function(){"
+                code_output = code_output + "new Audio('D.mp3').play()"
+                code_output = code_output + "}, " + offset + " * " + index +");  "
+            }
+        }
+
+  $("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+}
+</script>
+
+</body>
+</html>

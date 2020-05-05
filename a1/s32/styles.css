@@ -1,0 +1,40 @@
+#intro{
+	color: black;
+	font-size: 300%;
+	font-style: oblique;
+	text-align: center;
+
+}
+
+html{
+	background-color: lightblue;
+}
+
+textarea{
+	font-size: 20px;
+	font-family: "Oldtown, fantasy";
+	width: 600px;
+	height: 300px;
+	resize: none;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border:solid 3px black;
+	background-color: lightpink;
+}
+
+form {
+
+   	position: relative;
+   	display: inline-block;
+   	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form p {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+}

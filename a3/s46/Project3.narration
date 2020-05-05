@@ -1,0 +1,246 @@
+This is my first time using html and javascript
+
+1: Initialize document type
+2: Make HTML
+3: Make header
+
+5: Create script
+6: intilize jquery cnd
+
+8: end script
+
+10: end header
+11: make body
+
+13: make header text
+
+15: create text area
+16: Initialize A
+17: A object
+18: Initialize B
+19: B object
+20: Initialize C
+21: C object
+22: Initialize D
+23: D object
+24: Re-initialize A
+25: AA object
+26: end text area
+
+28: initialize gif image
+
+30: ceate button to write instructions compilation
+31: make text area for compiled code
+32: end text area
+
+34: beginning of script
+
+36: function to play the sounds
+
+38: intitialize doc type
+39: create header/html
+40: create scripts
+41: end header/html
+
+43: parse notes
+
+45: Make timing variable
+46: Make offset of sounds variable
+
+48: make A assigned checker
+49: make B assigned checker
+50: make C assigned checker
+51: make D assigned checker
+52: make AA assigned checker
+53: make counter
+
+55: create aray for notes
+56: initialize first mp3 sound
+
+59: beginning of for loop to push notes into array
+
+61: conditional statement for A
+
+63: conditional statement for count
+
+65: conditional statement for A assigned
+
+67: push A onto array
+68: count object counts up 1
+
+70: else statement
+
+72: pushes error into array
+
+87: conditional statement for B
+
+89: Checks to see if B is assigned in text area
+
+91: push B onto array
+
+93: else statement
+
+95: pushes error
+
+
+
+98: conditional statement for C
+
+100: Checks to see if C is assigned in text area
+
+102: push C onto array
+
+104: else statement
+
+106: pushes error
+
+
+109: conditional statement for D
+
+111: Checks to see if D is assigned in text area
+
+113: push D onto array
+
+115: else statement
+
+117: pushes error
+
+
+120: condition to see if A is initialized
+
+122: puts A as an assigned value
+
+124: condition to see if B is initialized
+
+126: puts B as an assigned value
+
+128: condition to see if C is initialized
+
+130: puts C as an assigned value
+
+132: condition to see if D is initialized
+
+134: puts D as an assigned value
+
+136: condition to see if AA is initialized
+
+138: puts AA as an assigned value
+
+
+143: beginning of for loop to play sounds
+
+145: conditional statement for A
+
+147: elapse time
+
+149: play A
+150: offset
+
+152: conditional statement for B
+
+154: elapse time
+
+156: play B
+157: offset
+
+159: condiitonal statement for C
+
+161: elapse time
+
+163: play C
+164: offset
+
+166: conditional statement for D
+
+168: elapse time
+
+170: play D
+171: offset
+
+173: conditional statement for Z (AA)
+
+175: elapse time
+
+177: play D
+178: offset
+
+
+180: conditional statement for E (Error)
+
+182: elapse time
+
+184: play D
+185: offset
+
+
+
+
+190: create output variable
+191: create for loop to create output
+
+193: conditional statement for A
+
+195: add timeout to output
+196: add mp3 sound of A to output
+197: add offset to output
+
+199: conditional statement for B
+
+201: add timeout to output
+202: add mp3 sound of B to output
+203: add offset to output
+
+205: conditional statement for C
+
+207: add timeout to output
+208: add mp3 sound of C to output
+209: add offset to output
+
+211: conditional statement for D
+
+213: add timeout to output
+214: add mp3 sound of D to output
+215: add offset to output
+
+217: conditional statement for Z (AA)
+
+219: add timeout to output
+220: add mp3 sound of AA to output
+221: add offset to output
+
+223: conditional statement for E (Error)
+
+225: add timeout to output
+226: add mp3 sound of A to output
+227: add offset to output
+
+
+230: shows compiled code
+
+232: end script
+
+
+235: end body
+236: end html doc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+*, *::before, *::after {
+    /* include box-sizing property to control padding and border of our piano keys */
+    box-sizing: border-box;
+}
+
+body{
+    /* set the formatting of our background.*/
+    background-color: #d4df3f65;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piano {
+    /* format our piano and how the keys should look including how they sit next to each other */
+    /* use flex-box to have keys sit next to each other not overlap */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/*Create parent class key to control styles of white and black keys. Also to make easier to control both keys of the piano in the javascript. */
+.key {
+    height: calc(var(--width) * 4);
+    width: var(--width);
+  }
+
+/* have two css styles for both the black and white keys of the piano */
+.white {
+    --width: 100px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+/* have two classes for when the white and black keys are pressed. will change the color of the keys.  */
+.white.active {
+    background-color: #CCC;
+}
+
+.black {
+    --width: 60px;
+    background-color: black;
+    /* must get the black keys to overlay on top of the white keys. Manipulate the margins to get the keys to line up correctly
+    */
+    margin-left: calc(var(--width) / -2);
+    margin-right: calc(var(--width) / -2);
+    /* uses z-index to have the black keys lay on top of the white keys. z-index determines which element will be in front. */
+    z-index: 2;
+}
+
+.black.active {
+    background-color: #333;
+}
+

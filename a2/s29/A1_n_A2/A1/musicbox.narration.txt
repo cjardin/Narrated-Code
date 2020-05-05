@@ -1,0 +1,79 @@
+8: document type declaration
+9: indicates beginning of html document
+10: beginning of head, which is a container for metadata
+11: defining a title for this html document
+13: end of head
+14: body, beginning of visible part of html doc
+16: shows an image of Super Mario World in the background of the html doc
+18: header, shows the name of the music box
+21: start of text area where notes are entered
+22: default value of 1st line
+23: default value of 2nd line
+24: default value of 3rd line
+25: default value of 4th line and end of text area
+27: displays a "Plays Song" button which will play music and output code
+29: location of where the output code will be
+32: script is used to define a client-side script (javascript)
+35: defining a function called readingString()
+37: defining a variable called inputString which is defined from the textarea "input_notes"
+38: returning inputString from the function
+41: defining a function stringToArray
+43: defining an array called notes
+44: for loop that goees through the length of an input
+46: if the input contains an A, B, C, or D somewhere
+47: push A, B, C, or D intoes notes array (assuming above condition is satisfied
+49: return notes array
+52: defining playingSong function
+54: defining time and setting it to 0
+55: defining offsetIndex and setting it to 7900
+56: defining an array called notes
+57: notes is assigned to the converted string to array from the input (from the text area)
+60: defining htmlTEMPLATE and setting it to the beginning of a html doc
+61: string concatenation for output
+62: string concatenation for output
+63: string concatenation for output
+
+65: for loop that goes through the length of notes
+67: if notes array contains "A"
+69: define an audio variable that is assigned to a unique sound
+70: setimeout plays the sound after a certain amount of time
+
+73: if notes array contains "B"
+75: define an audio variable that is assigned to a unique sound
+76: setimeout plays the sound after a certain amount of time
+
+79: if notes array contains "C"
+81: define an audio variable that is assigned to a unique sound
+82: setimeout plays the sound after a certain amount of time
+
+85: if notes array contains "D"
+87: define an audio variable that is assigned to a unique sound
+88: setimeout plays the sound after a certain amount of time
+
+92: for loop that goes through the length of notes
+94: if notes array contains "A"
+96: string concatenation for outputCode
+97: string concatenation for outputCode
+98: string concatenation for outputCode
+
+101: if notes array contains "B"
+103: string concatenation for outputCode
+104: string concatenation for outputCode
+105: string concatenation for outputCode
+
+108: if notes array contains "C"
+110: string concatenation for outputCode
+111: string concatenation for outputCode
+112: string concatenation for outputCode
+
+115: if notes array contains "D"
+117: string concatenation for outputCode
+118: string concatenation for outputCode
+119: string concatenation for outputCode
+
+123: setting the textarea (id = compiled) to outputCode
+
+127: end of script
+123: end of body
+129: end of html
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head> 
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+ integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" id = "button" href="styles.css">
+<h1 id = "intro">Music Box Page</h1>
+<form>
+	<textarea id="notes" rows="4" cols="4">
+A
+ B
+  A
+   C
+    D
+     A
+      D
+       B
+        C
+         A
+          B
+           A
+            B
+             D
+              C 
+               A
+	</textarea>
+    <p>
+       	<input id = "button1" type="button" value="Play Sound" onclick = "addSounds()"> </input>
+       	<input id = "button2" type="button" value="Done" onclick = ""> </input>
+   	</p>
+
+   	<br><br><br>
+
+   	<p id = "messageNote" style="position:absolute; left: 500; top: 100; font-size: 30px;"></p> 
+
+</form>
+<script>
+	var interval;
+	done = false;
+	function load(string) {
+	  var letter = document.getElementById(string);
+	  interval = setInterval(start, 15);
+
+	  var dir = 1;
+	  var pos = letter.offsetLeft;
+	  var screenWidth = $(window).width();
+	  function start() {
+	  	letter.style.fontWeight = "bold";
+	    if (pos > screenWidth) letter.parentNode.removeChild(barMove);
+	    else if (pos < 0) dir = 1;
+	    pos += dir;
+	    letter.style.left = pos + 'px';
+	  }
+
+	}
+
+	if(done === true){
+	  	window.clearInterval(interval);
+	}	
+
+	function rewriteMessage(string, address){
+		var para = document.getElementById(address);
+		para.textContent = string;
+		if(string == "A"){
+			para.style.color = "red";
+		}else if(string == "B"){
+			para.style.color = "blue";
+		}else if(string == "C"){
+			para.style.color = "green";
+		}else if(string == "D"){
+			para.style.color = "orange";
+		}
+		load(address);
+	}
+
+
+	function addSounds(){
+
+		notesRaw = $("#notes").val().split(/\r?\n/);
+		var notes_parsed = [];
+		var count = 0;
+		for(index = 0; index < notesRaw.length;index++){
+			if(notesRaw[index][count] == 'A'){
+				notes_parsed.push(['A',"C_64kb.mp3"]);
+				count++;
+			}
+			if(notesRaw[index][count] == 'B'){
+				notes_parsed.push(['B',"D_64kb.mp3"]);
+				count++;
+			}
+			if(notesRaw[index][count] == 'C'){
+				notes_parsed.push(['C',"Dm_64kb.mp3"]);
+				count++;
+			}
+			if(notesRaw[index][count] == 'D'){
+				notes_parsed.push(['D',"E_64kb.mp3"]);
+				count++;
+			}
+		
+		}
+
+		playSound(notes_parsed);
+	}
+
+	function playSound(notes_array){
+		var index_ms_offset = 1000;
+		var count = 1;
+		var textInArea = document.getElementById("notes");
+		
+		for(var index = 0; index < notes_array.length; index++){
+			let address = "messageNote";
+			let playMusic = notes_array[index][1];
+			if(notes_array[index][0] == 'A'){
+				setTimeout( function(){
+						new Audio(playMusic).play();
+						rewriteMessage("A",address);
+				}, index_ms_offset * count);
+			}else if(notes_array[index][0] == 'B'){
+				setTimeout( function(){
+						new Audio(playMusic).play();
+						rewriteMessage("B",address);
+				}, index_ms_offset * count);
+			}else if(notes_array[index][0] == 'C'){
+				setTimeout( function(){
+						new Audio(playMusic).play();
+						rewriteMessage("C",address);
+				}, index_ms_offset * count);
+			}else if(notes_array[index][0] == 'D'){
+				setTimeout( function(){
+						new Audio(playMusic).play();
+						rewriteMessage("D",address);
+				}, index_ms_offset * count);
+			}
+			count += 1.4;
+		}
+	}
+</script>
+</body>
+</html>

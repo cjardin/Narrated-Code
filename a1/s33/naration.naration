@@ -1,0 +1,223 @@
+
+
+
+
+
+
+
+
+
+ other way to declare a song file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button to play song
+button to "compile" the code
+
+Create the précompiled code
+Create the précompiled code
+Create the précompiled code
+Create the précompiled code
+Create the précompiled code
+Create the précompiled code
+Create the précompiled code
+Create the précompiled code
+Create the précompiled code
+
+declaration of myFunction (run on the click of the first button)
+parsing of note raw line by line
+
+declare index to determine the line readed
+declare i to determine the letter read in the line
+
+
+
+
+
+
+
+
+
+parsing lines, charactere by charactere
+
+check the letter of the actual charactere
+put the letters in note_parsed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+loop on note_parsed
+
+check if the actual case of note_parsed is equal to a letter between A and H
+
+declare a function
+declare the mp3/wav file and play it
+the waiting time between songs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+declare myCompiler function
+parsing of note raw line by line
+declare note_parsed to fill it with notes
+declare index to determine the line readed
+declare i to determine the letter read in the line
+
+
+
+parsing lines, charactere by charactere
+
+check the letter of the actual charactere
+put the letters in note_parsed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+declare the varibale that will be used like code compiled
+init index to 0 to read all the notes
+declare variable of waiting time (400 because of the time of the wav files)
+
+
+check the letter in the note_parsed
+
+create the adequate code to set the timer function
+create the adequate code to play the song
+create the adequate code to wait the song
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+directly write the compiled code in the text area named compiled code.

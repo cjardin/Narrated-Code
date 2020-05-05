@@ -1,0 +1,226 @@
+<!Doctype html>
+<html>
+<head>
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+</head>
+<body>
+		<audio id="DryDrum1" src="DryDrum1.wav" muted="muted" type="audio/wav"></audio>
+
+<h1>Musique box page</h1>
+
+<p>Hello, there is the musique box page
+Write letters beetween A and H in any order in the text area and click on the button</p>
+
+<textarea id="input_notes" rows="20" cols="40">
+A
+ B
+  C
+   D
+</textarea>
+<textarea  id="compiled_code" rows="20" cols="40">
+     
+</textarea>
+
+<button onclick="myFunction()">Play the song</button>
+<button onclick="myCompiler()">Compile the code</button>
+<script>
+	var htmlTEMPLATE = "<!doctype html>"
+htmlTEMPLATE = htmlTEMPLATE + "<html><head>"
+htmlTEMPLATE = htmlTEMPLATE + "<script src=\"https://code.jquery.com/jquery-3.4.1.js\""
+htmlTEMPLATE = htmlTEMPLATE + "integrity=\"sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=\""
+htmlTEMPLATE = htmlTEMPLATE + "crossorigin=\"anonymous\"><\/script>"
+htmlTEMPLATE = htmlTEMPLATE + "<\/head ><button onclick=\"myFunction()\">Play the song</button><body>"
+htmlTEMPLATE = htmlTEMPLATE + "<audio id=\"DryDrum1\" src=\"DryDrum1.wav\" muted=\"muted\" type=\"audio/wav\"></audio>"
+htmlTEMPLATE = htmlTEMPLATE + "<script>	function myFunction(){ @@@PLAY_CODE }<\/script>"
+htmlTEMPLATE = htmlTEMPLATE + "<\/body><\/html>"
+	
+	function myFunction(){
+	notes_raw = $('#input_notes').val().split(/\r?\n/);
+	var notes_parsed = []
+	var index = 0;
+	var i = 0;
+
+	while (index < notes_raw.length)
+	{
+
+
+
+
+		
+			while(i < notes_raw[index].length)
+			{
+				if (notes_raw[index][i] == "A")
+						notes_parsed.push('A')
+				else if(notes_raw[index][i] == 'B')
+					notes_parsed.push('B')
+				else if(notes_raw[index][i] == 'C')
+					notes_parsed.push('C')
+				else if(notes_raw[index][i] == 'D')
+					notes_parsed.push('D')
+				else if(notes_raw[index][i] == 'E')
+					notes_parsed.push('E')
+				else if(notes_raw[index][i] == 'F')
+					notes_parsed.push('F')
+				else if(notes_raw[index][i] == 'G')
+					notes_parsed.push('G')
+				else if(notes_raw[index][i] == 'H')
+					notes_parsed.push('H')
+				i++;
+			}
+		i=0;
+		index++;
+	}
+	index = 0;
+	index_ms_offset = 400;
+	while (index < notes_parsed.length)
+	{
+		if (notes_parsed[index] == 'A')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum1.wav').play()
+									},index_ms_offset * index)
+		}
+		else if (notes_parsed[index] == 'B')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum2.wav').play()
+									},index_ms_offset * index)
+		}
+		else if (notes_parsed[index] == 'C')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum3.wav').play()
+									},index_ms_offset * index)
+		}
+		else if (notes_parsed[index] == 'D')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum4.wav').play()
+									},index_ms_offset * index)
+		}
+		else if (notes_parsed[index] == 'E')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum5.wav').play()
+									},index_ms_offset * index)
+		}
+		else if (notes_parsed[index] == 'F')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum6.wav').play()
+									},index_ms_offset * index)
+		}
+		else if (notes_parsed[index] == 'G')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum7.wav').play()
+									},index_ms_offset * index)
+		}
+		else if (notes_parsed[index] == 'H')
+		{
+			setTimeout( function() {
+									new Audio('DryDrum8.wav').play()
+									},index_ms_offset * index)
+		}
+		
+		index++;
+	}
+
+
+	}
+	
+	function myCompiler(){
+		notes_raw = $('#input_notes').val().split(/\r?\n/);
+		var notes_parsed = []
+		var index = 0;
+		var i = 0;
+
+		while (index < notes_raw.length)
+		{
+			while(i < notes_raw[index].length)
+			{
+				if (notes_raw[index][i] == "A")
+						notes_parsed.push('A')
+				else if(notes_raw[index][i] == 'B')
+					notes_parsed.push('B')
+				else if(notes_raw[index][i] == 'C')
+					notes_parsed.push('C')
+				else if(notes_raw[index][i] == 'D')
+					notes_parsed.push('D')
+				else if(notes_raw[index][i] == 'E')
+					notes_parsed.push('E')
+				else if(notes_raw[index][i] == 'F')
+					notes_parsed.push('F')
+				else if(notes_raw[index][i] == 'G')
+					notes_parsed.push('G')
+				else if(notes_raw[index][i] == 'H')
+					notes_parsed.push('H')
+				i++;
+			}
+		i=0;
+		index++;
+		}
+	code_output = ""
+	index = 0;
+	index_ms_offset = 400;
+	while (index < notes_parsed.length)
+	{
+		if (notes_parsed[index] == 'A')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum1.wav').play()"
+			code_output += "}," + index_ms_offset + "*" +  index + ")"
+		}
+		else if (notes_parsed[index] == 'B')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum2.wav').play()"
+			code_output += "}," + index_ms_offset + " * " + index + ")"
+		}
+		else if (notes_parsed[index] == 'C')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum3.wav').play()"
+			code_output += "}," + index_ms_offset  + "*" +  index + ")"
+		}
+		else if (notes_parsed[index] == 'D')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum4.wav').play()"
+			code_output += "}," + index_ms_offset  + "*" +  index + ")"
+		}
+		else if (notes_parsed[index] == 'E')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum5.wav').play()"
+			code_output += "}," + index_ms_offset  + "*" +  index + ")"
+		}
+		else if (notes_parsed[index] == 'F')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum6.wav').play()"
+			code_output += "}," + index_ms_offset  + "*" +  index + ")"
+		}
+		else if (notes_parsed[index] == 'G')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum7.wav').play()"
+			code_output += "}," + index_ms_offset  + "*" +  index + ")"
+		}
+		else if (notes_parsed[index] == 'H')
+		{
+			code_output += "\nsetTimeout( function() {"
+			code_output += "new Audio('DryDrum8.wav').play()"
+			code_output += "}," + index_ms_offset  + "*" +  index + ")"
+		}
+		
+		index++;
+	}
+	$('#compiled_code').val(htmlTEMPLATE.replace('@@@PLAY_CODE', code_output))
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+import from kanren project
+import from kanren project
+import from kanren project
+declare the operation add
+decleare the operation mul
+fact that multiplication is commutative
+fact that addition is commutative
+fact that multiplication is associative
+fact that addition is associative
+define a as logic variable
+print out the purpose of the program
+print out to ask user to enter variable a
+input and convert to integer a
+print out to ask user to enter variable b
+input and convert to integer b
+assign expression to the form "ax + b"
+assign expr1 to expression
+assign expression to the solution
+print out the solution
