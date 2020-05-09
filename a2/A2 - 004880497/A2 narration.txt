@@ -1,0 +1,63 @@
+1: Call function types for use in code
+
+4: Name and Student ID
+5: Class Name
+
+8: Create variable Caretaker
+9: Create variable Animal Shelter
+
+12: Initialize relation for caretaker
+14: Initialize relation for shelter
+15: Initialize facts of shelter for caretaker
+
+17: Create animal name relation
+
+19: Define animals contained
+21: Return shelter and caretaker relations
+
+25: Print menu item name 1
+26: Print menu item name 2
+27: Print menu item name 3
+28: Print menu item name 4
+29: Print menu item name 5
+30: Print menu item name 6
+31: Print menu item name 7
+32: Print menu item name 8
+33: Print menu item name 9
+
+
+36: initialize while True statement for functions
+
+37: try statement
+38: Initialize input
+39: Exception statement
+40: print error message
+41: break statement
+
+43: if num = 1
+44: print shelter name
+
+46: if num = 2
+47: x variable
+48: print caretaker name
+
+50: if num = 3
+51: y variable
+52: print animal type
+
+54: if num = 4
+55: input for animal type
+56: relation of animal under caretaker
+57: print new animal type
+
+59: if num = 5
+60: input for animal name
+61: relation of animal name
+62: print animal name
+
+64: if num = 6
+65: exit app
+
+67: else statement
+68: print error message
+
