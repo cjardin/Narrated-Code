@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+/*
+Austin Bradstreet, 004880497
+CS-351, 2nd attempt at using HTML & Javascript
+*/
+
+<h1>Assignment 3</<h1>
+
+<script 
+    src="https://code.jquery.com/jquery-3.4.1.js" 
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+</script>
+
+</head>
+
+
+<body>
+
+<h1> Music Box Page part 2 </h1>
+
+<textarea id = "input_notes" rows="4" cols="4">
+    A=a_note.mp3
+    A
+    B=b_note.mp3
+     B
+    C=c_note.mp3
+      C
+    D=d_note.mp3
+       D
+    A=aa_note.mp3
+    A
+</textarea>
+
+<textarea id="compiled_code" rows="40" cols="60">
+</textarea>
+
+
+<script>
+	{
+    
+    notes_raw = $("#input_notes").val().split(/\r?\n/)
+
+    var notes_parsed = []
+
+    var audio1 = new Audio('a_note.mp3') //A Note
+	var audio2 = new Audio('b_note.mp3') //B Note
+    var audio3 = new Audio('c_note.mp3') //C Note
+	var audio4 = new Audio('d_note.mp3') //D Note
+    var audio5 = new Audio('aa_note.mp3') //AA Note
+
+    a_note_assign = false;
+	b_note_assign = false;
+	c_note_assign = false;
+	d_note_assign = false;
+	aa_note_assign = false;
+	c_count = 0;
+
+
+    function complete() 
+	{
+		alert("The sound is done")
+	}
+
+
+	for(index = 0; index < notes_raw.length; index++)
+    {
+		if(notes_raw[index] == 'A') {
+        if(c_count == 0)
+			{
+				if(a_note_assign == true)
+				{
+					notes_parsed.push('A')
+					c_count = c_count + 1;
+				}
+            }
+            else if(c_count == 1)
+			{
+				if(aa_note_assign == true)
+				{
+					notes_parsed.push('F')
+				}
+			}
+		}
+        else if(notes_raw[index][1] == 'B')
+        {
+			if(b_note_assign == true)
+			{
+				notes_parsed.push('B')
+            }
+		}
+        else if(notes_raw[index][2] == 'C')
+        {
+			if(c_note_assign == true)
+			{
+				notes_parsed.push('C')
+			}
+		} 
+        else if(notes_raw[index][3] == 'D')
+        {
+			if(d_note_assign == true)
+			{
+				notes_parsed.push('D')
+			}
+	    } 
+        else if (notes_raw[index] == "A=a.mp3" )
+		{
+			a_note_assign = true;
+		}
+		else if (notes_raw[index] == "B=b.mp3" )
+		{
+			b_note_assign = true;
+		}
+		else if (notes_raw[index] == "C=c.mp3" )
+		{
+			c_note_assign = true;
+		}
+		else if (notes_raw[index] == "D=d.mp3" )
+		{
+			d_note_assign = true;
+		}
+		else if (notes_raw[index] == "A=aa.mp3" )
+		{
+			aa_note_assign = true;
+		}
+    }
+
+var htmlTEMPLATE = "<!doctype html>"
+	htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head ><body>"
+	htmlTEMPLATE = htmlTEMPLATE + "<script>@@@PLAY_CODE <\/script>"
+	htmlTEMPLATE = htmlTEMPLATE + "<\/body ><\/html>"
+
+time = 0
+ index_ms_timeStop = 4000
+	for(index = 0; index < notes_parsed.length; index++)
+	{
+		if(notes_parsed[index] == 'A')
+		{
+			setTimeout(function(){audio1.play()}, index_ms_timeStop * index)
+			audio1.addEventListener("fin", complete)
+		} 
+        else if(notes_parsed[index] == 'B')
+		{
+			setTimeout(function(){audio2.play()}, index_ms_timeStop * index)
+			audio2.addEventListener("fin", complete)
+		}
+        else if(notes_parsed[index] == 'C')
+		{
+			setTimeout(function(){audio3.play()}, index_ms_timeStop * index)
+			audio3.addEventListener("fin", complete)
+		}
+        else if(notes_parsed[index] == 'D')
+		{
+			setTimeout(function(){audio4.play()}, index_ms_timeStop * index)
+			audio4.addEventListener("fin", complete)
+		}
+        else if(notes_parsed[index] == 'F')
+		{
+			setTimeout(function(){audio5.play()}, index_ms_timeStop * index)
+			audio5.addEventListener("fin", complete)
+		}
+	}
+
+	
+	code_output = ""
+	
+	for(index = 0; index < notes_parsed.length; index++)
+	{
+		if(notes_parsed[index] == 'A')
+		{
+			code_output = code_output + "setTimeout(function(){"
+			code_output = code_output + "new Audio('a_note.mp3').play()"
+			code_output = code_output + "}, " + index_ms_timeStop + " * " + index + "); "
+        } 
+
+        else if(notes_parsed[index] == 'B')
+		{
+			code_output = code_output + "setTimeout(function(){"
+			code_output = code_output + "new Audio('b_note.mp3').play()"
+			code_output = code_output + "}, " + index_ms_timeStop + " * " +  index + ");"
+			
+		}
+        else if (notes_parsed[index] == 'C')
+		{
+			code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('c_note.mp3').play()"
+            code_output = code_output + "}, " + index_ms_timeStop + " * " + index + ");  "
+		}
+		else if (notes_parsed[index] == 'D')
+		{
+			code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('d_note.mp3').play()"
+            code_output = code_output + "}, " + index_ms_timeStop + " * " + index + ");  "
+		}
+        else if (notes_parsed[index] == 'F')
+		{
+			code_output = code_output + "setTimeout( function(){"
+            code_output = code_output + "new Audio('aa_note.mp3').play()"
+            code_output = code_output + "}, " + index_ms_timeStop + " * " + index + ");  "
+		}
+
+	}
+	
+	$("#compiled_code").val(htmlTEMPLATE.replace("@@@PLAY_CODE", code_output))
+    
+    }
+
+
+</script>
+
+</body>
+</html>
