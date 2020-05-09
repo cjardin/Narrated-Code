@@ -1,0 +1,153 @@
+
+1: Create HTML
+2: Start HTML
+3: Start initial header
+
+5: Insert name, class code, & experience disclaimer
+
+10: Insert Assignment header
+
+12: Create script
+13: Intialize jquery condition
+16: End script
+
+18: End header
+
+21: Start body
+
+23: Header for Project
+
+25: Create text area for music keys
+26: A note
+28: B note
+30: C note
+32: D note
+34: AA note
+36: End text area
+
+ 
+38: Create text area for compiled code
+39: End text area
+
+42: Begin script for main code
+
+45: Function line for playing sounds
+
+47: Parsing notes
+
+49: Initialize sound for A_Note
+50: Initialize sound for B_Note
+51: Initialize sound for C_Note
+52: Initialize sound for D_Note
+53: Initialize sound for D_Note
+
+55: Set A_Note to false
+56: Set B_Note to false
+57: Set C_Note to false
+58: Set D_Note to false
+59: Set AA_Note to false
+60: Set counter
+
+63: Create function complete code for timer array
+
+69: Create Array of for loop for notes
+
+71: Conditional statement for A
+
+74: Push A to array
+
+80: Push AA to array
+
+88: Conditional statement for B
+
+90: Push B to array
+
+95: Conditional statement for C
+
+97: Push C to array
+
+102: Conditional statement for D
+
+104: Push D to array
+
+109: Push A assignment operator
+
+113: Push B assignment operator
+
+117: Push C assignment operator
+
+121: Push D assignment operator
+
+125: Push AA assignment operator
+
+
+131: Initialize and create HTML template
+
+136: Set initial time value
+137: Set time stop index value
+138: Create timer loop for note input
+
+140: Conditional statement for A
+
+142: Begin time, play A
+143: Finish event, Next
+
+145: Conditional statement for B
+
+147: Begin time, play B
+148: Finish event, Next
+
+150: Conditional statement for C
+
+152: Begin time, play C
+153: Finish event, Next
+
+155: Conditional statement for D
+
+157: Begin time, play D
+158: Finish event, Next
+
+160: Conditional statement for AA
+
+162: Begin time, play AA
+163: Finish event, Next
+
+168: Output variable
+169: Output loop
+
+172: Conditional statement for A
+
+174: add timeOut to output
+175: add A_note mp3 to output
+176: add timeStop
+
+179: Conditional statement for B
+
+181: add timeOut to output
+182: add B_note mp3 to output
+183: add timeStop
+
+186: Conditional statement for C
+
+188: add timeOut to output
+189: add C_note mp3 to output
+190: add timeStop
+
+192: Conditional statement for D
+
+194: add timeOut to output
+195: add D_note mp3 to output
+196: add timeStop
+
+198: Conditional statement for AA
+
+200: add timeOut to output
+201: add D_note mp3 to output
+202: add timeStop
+
+207: shows new code
+
+212: End script
+
+214: End code body
+215: End HTML
