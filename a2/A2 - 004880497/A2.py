@@ -59,7 +59,7 @@ while True:
     elif num == 5:
         name = input('Enter name for animal ')
         facts(animal_name,(ani,name))
-        print('This animal has been named ' , name '\n')
+        print(name , ' is the new name of the animal\n')
             
     elif num == 6:
         exit()
