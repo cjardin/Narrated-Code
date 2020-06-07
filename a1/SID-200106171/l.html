@@ -1,0 +1,118 @@
+<!
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+    <h1> Music Box Page</h1>
+
+    <textarea id="input_notes" rows="8" cols="8">
+A
+ B
+  C
+   D
+        
+        </textarea>
+
+    <textarea id="compiled_code" rows="20" cols="40">
+    
+
+
+    </textarea>
+
+    <script id="inserted_stuff">
+        var htmlTEMPLATE = "<!doctype html>"
+        htmlTEMPLATE = htmlTEMPLATE + "<html><head><\/head><body><script>"
+
+
+        notes_raw = $("#input_notes").val().split(/\r?\n/);
+
+        code_output = "var audionameslist = [];\n"
+
+        var parsed_notes = [];
+
+        var audionameslist = [];
+
+        for (index = 0; index < notes_raw.length; index++) {
+            if (notes_raw[index][0] == 'A') {
+                audionameslist.push("sound1.mp3")
+                parsed_notes.push('A')
+                code_output = code_output + "audionameslist.push(\"sound1.mp3\")\n"
+            }
+
+            else if (notes_raw[index][1] == 'B') {
+                audionameslist.push("sound2.mp3")
+                parsed_notes.push('B')
+                code_output = code_output + "audionameslist.push(\"sound2.mp3\")\n"
+            }
+
+            else if (notes_raw[index][2] == 'C') {
+                audionameslist.push("sound3.mp3")
+                parsed_notes.push('C')
+                code_output = code_output + "audionameslist.push(\"sound3.mp3\"\n)"
+            }
+
+            else if (notes_raw[index][3] == 'D') {
+                audionameslist.push("sound4.mp3")
+                parsed_notes.push('D')
+                code_output = code_output + "audionameslist.push(\"sound4.mp3\")\n"
+            }
+
+        }
+
+        code_output = code_output + "\nvar audionamesarray = audionameslist"
+        code_output = code_output + "\nvar audio_list = new Audio(audionamesarray[0]);"
+
+        code_output = code_output + "\naudio_list.src = audionamesarray[0];"
+        code_output = code_output + "\naudio_list.play();"
+
+        code_output = code_output + "\nvar index = 0;"
+        code_output = code_output + "\naudio_list.onended = function () {"
+        code_output = code_output + "\n if (index < audionamesarray.length) {"
+        code_output = code_output + "\naudio_list.src = audionamesarray[index + 1];"
+        code_output = code_output + "\naudio_list.play();"
+        code_output = code_output + "\nindex++; } }\""
+
+        var audionamesarray = audionameslist
+        var audio_list = new Audio(audionamesarray[0]);
+
+        audio_list.src = audionamesarray[0];
+        audio_list.play();
+
+        var index = 0;
+        audio_list.onended = function () {
+            if (index < audionamesarray.length) {
+                audio_list.src = audionamesarray[index + 1];
+                audio_list.play();
+                index++;
+            }
+        }
+        htmlTEMPLATE = htmlTEMPLATE + code_output
+        htmlTEMPLATE = htmlTEMPLATE + "<\/script><\/body><\/html>"
+        document.getElementById("compiled_code").innerHTML = htmlTEMPLATE;
+    </script>
+
+
+    <script>
+        function reloadPage() {
+            location.reload(true);
+        }
+    </script>
+
+    <button type="button" onclick="reloadPage();">Reload page</button>
+
+
+
+
+</body>
+</html>
